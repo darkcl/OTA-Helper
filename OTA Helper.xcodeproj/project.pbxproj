@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EB4EC4F1A5E8186008FBAEC /* otabuddy.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */; };
 		0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C751A5E45C100A4107C /* AppDelegate.m */; };
 		0EED1C781A5E45C100A4107C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C771A5E45C100A4107C /* main.m */; };
 		0EED1C7A1A5E45C100A4107C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C791A5E45C100A4107C /* Images.xcassets */; };
 		0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C7B1A5E45C100A4107C /* MainMenu.xib */; };
 		0EED1C891A5E45C100A4107C /* OTA_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */; };
+		0EED1C9B1A5E67B600A4107C /* BuildScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = otabuddy.sh; sourceTree = "<group>"; };
 		0EED1C6F1A5E45C100A4107C /* OTA Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTA Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EED1C731A5E45C100A4107C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EED1C741A5E45C100A4107C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		0EED1C821A5E45C100A4107C /* OTA HelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OTA HelperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EED1C871A5E45C100A4107C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTA_HelperTests.m; sourceTree = "<group>"; };
+		0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = BuildScript.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		0EED1C661A5E45C100A4107C = {
 			isa = PBXGroup;
 			children = (
+				0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */,
 				0EED1C711A5E45C100A4107C /* OTA Helper */,
 				0EED1C851A5E45C100A4107C /* OTA HelperTests */,
 				0EED1C701A5E45C100A4107C /* Products */,
@@ -90,6 +95,7 @@
 			children = (
 				0EED1C731A5E45C100A4107C /* Info.plist */,
 				0EED1C771A5E45C100A4107C /* main.m */,
+				0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 			files = (
 				0EED1C7A1A5E45C100A4107C /* Images.xcassets in Resources */,
 				0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */,
+				0EB4EC4F1A5E8186008FBAEC /* otabuddy.sh in Resources */,
+				0EED1C9B1A5E67B600A4107C /* BuildScript.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +406,7 @@
 				0EED1C8E1A5E45C100A4107C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0EED1C8F1A5E45C100A4107C /* Build configuration list for PBXNativeTarget "OTA HelperTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +415,7 @@
 				0EED1C911A5E45C100A4107C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

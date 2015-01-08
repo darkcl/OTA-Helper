@@ -8,8 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>{
+    NSString *xcodeProjURL;
+    NSString *exportURL;
+    
+    NSString *projectName;
+    
+    NSString *dateString;
+    
+    bool isBuildSucess;
+}
 
+@property (nonatomic) BOOL isRunning;
 
 @end
 
