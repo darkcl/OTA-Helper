@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <NMSSH/NMSSH.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>{
     NSString *xcodeProjURL;
