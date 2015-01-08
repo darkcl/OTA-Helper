@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C751A5E45C100A4107C /* AppDelegate.m */; };
+		0EED1C781A5E45C100A4107C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C771A5E45C100A4107C /* main.m */; };
+		0EED1C7A1A5E45C100A4107C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C791A5E45C100A4107C /* Images.xcassets */; };
+		0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C7B1A5E45C100A4107C /* MainMenu.xib */; };
+		0EED1C891A5E45C100A4107C /* OTA_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0EED1C831A5E45C100A4107C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EED1C671A5E45C100A4107C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EED1C6E1A5E45C100A4107C;
+			remoteInfo = "OTA Helper";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EED1C6F1A5E45C100A4107C /* OTA Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTA Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EED1C731A5E45C100A4107C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EED1C741A5E45C100A4107C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0EED1C751A5E45C100A4107C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0EED1C771A5E45C100A4107C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0EED1C791A5E45C100A4107C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0EED1C7C1A5E45C100A4107C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0EED1C821A5E45C100A4107C /* OTA HelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OTA HelperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EED1C871A5E45C100A4107C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTA_HelperTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EED1C6C1A5E45C100A4107C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EED1C7F1A5E45C100A4107C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EED1C661A5E45C100A4107C = {
+			isa = PBXGroup;
+			children = (
+				0EED1C711A5E45C100A4107C /* OTA Helper */,
+				0EED1C851A5E45C100A4107C /* OTA HelperTests */,
+				0EED1C701A5E45C100A4107C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0EED1C701A5E45C100A4107C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EED1C6F1A5E45C100A4107C /* OTA Helper.app */,
+				0EED1C821A5E45C100A4107C /* OTA HelperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EED1C711A5E45C100A4107C /* OTA Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0EED1C741A5E45C100A4107C /* AppDelegate.h */,
+				0EED1C751A5E45C100A4107C /* AppDelegate.m */,
+				0EED1C791A5E45C100A4107C /* Images.xcassets */,
+				0EED1C7B1A5E45C100A4107C /* MainMenu.xib */,
+				0EED1C721A5E45C100A4107C /* Supporting Files */,
+			);
+			path = "OTA Helper";
+			sourceTree = "<group>";
+		};
+		0EED1C721A5E45C100A4107C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0EED1C731A5E45C100A4107C /* Info.plist */,
+				0EED1C771A5E45C100A4107C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EED1C851A5E45C100A4107C /* OTA HelperTests */ = {
+			isa = PBXGroup;
+			children = (
+				0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */,
+				0EED1C861A5E45C100A4107C /* Supporting Files */,
+			);
+			path = "OTA HelperTests";
+			sourceTree = "<group>";
+		};
+		0EED1C861A5E45C100A4107C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0EED1C871A5E45C100A4107C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EED1C6E1A5E45C100A4107C /* OTA Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EED1C8C1A5E45C100A4107C /* Build configuration list for PBXNativeTarget "OTA Helper" */;
+			buildPhases = (
+				0EED1C6B1A5E45C100A4107C /* Sources */,
+				0EED1C6C1A5E45C100A4107C /* Frameworks */,
+				0EED1C6D1A5E45C100A4107C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OTA Helper";
+			productName = "OTA Helper";
+			productReference = 0EED1C6F1A5E45C100A4107C /* OTA Helper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0EED1C811A5E45C100A4107C /* OTA HelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EED1C8F1A5E45C100A4107C /* Build configuration list for PBXNativeTarget "OTA HelperTests" */;
+			buildPhases = (
+				0EED1C7E1A5E45C100A4107C /* Sources */,
+				0EED1C7F1A5E45C100A4107C /* Frameworks */,
+				0EED1C801A5E45C100A4107C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0EED1C841A5E45C100A4107C /* PBXTargetDependency */,
+			);
+			name = "OTA HelperTests";
+			productName = "OTA HelperTests";
+			productReference = 0EED1C821A5E45C100A4107C /* OTA HelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EED1C671A5E45C100A4107C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Yeung Yiu Hung";
+				TargetAttributes = {
+					0EED1C6E1A5E45C100A4107C = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					0EED1C811A5E45C100A4107C = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 0EED1C6E1A5E45C100A4107C;
+					};
+				};
+			};
+			buildConfigurationList = 0EED1C6A1A5E45C100A4107C /* Build configuration list for PBXProject "OTA Helper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0EED1C661A5E45C100A4107C;
+			productRefGroup = 0EED1C701A5E45C100A4107C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EED1C6E1A5E45C100A4107C /* OTA Helper */,
+				0EED1C811A5E45C100A4107C /* OTA HelperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EED1C6D1A5E45C100A4107C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EED1C7A1A5E45C100A4107C /* Images.xcassets in Resources */,
+				0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EED1C801A5E45C100A4107C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EED1C6B1A5E45C100A4107C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EED1C781A5E45C100A4107C /* main.m in Sources */,
+				0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EED1C7E1A5E45C100A4107C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EED1C891A5E45C100A4107C /* OTA_HelperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0EED1C841A5E45C100A4107C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EED1C6E1A5E45C100A4107C /* OTA Helper */;
+			targetProxy = 0EED1C831A5E45C100A4107C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0EED1C7B1A5E45C100A4107C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EED1C7C1A5E45C100A4107C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EED1C8A1A5E45C100A4107C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0EED1C8B1A5E45C100A4107C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0EED1C8D1A5E45C100A4107C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "OTA Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0EED1C8E1A5E45C100A4107C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "OTA Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0EED1C901A5E45C100A4107C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OTA HelperTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTA Helper.app/Contents/MacOS/OTA Helper";
+			};
+			name = Debug;
+		};
+		0EED1C911A5E45C100A4107C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OTA HelperTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTA Helper.app/Contents/MacOS/OTA Helper";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EED1C6A1A5E45C100A4107C /* Build configuration list for PBXProject "OTA Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EED1C8A1A5E45C100A4107C /* Debug */,
+				0EED1C8B1A5E45C100A4107C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EED1C8C1A5E45C100A4107C /* Build configuration list for PBXNativeTarget "OTA Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EED1C8D1A5E45C100A4107C /* Debug */,
+				0EED1C8E1A5E45C100A4107C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0EED1C8F1A5E45C100A4107C /* Build configuration list for PBXNativeTarget "OTA HelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EED1C901A5E45C100A4107C /* Debug */,
+				0EED1C911A5E45C100A4107C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0EED1C671A5E45C100A4107C /* Project object */;
+}
