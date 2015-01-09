@@ -36,7 +36,6 @@ The helper will generate a json file that will be upload to sftp server, here is
 	</script>
 </head>
 
-
 <body>
   <b>iPhone</b>
   <ul class='ios-list'>
@@ -44,6 +43,8 @@ The helper will generate a json file that will be upload to sftp server, here is
   </ul>
   <br>
 </body>
+
+</html>
 
 ```
 
