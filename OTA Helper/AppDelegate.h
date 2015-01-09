@@ -17,7 +17,7 @@
     NSString *projectName;
     
     NSString *dateString;
-    
+    NSDate *now;
     bool isBuildSucess;
 }
 
