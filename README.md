@@ -1,6 +1,17 @@
 # OTA-Helper
 Export Ad Hoc Deployment for iOS Project
 
+Build Instructions : 
+---
+ 1. Download the project
+ 2. Install Cocoapods
+	<pre><code>sudo gem install cocoapods
+	</code></pre>
+ 3. Install dependency
+ 	<pre><code>pod install
+	</code></pre>
+	
+
 Reference : 
 ---
 
