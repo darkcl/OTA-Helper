@@ -21,9 +21,15 @@
                 <outlet property="exportPathLabel" destination="zoL-SA-gM8" id="mbb-K7-hQA"/>
                 <outlet property="ftpField" destination="hb4-qd-mNx" id="MbI-fO-qaL"/>
                 <outlet property="ftpPathField" destination="Xc9-4h-ELe" id="1PC-r4-6hn"/>
+                <outlet property="ipaStatusLabel" destination="qe0-1y-zh7" id="MeN-E0-uwo"/>
+                <outlet property="jsonStatusLabel" destination="QgZ-Ns-KT6" id="W8V-Ja-r0r"/>
                 <outlet property="myDrawer" destination="WKy-bX-E7Q" id="3ce-Az-9qe"/>
                 <outlet property="passwordField" destination="ZWa-q6-J5a" id="ZCF-cL-hOg"/>
+                <outlet property="plistStatusLabel" destination="AS5-Th-OJm" id="wUU-Ye-tvg"/>
+                <outlet property="progessView" destination="KuZ-c8-HGD" id="vz3-Mh-bsi"/>
+                <outlet property="progressIndicator" destination="4Qo-QN-I63" id="Eox-xr-0kb"/>
                 <outlet property="projectLabel" destination="6Sb-Hf-8Sp" id="v7X-Dg-HVH"/>
+                <outlet property="statusDrawer" destination="qlZ-TN-SG6" id="Jyq-LT-EdW"/>
                 <outlet property="userField" destination="P8x-Xq-NXg" id="tBF-Xu-Tto"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -792,9 +798,25 @@
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                     </secureTextField>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KuZ-c8-HGD">
+                        <rect key="frame" x="0.0" y="0.0" width="323" height="478"/>
+                        <subviews>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="4Qo-QN-I63">
+                                <rect key="frame" x="145" y="184" width="32" height="32"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tis-vp-ebb">
+                                <rect key="frame" x="-2" y="257" width="327" height="45"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Processing" id="VlZ-Pe-gS7">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </customView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="656.5" y="83"/>
+            <point key="canvasLocation" x="575.5" y="76"/>
         </window>
         <drawer trailingOffset="15" id="WKy-bX-E7Q">
             <size key="contentSize" width="100" height="100"/>
@@ -802,6 +824,14 @@
             <connections>
                 <outlet property="contentView" destination="BSk-LD-7Kn" id="paJ-2a-qsb"/>
                 <outlet property="parentWindow" destination="QvC-M9-y7g" id="3vh-fs-csi"/>
+            </connections>
+        </drawer>
+        <drawer preferredEdge="minX" trailingOffset="15" id="qlZ-TN-SG6">
+            <size key="contentSize" width="100" height="100"/>
+            <size key="maxContentSize" width="10000" height="10000"/>
+            <connections>
+                <outlet property="contentView" destination="cvt-ic-Ewu" id="BwC-Ez-Nwk"/>
+                <outlet property="parentWindow" destination="QvC-M9-y7g" id="M7Y-kA-hHd"/>
             </connections>
         </drawer>
         <customView id="BSk-LD-7Kn" userLabel="Drawer Content View">
@@ -815,7 +845,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" selectable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" id="8mv-4B-rVJ">
-                                <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
+                                <rect key="frame" x="0.0" y="0.0" width="223" height="453"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -853,7 +883,59 @@
                 <constraint firstAttribute="bottom" secondItem="i2y-Xv-4hf" secondAttribute="bottom" id="rru-13-3Ou"/>
                 <constraint firstItem="i2y-Xv-4hf" firstAttribute="top" secondItem="BSk-LD-7Kn" secondAttribute="top" id="wiK-rC-q7G"/>
             </constraints>
-            <point key="canvasLocation" x="1032" y="70.5"/>
+            <point key="canvasLocation" x="1012" y="57.5"/>
+        </customView>
+        <customView id="cvt-ic-Ewu" userLabel="Drawer Content View">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="454"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AS5-Th-OJm">
+                    <rect key="frame" x="-2" y="341" width="334" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="pKO-Jg-raV"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="plist status : " id="SXg-Db-HAp">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QgZ-Ns-KT6">
+                    <rect key="frame" x="-2" y="296" width="334" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="5By-hb-IG2"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="M1n-MV-2mn"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="json status : " id="0MP-dw-HBZ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qe0-1y-zh7">
+                    <rect key="frame" x="-2" y="397" width="334" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="JQR-um-Ja0"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="ipa status : " id="XHt-yI-wje">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="QgZ-Ns-KT6" firstAttribute="leading" secondItem="cvt-ic-Ewu" secondAttribute="leading" id="3HV-2U-Dgz"/>
+                <constraint firstItem="qe0-1y-zh7" firstAttribute="top" secondItem="cvt-ic-Ewu" secondAttribute="top" constant="20" id="7YW-xg-gMD"/>
+                <constraint firstAttribute="trailing" secondItem="QgZ-Ns-KT6" secondAttribute="trailing" id="CdI-cR-boD"/>
+                <constraint firstItem="AS5-Th-OJm" firstAttribute="top" secondItem="qe0-1y-zh7" secondAttribute="bottom" constant="19" id="HUe-KR-lSJ"/>
+                <constraint firstItem="qe0-1y-zh7" firstAttribute="leading" secondItem="cvt-ic-Ewu" secondAttribute="leading" id="Kd2-zc-5YV"/>
+                <constraint firstAttribute="trailing" secondItem="AS5-Th-OJm" secondAttribute="trailing" id="Nel-8z-joa"/>
+                <constraint firstItem="QgZ-Ns-KT6" firstAttribute="top" secondItem="AS5-Th-OJm" secondAttribute="bottom" constant="8" id="SeQ-b3-r7J"/>
+                <constraint firstAttribute="trailing" secondItem="qe0-1y-zh7" secondAttribute="trailing" id="icl-Xv-5B5"/>
+                <constraint firstItem="AS5-Th-OJm" firstAttribute="leading" secondItem="cvt-ic-Ewu" secondAttribute="leading" id="nmu-U2-Qof"/>
+            </constraints>
+            <point key="canvasLocation" x="283" y="71"/>
         </customView>
     </objects>
 </document>

@@ -23,6 +23,12 @@
 @property (weak) IBOutlet NSSecureTextField *passwordField;
 @property (weak) IBOutlet NSDrawer *myDrawer;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleLogs;
+@property (weak) IBOutlet NSDrawer *statusDrawer;
+@property (weak) IBOutlet NSTextField *ipaStatusLabel;
+@property (weak) IBOutlet NSTextField *plistStatusLabel;
+@property (weak) IBOutlet NSTextField *jsonStatusLabel;
+@property (weak) IBOutlet NSView *progessView;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 
 @property (weak) IBOutlet NSWindow *window;
 @end
@@ -48,7 +54,14 @@
         _passwordField.stringValue = saveInfoDict[@"ftpPassword"];
     }
     [_myDrawer setContentSize:NSMakeSize(300, _myDrawer.contentSize.height)];
+    [_statusDrawer setContentSize:NSMakeSize(300, _statusDrawer.contentSize.height)];
     
+    CALayer *viewLayer = [CALayer layer];
+    [viewLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 0.0, 0.4)]; //RGB plus Alpha Channel
+    [_progessView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
+    [_progessView setLayer:viewLayer];
+    _progessView.hidden = YES;
+    [_progressIndicator startAnimation:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -226,17 +239,17 @@
                 //2014-12-30 (<a href="itms-services://?action=download-manifest&url=https://download.cherrypicks.com/StylishPark/Source/OTA/Stylistpark_20141230.plist">Commit 3fc3ddb20ca9</a>
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_myDrawer close];
+                    _progessView.hidden = NO;
                     NSPasteboard *generalPasteBoard = [NSPasteboard generalPasteboard];
                 
                     [generalPasteBoard declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:nil];
-                    NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>",dateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]] ,task.response];
+                    NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>)",dateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]] ,task.response];
                     [generalPasteBoard setString:htmlString forType:NSPasteboardTypeString];
                     NSAlert *alert = [NSAlert alertWithMessageText:@"Upload To SFTP?"
                                                      defaultButton:@"OK"
                                                    alternateButton:@"Cancel"
                                                        otherButton:nil
                                          informativeTextWithFormat:[NSString stringWithFormat:@"Copied %@ to Pasteboard",htmlString]];
-                    
                     if ([alert runModal] == NSAlertDefaultReturn) {
                         NMSSHSession *session = [NMSSHSession connectToHost:_ftpField.stringValue
                                                                withUsername:_userField.stringValue];
@@ -250,16 +263,57 @@
                                 //                        NSLog(@"List : %@", response);
                                 NSString *ipaURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.ipa",projectName,dateString]];
                                 NSString *plistURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]];
+                                
+                                
+                                
                                 [session.channel uploadFile:ipaURL
                                                          to:_ftpPathField.stringValue];
                                 
                                 [session.channel uploadFile:plistURL
                                                          to:_ftpPathField.stringValue];
+                                
+                                NSString *resultJson = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",projectName]];
+                                
+                                [session.channel downloadFile:[_ftpPathField.stringValue stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",projectName]]
+                                                           to:resultJson];
+                                
+                                if (![[NSFileManager defaultManager] fileExistsAtPath:resultJson]) {
+                                    NSArray *links = @[htmlString];
+                                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:links
+                                                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                                                         error:nil];
+                                    
+                                    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                                    NSLog(@"%@",jsonString);
+                                    
+                                    [jsonString writeToFile:resultJson
+                                                   atomically:YES
+                                                     encoding:NSUTF8StringEncoding error:nil];
+                                }else{
+                                    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:resultJson encoding:NSUTF8StringEncoding error:NULL];
+                                    NSError *jsonError;
+                                    NSMutableArray *links = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&jsonError];
+                                    
+                                    [links addObject:htmlString];
+                                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:links
+                                                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                                                         error:nil];
+                                    
+                                    NSString *jsonExportString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                                    [jsonExportString writeToFile:resultJson
+                                                       atomically:YES
+                                                         encoding:NSUTF8StringEncoding error:nil];
+                                }
+                                
+                                [session.channel uploadFile:resultJson
+                                                         to:_ftpPathField.stringValue];
                             }
                         }
                         
-                        
+                        _progessView.hidden = YES;
                         [session disconnect];
+                    }else{
+                        _progessView.hidden = YES;
                     }
                 });
                 
