@@ -10,7 +10,149 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>00F45EB7BF09B90C82A9281E</key>
+		<key>00F9F678A60C1DA5FEEB2D62</key>
+		<dict>
+			<key>fileRef</key>
+			<string>93D8415D2F512EA92E6A8E6F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>01738DC6D241B4890CD21798</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>91DB79EFDEBB2C78BE73E500</string>
+				<string>51665FF20BA01FE930C45517</string>
+				<string>9142855B92527868E875DDAE</string>
+				<string>B642201F95517E2D15558059</string>
+				<string>A2C3FC3CABD88584C25A32B3</string>
+				<string>A90E2C036CA515E408F6A963</string>
+				<string>18CEF867858FBA5DE09C8FD2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>path</key>
+			<string>Target Support Files/Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>02B66D99B7CE332DD8DDDC5F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NMSSHChannelDelegate.h</string>
+			<key>path</key>
+			<string>NMSSH/Protocols/NMSSHChannelDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>043596C5A2C6D0CBADB6D6A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A3C77E6CEFE227D3777B2CCF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>09236387DBB411BD3F6F92CB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NMSSHConfig.m</string>
+			<key>path</key>
+			<string>NMSSH/NMSSHConfig.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>115695F62F84CD8E45FD3571</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-NMSSH.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>11C2B14014059D95CBD199DE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>961B7D3C90603932824BDACD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>155E6D15B27EC9C2BE5D9767</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Cocoa.framework</string>
+			<key>path</key>
+			<string>Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>18CEF867858FBA5DE09C8FD2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DA4BB6739A27F1AED6020D2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7A1CB947EFF471E70105132F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>204796E284EC9D1325C1B5A1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>01738DC6D241B4890CD21798</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2527414309E1912DFBB76C88</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -25,76 +167,27 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>057DE7D49D35166763EBD266</key>
+		<key>28003D378AA6BF0C63A7B04C</key>
 		<dict>
-			<key>children</key>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
 			<array>
-				<string>2364E60FD517C2F39C51C328</string>
-				<string>D121280D3EB40BA85293D248</string>
-				<string>8C8A4C594EBFC1B61B78138A</string>
-				<string>21B30B41E65C7E4756C9A1EA</string>
+				<string>C36EAD7C66A4A9F76BE5920F</string>
 			</array>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/Pods-NMSSH</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
-		<key>0B6CFA24AC4C426B2B25FCD0</key>
+		<key>2AA1062BACB4A2260E88C60D</key>
 		<dict>
 			<key>fileRef</key>
-			<string>EBCBEE51C48382079ACA4881</string>
+			<string>4701693C1E426F4ED49F019E</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>0D2F024C0F63F4B7505285B5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NMSSH+Protected.h</string>
-			<key>path</key>
-			<string>NMSSH/Config/NMSSH+Protected.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0E188F5D13EB3F3AF781661D</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>4D6C43020333703059EAA490</string>
-				<string>DFD6D7E1736C2474822E71DB</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>1702863456553017A1E96934</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NMSFTPFile.m</string>
-			<key>path</key>
-			<string>NMSSH/NMSFTPFile.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>176EE9FE2551D68DC59C32B0</key>
+		<key>346E148321C256B4666A41E4</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -109,193 +202,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>17C7367CE90D2FF389370D09</key>
+		<key>391E8BFF64C282D8E8912076</key>
 		<dict>
 			<key>fileRef</key>
-			<string>D8BA2F0F096B75BB24AD4632</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1829E0F86828FB6BF337C8AD</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>0E188F5D13EB3F3AF781661D</string>
-			<key>buildPhases</key>
-			<array>
-				<string>2234F0FD500C0A8BC994BACC</string>
-				<string>340C6F0D2D50776D74944C74</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>9D5FD458C6111BE92FC31B25</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>productName</key>
-			<string>Pods</string>
-			<key>productReference</key>
-			<string>281C39C24A563385FFBB27A3</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>18B2633E8A8B303E13D83961</key>
-		<dict>
-			<key>fileRef</key>
-			<string>86746C1ED306E34A608223B3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1905AF0C783F734C7A6B32C1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NMSSHSession.m</string>
-			<key>path</key>
-			<string>NMSSH/NMSSHSession.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1AF22E09882EC79AD8F1245A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F6F0682B1066FD02F323D206</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>21B30B41E65C7E4756C9A1EA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-NMSSH-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2234F0FD500C0A8BC994BACC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>7AA5A8D3D0B429295D86104F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>23310B00F6BF840BBAD1E904</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-NMSSH.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>2364E60FD517C2F39C51C328</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-NMSSH.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2443977E0CE8C97C456E031C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>libssh2_publickey.h</string>
-			<key>path</key>
-			<string>NMSSH-OSX/Libraries/include/libssh2/libssh2_publickey.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>281C39C24A563385FFBB27A3</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>2850491F0E6CB2CA7D66A101</key>
-		<dict>
-			<key>fileRef</key>
-			<string>86746C1ED306E34A608223B3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>287256B55BC3A721DEA78F8E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0D2F024C0F63F4B7505285B5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2A1EC4146B73FC56D56B32C7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2FDB8CB21153430B7ADD0C5D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>281C39C24A563385FFBB27A3</string>
-				<string>23310B00F6BF840BBAD1E904</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>301DD6A1526C8AEE87D81B46</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E75FDD8560E522B9EDDB856E</string>
+			<string>EF29A98802F16A0C526A7927</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -304,98 +214,10 @@
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
-		<key>340C6F0D2D50776D74944C74</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>18B2633E8A8B303E13D83961</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>39D80B288A21806AD6B179E1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1905AF0C783F734C7A6B32C1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>3C044557872282A89C06079E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D67CD359C7208DA655B61D13</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3C731FADB688793D359C8B86</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EBB6AAF332033872377C3FA5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3D523FC3C5E3353DD18DFDDB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4D6F245A7B82D9F6D4271DB5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4205C60016118E92B67BE15D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8D8244414A991B5A204C9940</string>
-				<string>FE16CE53E794BD2267AF89B0</string>
-				<string>EFCEFD3C3E5C09FCEB97CCA1</string>
-				<string>2FDB8CB21153430B7ADD0C5D</string>
-				<string>B5D8B364595B640E42C05098</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>485E7D5F6F443B37200CD677</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1702863456553017A1E96934</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>4BDE0457362D694673BB1293</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NMSFTP.m</string>
-			<key>path</key>
-			<string>NMSSH/NMSFTP.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4D6C43020333703059EAA490</key>
+		<key>3AC3F7091466965173EE1139</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>7BFD36EB2AA5F70A7B401B43</string>
+			<string>A90E2C036CA515E408F6A963</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
@@ -443,388 +265,33 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>4D6F245A7B82D9F6D4271DB5</key>
+		<key>3D45CE77E5ECBC99DE036D7D</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NMSSHHostConfig.h</string>
-			<key>path</key>
-			<string>NMSSH/NMSSHHostConfig.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>54AD197195972098EB4A9D00</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
+			<key>buildConfigurationList</key>
+			<string>9494DF0313081B5F30B99916</string>
+			<key>buildPhases</key>
 			<array>
-				<string>2850491F0E6CB2CA7D66A101</string>
+				<string>11C2B14014059D95CBD199DE</string>
+				<string>BECB1323F58D18876F4DA049</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>CB2CFC97F9A8CCBFEFC9770F</string>
 			</array>
 			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5793154C03122E8CD8318D9F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4BDE0457362D694673BB1293</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>5795E0812BB66E621FDCD0D9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libssh2.a</string>
-			<key>path</key>
-			<string>NMSSH-OSX/Libraries/lib/libssh2.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5CC67CBA16B389771F841A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>74EAA13AE574119370CEB9A8</string>
-				<string>74C5D55DC5ED5781D33336BC</string>
-				<string>2A1EC4146B73FC56D56B32C7</string>
-				<string>CD1730E54CE40D179F13D05D</string>
-				<string>70986A2EDA793D0A66DEE405</string>
-				<string>7BFD36EB2AA5F70A7B401B43</string>
-				<string>B6074F1A11374D527C9E89B5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXNativeTarget</string>
 			<key>name</key>
 			<string>Pods</string>
-			<key>path</key>
-			<string>Target Support Files/Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<key>productName</key>
+			<string>Pods</string>
+			<key>productReference</key>
+			<string>F97BF3A2209662CB4F9F269B</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>624273E77C0B2031C245BE59</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FE03E711810E89516B226C8E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>64C381BB092EEC5886FBC647</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>7CD9612567BB4C0963A13107</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>4205C60016118E92B67BE15D</string>
-			<key>productRefGroup</key>
-			<string>2FDB8CB21153430B7ADD0C5D</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>1829E0F86828FB6BF337C8AD</string>
-				<string>E7AE673E877731834C4203D6</string>
-			</array>
-		</dict>
-		<key>67479BF8CE00206519494CBE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NMSSHConfig.m</string>
-			<key>path</key>
-			<string>NMSSH/NMSSHConfig.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C247D960FED3C271A7554FF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NMSSHHostConfig.m</string>
-			<key>path</key>
-			<string>NMSSH/NMSSHHostConfig.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6F6E52010B85C871B2DE7845</key>
-		<dict>
-			<key>fileRef</key>
-			<string>00F45EB7BF09B90C82A9281E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>70986A2EDA793D0A66DEE405</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>72225B6F997379DC3A6EEB24</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>CA60DE02A699FF4B9A95B1B4</string>
-				<string>7A216E78096CD9E2BAB1C21A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>74C5D55DC5ED5781D33336BC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>74EAA13AE574119370CEB9A8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7864E051FB70FB24D809FCB5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>86746C1ED306E34A608223B3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>OS X</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7A216E78096CD9E2BAB1C21A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D121280D3EB40BA85293D248</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-NMSSH/Pods-NMSSH-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.9</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>7AA5A8D3D0B429295D86104F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2A1EC4146B73FC56D56B32C7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7BFD36EB2AA5F70A7B401B43</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7CD9612567BB4C0963A13107</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C35313EF6B4A968F4664D574</string>
-				<string>8D35B4317A11E14034BACD2F</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>7EACEC79728C887DDF785B4E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8091DF1F7CFB8D88FF318D76</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7F92119D434C7C6B233BA332</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NMSSHChannel.m</string>
-			<key>path</key>
-			<string>NMSSH/NMSSHChannel.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8091DF1F7CFB8D88FF318D76</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NMSFTPFile.h</string>
-			<key>path</key>
-			<string>NMSSH/NMSFTPFile.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>86746C1ED306E34A608223B3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Cocoa.framework</string>
-			<key>path</key>
-			<string>Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>8943B0B18F8EB586720F33EA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2443977E0CE8C97C456E031C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8C8A4C594EBFC1B61B78138A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-NMSSH-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8D35B4317A11E14034BACD2F</key>
+		<key>3DE08D4F03B5F84D84CB0DF1</key>
 		<dict>
 			<key>buildSettings</key>
 			<dict>
@@ -886,7 +353,291 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>8D8244414A991B5A204C9940</key>
+		<key>4183FB1B7CA1DAEEB64B9FA5</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>7D61166AE7105AA7311CC2C5</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>B8CF28E9DDF16F0636EDBBE8</string>
+			<key>productRefGroup</key>
+			<string>B7DE2210D5530C9B5C55CC07</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>3D45CE77E5ECBC99DE036D7D</string>
+				<string>C837833CECAFC052B12D3DB6</string>
+			</array>
+		</dict>
+		<key>448B6BEDED95F2BF3E46F3AA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NMSFTPFile.m</string>
+			<key>path</key>
+			<string>NMSSH/NMSFTPFile.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4701693C1E426F4ED49F019E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>libssh2_publickey.h</string>
+			<key>path</key>
+			<string>NMSSH-OSX/Libraries/include/libssh2/libssh2_publickey.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48CF247E88080108586F1A4F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>archive.ar</string>
+			<key>name</key>
+			<string>libssh2.a</string>
+			<key>path</key>
+			<string>NMSSH-OSX/Libraries/lib/libssh2.a</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4A9276D0FB28781444501EC2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A21CC254A90347F7B6D17494</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>4AF91862506092C2C730BA0E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-NMSSH-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4ED86161205A66760F8E5C3C</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>4183FB1B7CA1DAEEB64B9FA5</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>C837833CECAFC052B12D3DB6</string>
+			<key>remoteInfo</key>
+			<string>Pods-NMSSH</string>
+		</dict>
+		<key>51665FF20BA01FE930C45517</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>54639C5DC4C7191BB60A264A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>448B6BEDED95F2BF3E46F3AA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>5859F19CFA84D2925634A441</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>socket_helper.m</string>
+			<key>path</key>
+			<string>NMSSH/Config/socket_helper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5D6723FB82C0D135A37BFBD3</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>4AF91862506092C2C730BA0E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/Pods-NMSSH/Pods-NMSSH-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>5F871D9EE52A091C734BEAF3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8B7F5791DC22E1DE5DC7D24E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>61118231338C057B22179EEF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NMSFTPFile.h</string>
+			<key>path</key>
+			<string>NMSSH/NMSFTPFile.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>61DC3955E559A2A981A74EB7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>02B66D99B7CE332DD8DDDC5F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7151B4D24BAE8118707AA602</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NMSSHLogger.h</string>
+			<key>path</key>
+			<string>NMSSH/Config/NMSSHLogger.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>734BDE28C0BAA3ADB541F506</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C04E6B5A264FD7C200E19F98</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7A1CB947EFF471E70105132F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NMSSHLogger.m</string>
+			<key>path</key>
+			<string>NMSSH/Config/NMSSHLogger.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7B6506379D741ACFE6A7E8B1</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -903,14 +654,7 @@
 			<key>xcLanguageSpecificationIdentifier</key>
 			<string>xcode.lang.ruby</string>
 		</dict>
-		<key>9617E0800106B92AC6EC1766</key>
-		<dict>
-			<key>fileRef</key>
-			<string>176EE9FE2551D68DC59C32B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>97456A00CA76FF741CB0EE71</key>
+		<key>7B6F9509B69967D9D69AAA7E</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -919,57 +663,47 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>libssh2_sftp.h</string>
+			<string>NMSSH+Protected.h</string>
 			<key>path</key>
-			<string>NMSSH-OSX/Libraries/include/libssh2/libssh2_sftp.h</string>
+			<string>NMSSH/Config/NMSSH+Protected.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9C4B0CDDBAA5B6F9FB7EB5E9</key>
+		<key>7D61166AE7105AA7311CC2C5</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>B815D9EA8CC33029BF61852C</string>
+				<string>3DE08D4F03B5F84D84CB0DF1</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>83CA5D08095F52A8066B31F6</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-NMSSH.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>866AC0CFD23491DB6C789E5E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>97456A00CA76FF741CB0EE71</string>
+			<string>2527414309E1912DFBB76C88</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>9D5FD458C6111BE92FC31B25</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pods-NMSSH</string>
-			<key>target</key>
-			<string>E7AE673E877731834C4203D6</string>
-			<key>targetProxy</key>
-			<string>A9E55CC97DBB489A41ED720D</string>
-		</dict>
-		<key>A3F657CF320428AC99C10D84</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5795E0812BB66E621FDCD0D9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A9E55CC97DBB489A41ED720D</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>64C381BB092EEC5886FBC647</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>E7AE673E877731834C4203D6</string>
-			<key>remoteInfo</key>
-			<string>Pods-NMSSH</string>
-		</dict>
-		<key>AED48BEDD3174478DB40CF44</key>
+		<key>8742C7AA0BC5A24B9F5E73F8</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -984,54 +718,272 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B07E7A602290A02E7F1DD25F</key>
+		<key>895B5BDA41C1D76613C27737</key>
+		<dict>
+			<key>fileRef</key>
+			<string>155E6D15B27EC9C2BE5D9767</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89F171E55A7A684DC2D4D980</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NMSSHHostConfig.m</string>
+			<key>path</key>
+			<string>NMSSH/NMSSHHostConfig.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8B7F5791DC22E1DE5DC7D24E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NMSFTP.m</string>
+			<key>path</key>
+			<string>NMSSH/NMSFTP.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8D40D2EBD0F15E0AE82EDAB7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9D09CC36D7EB4224F60FFEB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9142855B92527868E875DDAE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>91DB79EFDEBB2C78BE73E500</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>93D38A6A0875170DF1C36618</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C16BD41EF97D1659A16DB32F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>93D8415D2F512EA92E6A8E6F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-NMSSH-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9494DF0313081B5F30B99916</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3AC3F7091466965173EE1139</string>
+				<string>AC30459F3EE488EE9D9B3E4F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>95F8645E6FFEAB7B0479917F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>libssh2_sftp.h</string>
+			<key>path</key>
+			<string>NMSSH-OSX/Libraries/include/libssh2/libssh2_sftp.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>961B7D3C90603932824BDACD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9142855B92527868E875DDAE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>97B82D9E10B38FD520F88E91</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AB85D6150EDA4582E0B02E9D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>99A5233844C7AD20A73E8F4C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>95F8645E6FFEAB7B0479917F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9D09CC36D7EB4224F60FFEB6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NMSSHChannel.h</string>
+			<key>path</key>
+			<string>NMSSH/NMSSHChannel.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9FCC6B25D7CAD5D26DE807DD</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>3C044557872282A89C06079E</string>
-				<string>7EACEC79728C887DDF785B4E</string>
-				<string>287256B55BC3A721DEA78F8E</string>
-				<string>6F6E52010B85C871B2DE7845</string>
-				<string>1AF22E09882EC79AD8F1245A</string>
-				<string>3C731FADB688793D359C8B86</string>
-				<string>BA2D594C414B6173B9E86A5A</string>
-				<string>3D523FC3C5E3353DD18DFDDB</string>
-				<string>B190292EED958E0A2058AB14</string>
-				<string>17C7367CE90D2FF389370D09</string>
-				<string>9617E0800106B92AC6EC1766</string>
-				<string>0B6CFA24AC4C426B2B25FCD0</string>
-				<string>8943B0B18F8EB586720F33EA</string>
-				<string>9C4B0CDDBAA5B6F9FB7EB5E9</string>
-				<string>624273E77C0B2031C245BE59</string>
+				<string>5F871D9EE52A091C734BEAF3</string>
+				<string>54639C5DC4C7191BB60A264A</string>
+				<string>4A9276D0FB28781444501EC2</string>
+				<string>F164A08FC0D914EC07F90BB3</string>
+				<string>ADC7E7CBF091EB909730233F</string>
+				<string>1DA4BB6739A27F1AED6020D2</string>
+				<string>391E8BFF64C282D8E8912076</string>
+				<string>00F9F678A60C1DA5FEEB2D62</string>
+				<string>AAE3E4CEC44570B8079FFD43</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A21CC254A90347F7B6D17494</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NMSSHChannel.m</string>
+			<key>path</key>
+			<string>NMSSH/NMSSHChannel.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A2C3FC3CABD88584C25A32B3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A3C77E6CEFE227D3777B2CCF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>libssh2.h</string>
+			<key>path</key>
+			<string>NMSSH-OSX/Libraries/include/libssh2/libssh2.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A57EB14871B26A427501D28B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>734BDE28C0BAA3ADB541F506</string>
+				<string>C3563D4A74EBBB605A655F44</string>
+				<string>F1A2D0916EEC1D6A506858A7</string>
+				<string>866AC0CFD23491DB6C789E5E</string>
+				<string>8D40D2EBD0F15E0AE82EDAB7</string>
+				<string>61DC3955E559A2A981A74EB7</string>
+				<string>CC4DDF02D77C3534655E7A94</string>
+				<string>F2DEA68B232DBE1506E8E3A6</string>
+				<string>CCE2C0B13955E4A31EC8EAFE</string>
+				<string>97B82D9E10B38FD520F88E91</string>
+				<string>A981F4A1F07C55623B57A3CE</string>
+				<string>043596C5A2C6D0CBADB6D6A7</string>
+				<string>2AA1062BACB4A2260E88C60D</string>
+				<string>99A5233844C7AD20A73E8F4C</string>
+				<string>CB08DF9801C8D42F0FD38C08</string>
 			</array>
 			<key>isa</key>
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>B190292EED958E0A2058AB14</key>
+		<key>A59EC247B0E239B4BDD7986C</key>
 		<dict>
-			<key>fileRef</key>
-			<string>E0CD57967EDB66945E1C157F</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B5D8B364595B640E42C05098</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5CC67CBA16B389771F841A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-NMSSH-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B6074F1A11374D527C9E89B5</key>
+		<key>A90E2C036CA515E408F6A963</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1040,57 +992,218 @@
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>path</key>
-			<string>Pods.release.xcconfig</string>
+			<string>Pods.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BA2D594C414B6173B9E86A5A</key>
+		<key>A981F4A1F07C55623B57A3CE</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AED48BEDD3174478DB40CF44</string>
+			<string>346E148321C256B4666A41E4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>BEF7A21F8D39825EB9F777D1</key>
+		<key>AAC3D676D090D20EB99F4E3A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>socket_helper.h</string>
+			<key>path</key>
+			<string>NMSSH/Config/socket_helper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAE3E4CEC44570B8079FFD43</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5859F19CFA84D2925634A441</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>AB85D6150EDA4582E0B02E9D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NMSSHSession.h</string>
+			<key>path</key>
+			<string>NMSSH/NMSSHSession.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AC30459F3EE488EE9D9B3E4F</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>18CEF867858FBA5DE09C8FD2</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>ADC7E7CBF091EB909730233F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89F171E55A7A684DC2D4D980</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>B0F8025F72BC42058F61A376</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>4AF91862506092C2C730BA0E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/Pods-NMSSH/Pods-NMSSH-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>B642201F95517E2D15558059</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-environment.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7DE2210D5530C9B5C55CC07</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>D67CD359C7208DA655B61D13</string>
-				<string>4BDE0457362D694673BB1293</string>
-				<string>8091DF1F7CFB8D88FF318D76</string>
-				<string>1702863456553017A1E96934</string>
-				<string>00F45EB7BF09B90C82A9281E</string>
-				<string>0D2F024C0F63F4B7505285B5</string>
-				<string>F6F0682B1066FD02F323D206</string>
-				<string>7F92119D434C7C6B233BA332</string>
-				<string>EBB6AAF332033872377C3FA5</string>
-				<string>AED48BEDD3174478DB40CF44</string>
-				<string>67479BF8CE00206519494CBE</string>
-				<string>4D6F245A7B82D9F6D4271DB5</string>
-				<string>6C247D960FED3C271A7554FF</string>
-				<string>E0CD57967EDB66945E1C157F</string>
-				<string>F8F2427711396BBAB105DF49</string>
-				<string>D8BA2F0F096B75BB24AD4632</string>
-				<string>1905AF0C783F734C7A6B32C1</string>
-				<string>176EE9FE2551D68DC59C32B0</string>
-				<string>EBCBEE51C48382079ACA4881</string>
-				<string>2443977E0CE8C97C456E031C</string>
-				<string>97456A00CA76FF741CB0EE71</string>
-				<string>FE03E711810E89516B226C8E</string>
-				<string>E75FDD8560E522B9EDDB856E</string>
-				<string>A3F657CF320428AC99C10D84</string>
-				<string>057DE7D49D35166763EBD266</string>
+				<string>F97BF3A2209662CB4F9F269B</string>
+				<string>83CA5D08095F52A8066B31F6</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>NMSSH</string>
-			<key>path</key>
-			<string>NMSSH</string>
+			<string>Products</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C35313EF6B4A968F4664D574</key>
+		<key>B7FD8BA73BDB9A54A59D6137</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C937BF06DF662D0B83D63EFC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B815D9EA8CC33029BF61852C</key>
 		<dict>
 			<key>buildSettings</key>
 			<dict>
@@ -1157,105 +1270,48 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>CA60DE02A699FF4B9A95B1B4</key>
+		<key>B8CF28E9DDF16F0636EDBBE8</key>
 		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D121280D3EB40BA85293D248</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-NMSSH/Pods-NMSSH-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.9</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
+			<key>children</key>
+			<array>
+				<string>7B6506379D741ACFE6A7E8B1</string>
+				<string>93D38A6A0875170DF1C36618</string>
+				<string>B7FD8BA73BDB9A54A59D6137</string>
+				<string>B7DE2210D5530C9B5C55CC07</string>
+				<string>204796E284EC9D1325C1B5A1</string>
+			</array>
 			<key>isa</key>
-			<string>XCBuildConfiguration</string>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BAEDDA8839A8DF88B63D160D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48CF247E88080108586F1A4F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>CD1730E54CE40D179F13D05D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-environment.h</string>
+			<string>Frameworks</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CFBC63B12E071CE71D3F799C</key>
+		<key>BECB1323F58D18876F4DA049</key>
 		<dict>
-			<key>fileRef</key>
-			<string>8C8A4C594EBFC1B61B78138A</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>895B5BDA41C1D76613C27737</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
-		<key>D121280D3EB40BA85293D248</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-NMSSH-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D62563AACB63CB5757EC4159</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6C247D960FED3C271A7554FF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>D67CD359C7208DA655B61D13</key>
+		<key>C04E6B5A264FD7C200E19F98</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1270,136 +1326,60 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D8BA2F0F096B75BB24AD4632</key>
+		<key>C16BD41EF97D1659A16DB32F</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>155E6D15B27EC9C2BE5D9767</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>NMSSHSession.h</string>
-			<key>path</key>
-			<string>NMSSH/NMSSHSession.h</string>
+			<string>OS X</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>DFD6CABD9BC1F03317A3E599</key>
+		<key>C3563D4A74EBBB605A655F44</key>
 		<dict>
 			<key>fileRef</key>
-			<string>67479BF8CE00206519494CBE</string>
+			<string>61118231338C057B22179EEF</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
 		</dict>
-		<key>DFD6D7E1736C2474822E71DB</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>B6074F1A11374D527C9E89B5</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.9</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E0CD57967EDB66945E1C157F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NMSSHLogger.h</string>
-			<key>path</key>
-			<string>NMSSH/Config/NMSSHLogger.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E69D5D29747B0FA12DB7F6F0</key>
+		<key>C36EAD7C66A4A9F76BE5920F</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F8F2427711396BBAB105DF49</string>
+			<string>155E6D15B27EC9C2BE5D9767</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
 		</dict>
-		<key>E75FDD8560E522B9EDDB856E</key>
+		<key>C4A274C767117000E8190DF7</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>115695F62F84CD8E45FD3571</string>
+				<string>4AF91862506092C2C730BA0E</string>
+				<string>93D8415D2F512EA92E6A8E6F</string>
+				<string>A59EC247B0E239B4BDD7986C</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>socket_helper.m</string>
+			<string>Support Files</string>
 			<key>path</key>
-			<string>NMSSH/Config/socket_helper.m</string>
+			<string>../Target Support Files/Pods-NMSSH</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E7AE673E877731834C4203D6</key>
+		<key>C837833CECAFC052B12D3DB6</key>
 		<dict>
 			<key>buildConfigurationList</key>
-			<string>72225B6F997379DC3A6EEB24</string>
+			<string>FFA6E2D85E8DA13928A60AC6</string>
 			<key>buildPhases</key>
 			<array>
-				<string>F57957A6E11CBA00EBCF6B55</string>
-				<string>54AD197195972098EB4A9D00</string>
-				<string>B07E7A602290A02E7F1DD25F</string>
+				<string>9FCC6B25D7CAD5D26DE807DD</string>
+				<string>28003D378AA6BF0C63A7B04C</string>
+				<string>A57EB14871B26A427501D28B</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -1412,102 +1392,82 @@
 			<key>productName</key>
 			<string>Pods-NMSSH</string>
 			<key>productReference</key>
-			<string>23310B00F6BF840BBAD1E904</string>
+			<string>83CA5D08095F52A8066B31F6</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>EACAD12069429BC1B32839B4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7F92119D434C7C6B233BA332</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>EBB6AAF332033872377C3FA5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NMSSHChannelDelegate.h</string>
-			<key>path</key>
-			<string>NMSSH/Protocols/NMSSHChannelDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EBCBEE51C48382079ACA4881</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>libssh2.h</string>
-			<key>path</key>
-			<string>NMSSH-OSX/Libraries/include/libssh2/libssh2.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFCEFD3C3E5C09FCEB97CCA1</key>
+		<key>C937BF06DF662D0B83D63EFC</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>BEF7A21F8D39825EB9F777D1</string>
+				<string>C04E6B5A264FD7C200E19F98</string>
+				<string>8B7F5791DC22E1DE5DC7D24E</string>
+				<string>61118231338C057B22179EEF</string>
+				<string>448B6BEDED95F2BF3E46F3AA</string>
+				<string>2527414309E1912DFBB76C88</string>
+				<string>7B6F9509B69967D9D69AAA7E</string>
+				<string>9D09CC36D7EB4224F60FFEB6</string>
+				<string>A21CC254A90347F7B6D17494</string>
+				<string>02B66D99B7CE332DD8DDDC5F</string>
+				<string>8742C7AA0BC5A24B9F5E73F8</string>
+				<string>09236387DBB411BD3F6F92CB</string>
+				<string>F7E7AC4F27DB7EC1A3EA8F35</string>
+				<string>89F171E55A7A684DC2D4D980</string>
+				<string>7151B4D24BAE8118707AA602</string>
+				<string>7A1CB947EFF471E70105132F</string>
+				<string>AB85D6150EDA4582E0B02E9D</string>
+				<string>EF29A98802F16A0C526A7927</string>
+				<string>346E148321C256B4666A41E4</string>
+				<string>A3C77E6CEFE227D3777B2CCF</string>
+				<string>4701693C1E426F4ED49F019E</string>
+				<string>95F8645E6FFEAB7B0479917F</string>
+				<string>AAC3D676D090D20EB99F4E3A</string>
+				<string>5859F19CFA84D2925634A441</string>
+				<string>BAEDDA8839A8DF88B63D160D</string>
+				<string>C4A274C767117000E8190DF7</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F57957A6E11CBA00EBCF6B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5793154C03122E8CD8318D9F</string>
-				<string>485E7D5F6F443B37200CD677</string>
-				<string>EACAD12069429BC1B32839B4</string>
-				<string>DFD6CABD9BC1F03317A3E599</string>
-				<string>D62563AACB63CB5757EC4159</string>
-				<string>E69D5D29747B0FA12DB7F6F0</string>
-				<string>39D80B288A21806AD6B179E1</string>
-				<string>CFBC63B12E071CE71D3F799C</string>
-				<string>301DD6A1526C8AEE87D81B46</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F6F0682B1066FD02F323D206</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NMSSHChannel.h</string>
+			<string>NMSSH</string>
 			<key>path</key>
-			<string>NMSSH/NMSSHChannel.h</string>
+			<string>NMSSH</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F8F2427711396BBAB105DF49</key>
+		<key>CB08DF9801C8D42F0FD38C08</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAC3D676D090D20EB99F4E3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CB2CFC97F9A8CCBFEFC9770F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>Pods-NMSSH</string>
+			<key>target</key>
+			<string>C837833CECAFC052B12D3DB6</string>
+			<key>targetProxy</key>
+			<string>4ED86161205A66760F8E5C3C</string>
+		</dict>
+		<key>CC4DDF02D77C3534655E7A94</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8742C7AA0BC5A24B9F5E73F8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CCE2C0B13955E4A31EC8EAFE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7151B4D24BAE8118707AA602</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>EF29A98802F16A0C526A7927</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1516,13 +1476,39 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>NMSSHLogger.m</string>
+			<string>NMSSHSession.m</string>
 			<key>path</key>
-			<string>NMSSH/Config/NMSSHLogger.m</string>
+			<string>NMSSH/NMSSHSession.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FE03E711810E89516B226C8E</key>
+		<key>F164A08FC0D914EC07F90BB3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>09236387DBB411BD3F6F92CB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>F1A2D0916EEC1D6A506858A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7B6F9509B69967D9D69AAA7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F2DEA68B232DBE1506E8E3A6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F7E7AC4F27DB7EC1A3EA8F35</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F7E7AC4F27DB7EC1A3EA8F35</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1531,27 +1517,41 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>socket_helper.h</string>
+			<string>NMSSHHostConfig.h</string>
 			<key>path</key>
-			<string>NMSSH/Config/socket_helper.h</string>
+			<string>NMSSH/NMSSHHostConfig.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FE16CE53E794BD2267AF89B0</key>
+		<key>F97BF3A2209662CB4F9F269B</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>7864E051FB70FB24D809FCB5</string>
-			</array>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
 			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>FFA6E2D85E8DA13928A60AC6</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>5D6723FB82C0D135A37BFBD3</string>
+				<string>B0F8025F72BC42058F61A376</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
-	<string>64C381BB092EEC5886FBC647</string>
+	<string>4183FB1B7CA1DAEEB64B9FA5</string>
 </dict>
 </plist>

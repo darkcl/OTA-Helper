@@ -117,7 +117,7 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setLocale:[NSLocale currentLocale]];
         [dateFormatter setDateFormat: @"yyyyMMddHHmm"];
-        NSDate *now = [NSDate date];
+        now = [NSDate date];
         dateString = [dateFormatter stringFromDate:now];
         [arguments addObject:dateString];
         
@@ -243,7 +243,12 @@
                     NSPasteboard *generalPasteBoard = [NSPasteboard generalPasteboard];
                 
                     [generalPasteBoard declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:nil];
-                    NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>)",dateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]] ,task.response];
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    [dateFormatter setLocale:[NSLocale currentLocale]];
+                    [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm"];
+                    NSString *htmlDateString = [dateFormatter stringFromDate:now];
+                    
+                    NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>)",htmlDateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]] ,task.response];
                     [generalPasteBoard setString:htmlString forType:NSPasteboardTypeString];
                     NSAlert *alert = [NSAlert alertWithMessageText:@"Upload To SFTP?"
                                                      defaultButton:@"OK"
