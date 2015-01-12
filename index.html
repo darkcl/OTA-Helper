@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>OTA-helper by darkcl</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>OTA-helper</h1>
+        <p>Simple helper application that export Ad Hoc Deployment for iOS Project, including upload and version checking.</p>
+
+        <p class="view"><a href="https://github.com/darkcl/OTA-Helper">View the Project on GitHub <small>darkcl/OTA-Helper</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/darkcl/OTA-Helper/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/darkcl/OTA-Helper/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/darkcl/OTA-Helper">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="ota-helper" class="anchor" href="#ota-helper" aria-hidden="true"><span class="octicon octicon-link"></span></a>OTA-Helper</h1>
+
+<p>Simple helper application that export Ad Hoc Deployment for iOS Project, including upload and version checking.</p>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download:</h2>
+
+<p>Pre-built binaries can be found <a href="https://github.com/darkcl/OTA-Helper/releases/download/v0.1.0/OTA.Helper.app.zip">here</a>.</p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use:</h2>
+
+<ol>
+<li>Input all the fields.</li>
+<li>Export</li>
+<li>Wait</li>
+<li>Done</li>
+</ol>
+
+<p>The helper will generate a json file that will be upload to sftp server, here is a example html that read that json file (replace <strong><code>generated_json.json</code></strong> to your json):</p>
+
+<div class="highlight highlight-html"><pre>&lt;!DOCTYPE html&gt;
+&lt;<span class="pl-ent">html</span>&gt;
+&lt;<span class="pl-ent">head</span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">http-equiv</span>=<span class="pl-s1"><span class="pl-pds">"</span>Content-Type<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/html; charset=UTF-8<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">title</span>&gt;Example&lt;/<span class="pl-ent">title</span>&gt;
+<span class="pl-s2">  &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">language</span>=<span class="pl-s1"><span class="pl-pds">"</span>javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>https://code.jquery.com/jquery-1.11.2.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;        </span>
+
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
+<span class="pl-s2">        $(<span class="pl-s3">document</span>).ready(<span class="pl-st">function</span>(<span class="pl-vpf">e</span>) {</span>
+<span class="pl-s2">            $.getJSON(<span class="pl-s1"><span class="pl-pds">'</span>./generated_json.json<span class="pl-pds">'</span></span>, <span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {</span>
+<span class="pl-s2">                $.each(response, <span class="pl-st">function</span>(<span class="pl-vpf">idx</span>, <span class="pl-vpf">rec</span>){</span>
+<span class="pl-s2"></span>
+<span class="pl-s2">                    <span class="pl-s">var</span> parser <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">DOMParser</span>();</span>
+<span class="pl-s2">                    $(<span class="pl-s1"><span class="pl-pds">'</span>.ios-list<span class="pl-pds">'</span></span>).append($(<span class="pl-s3">document</span>.<span class="pl-s3">createElement</span>(<span class="pl-s1"><span class="pl-pds">'</span>li<span class="pl-pds">'</span></span>)).append(rec));</span>
+<span class="pl-s2">                })</span>
+<span class="pl-s2">            });</span>
+<span class="pl-s2">        });</span>
+<span class="pl-s2">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+&lt;/<span class="pl-ent">head</span>&gt;
+
+&lt;<span class="pl-ent">body</span>&gt;
+  &lt;<span class="pl-ent">b</span>&gt;iPhone&lt;/<span class="pl-ent">b</span>&gt;
+  &lt;<span class="pl-ent">ul</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">'</span>ios-list<span class="pl-pds">'</span></span>&gt;
+
+  &lt;/<span class="pl-ent">ul</span>&gt;
+  &lt;<span class="pl-ent">br</span>&gt;
+&lt;/<span class="pl-ent">body</span>&gt;
+
+&lt;/<span class="pl-ent">html</span>&gt;
+</pre></div>
+
+<h2>
+<a id="build-instructions--" class="anchor" href="#build-instructions--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build Instructions : </h2>
+
+<ol>
+<li>Download the project</li>
+<li>Install Cocoapods
+<pre><code>sudo gem install cocoapods
+</code></pre>
+</li>
+<li>Install dependency
+<pre><code>pod install
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="reference--" class="anchor" href="#reference--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference : </h2>
+
+<ol>
+<li>OTA Buddy : <a href="https://github.com/sveinungkb/ios-ota-buddy">https://github.com/sveinungkb/ios-ota-buddy</a>
+</li>
+<li>NSTask Tutorial in <em>raywenderlich.com</em> :<a href="http://www.raywenderlich.com/36537/nstask-tutorial">http://www.raywenderlich.com/36537/nstask-tutorial</a>
+</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/darkcl">darkcl</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
