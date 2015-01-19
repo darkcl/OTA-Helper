@@ -331,6 +331,8 @@
                         
                         _progessView.hidden = YES;
                         [session disconnect];
+                        _emailMessageTextView.string = [NSString stringWithFormat:@"OTA Build For %@ is ready, attached QR for downloading Apps",_projectLabel.stringValue];
+                        
                         [self showEmail];
                     }else{
                         _progessView.hidden = YES;
@@ -408,16 +410,21 @@
             ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
             ZXBitMatrix* result = [writer encode:qrString
                                           format:kBarcodeFormatQRCode
-                                           width:500
-                                          height:500
+                                           width:250
+                                          height:250
                                            error:&error];
             if (result) {
                 CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage];
-                NSImage *img = [[NSImage alloc] initWithCGImage:image size:NSMakeSize(500, 500)];
+                NSImage *img = [[NSImage alloc] initWithCGImage:image size:NSMakeSize(250, 250)];
                 qrData = [img TIFFRepresentation];
                 // This CGImageRef image can be placed in a UIImage, NSImage, or written to a file.
             } else {
                 NSString *errorMessage = [error localizedDescription];
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert setMessageText:@"Error"];
+                [alert setInformativeText:errorMessage];
+                [alert addButtonWithTitle:@"OK"];
+                [alert runModal];
             }
             
             [[builder header] setFrom:from];
@@ -425,7 +432,10 @@
             [[builder header] setCc:ccEmailObjects];
             [[builder header] setSubject:[NSString stringWithFormat:@"[%@] OTA Build is ready", _projectLabel.stringValue]];
             [builder setHTMLBody:_emailMessageTextView.string];
-            [builder setAttachments:@[[MCOAttachment attachmentWithData:qrData filename:@"qr.png"]]];
+            if (result) {
+                [builder setAttachments:@[[MCOAttachment attachmentWithData:qrData filename:@"qr.png"]]];
+            }
+            
             NSData * rfc822Data = [builder data];
             
             MCOSMTPSendOperation *sendOperation =
