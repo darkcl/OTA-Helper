@@ -9,6 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import <NMSSH/NMSSH.h>
 #import "NMTask.h"
+#import <MailCore/MailCore.h>
+#import <ZXingObjC/ZXWriter.h>
+#import <ZXingObjC/ZXMultiFormatWriter.h>
+#import <ZXingObjC/ZXImage.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>{
     NSString *xcodeProjURL;
@@ -19,6 +23,8 @@
     NSString *dateString;
     NSDate *now;
     bool isBuildSucess;
+    
+    NSString *qrString;
 }
 
 @property (nonatomic) BOOL isRunning;

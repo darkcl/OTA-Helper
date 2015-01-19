@@ -30,6 +30,15 @@
 @property (weak) IBOutlet NSView *progessView;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 
+@property (weak) IBOutlet NSView *emailInfoView;
+@property (weak) IBOutlet NSTextField *gmailTextField;
+@property (weak) IBOutlet NSSecureTextField *gmailPasswordField;
+
+@property (weak) IBOutlet NSTextField *toEmailField;
+@property (weak) IBOutlet NSTextField *ccEmailField;
+@property (unsafe_unretained) IBOutlet NSTextView *emailMessageTextView;
+@property (weak) IBOutlet NSTextField *emailDisplayNameField;
+
 @property (weak) IBOutlet NSWindow *window;
 @end
 
@@ -62,6 +71,7 @@
     [_progessView setLayer:viewLayer];
     _progessView.hidden = YES;
     [_progressIndicator startAnimation:nil];
+    //[self showEmail];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -249,12 +259,16 @@
                     NSString *htmlDateString = [dateFormatter stringFromDate:now];
                     
                     NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>)",htmlDateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]] ,task.response];
+                    
+                    qrString = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@",[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]]];
                     [generalPasteBoard setString:htmlString forType:NSPasteboardTypeString];
                     NSAlert *alert = [NSAlert alertWithMessageText:@"Upload To SFTP?"
                                                      defaultButton:@"OK"
                                                    alternateButton:@"Cancel"
                                                        otherButton:nil
                                          informativeTextWithFormat:[NSString stringWithFormat:@"Copied %@ to Pasteboard",htmlString]];
+                    
+                    
                     if ([alert runModal] == NSAlertDefaultReturn) {
                         NMSSHSession *session = [NMSSHSession connectToHost:_ftpField.stringValue
                                                                withUsername:_userField.stringValue];
@@ -317,6 +331,7 @@
                         
                         _progessView.hidden = YES;
                         [session disconnect];
+                        [self showEmail];
                     }else{
                         _progessView.hidden = YES;
                     }
@@ -326,6 +341,104 @@
             }
         }
     });
+}
+
+- (void)showEmail{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setAccessoryView:_emailInfoView];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setAlertStyle:NSInformationalAlertStyle];
+    [alert setMessageText:@"Send Email?"];
+    [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (BOOL) validateEmail: (NSString *) candidate {
+    NSString *emailRegex =
+    @"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"
+    @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
+    @"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"
+    @"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"
+    @"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"
+    @"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
+    @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
+}
+
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode == NSAlertFirstButtonReturn) {
+        if (![self validateEmail:_gmailTextField.stringValue]) {
+            return;
+        }else{
+            MCOSMTPSession *smtpSession = [[MCOSMTPSession alloc] init];
+            smtpSession.hostname = @"smtp.gmail.com";
+            smtpSession.port = 465;
+            smtpSession.username = _gmailTextField.stringValue;
+            smtpSession.password = _gmailPasswordField.stringValue;
+            smtpSession.authType = MCOAuthTypeSASLPlain;
+            smtpSession.connectionType = MCOConnectionTypeTLS;
+            
+            MCOMessageBuilder *builder = [[MCOMessageBuilder alloc] init];
+            MCOAddress *from = [MCOAddress addressWithDisplayName:_emailDisplayNameField.stringValue
+                                                          mailbox:_gmailTextField.stringValue];
+            
+            NSArray *toArray = [[_toEmailField.stringValue stringByReplacingOccurrencesOfString:@" " withString:@""] componentsSeparatedByString:@","];
+            NSMutableArray *toEmailObjects = [[NSMutableArray alloc] init];
+            for (NSString *emailStr in toArray) {
+                if ([self validateEmail:emailStr]) {
+                    MCOAddress *to = [MCOAddress addressWithDisplayName:nil
+                                                                mailbox:emailStr];
+                    [toEmailObjects addObject:to];
+                }
+            }
+            
+            NSArray *ccArray = [[_ccEmailField.stringValue stringByReplacingOccurrencesOfString:@" " withString:@""] componentsSeparatedByString:@","];
+            NSMutableArray *ccEmailObjects = [[NSMutableArray alloc] init];
+            for (NSString *emailStr in ccArray) {
+                if ([self validateEmail:emailStr]) {
+                    MCOAddress *cc = [MCOAddress addressWithDisplayName:nil
+                                                                mailbox:emailStr];
+                    [ccEmailObjects addObject:cc];
+                }
+            }
+            NSData *qrData;
+            NSError *error = nil;
+            ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
+            ZXBitMatrix* result = [writer encode:qrString
+                                          format:kBarcodeFormatQRCode
+                                           width:500
+                                          height:500
+                                           error:&error];
+            if (result) {
+                CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage];
+                NSImage *img = [[NSImage alloc] initWithCGImage:image size:NSMakeSize(500, 500)];
+                qrData = [img TIFFRepresentation];
+                // This CGImageRef image can be placed in a UIImage, NSImage, or written to a file.
+            } else {
+                NSString *errorMessage = [error localizedDescription];
+            }
+            
+            [[builder header] setFrom:from];
+            [[builder header] setTo:toEmailObjects];
+            [[builder header] setCc:ccEmailObjects];
+            [[builder header] setSubject:[NSString stringWithFormat:@"[%@] OTA Build is ready", _projectLabel.stringValue]];
+            [builder setHTMLBody:_emailMessageTextView.string];
+            [builder setAttachments:@[[MCOAttachment attachmentWithData:qrData filename:@"qr.png"]]];
+            NSData * rfc822Data = [builder data];
+            
+            MCOSMTPSendOperation *sendOperation =
+            [smtpSession sendOperationWithData:rfc822Data];
+            [sendOperation start:^(NSError *error) {
+                if(error) {
+                    NSLog(@"Error sending email: %@", error);
+                } else {
+                    NSLog(@"Successfully sent email!");
+                }
+            }];
+        }
+    }
 }
 
 @end

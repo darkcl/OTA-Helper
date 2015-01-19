@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-ZXingObjC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-mailcore2-osx.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1829E0F86828FB6BF337C8AD</key>
+		<key>039218A04C01069E465C7684</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7AE673E877731834C4203D6</key>
+		<key>55B18C114627BCE775E9A832</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96B8A0F91EA03D7C3AB8B3BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4529813659E487DED0A27E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
