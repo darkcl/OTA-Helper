@@ -246,7 +246,6 @@
                 NSLog(@"Response: %@", task.response);
                 NSLog(@"Error: %@", task.errorMessage);
                 
-                //2014-12-30 (<a href="itms-services://?action=download-manifest&url=https://download.cherrypicks.com/StylishPark/Source/OTA/Stylistpark_20141230.plist">Commit 3fc3ddb20ca9</a>
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_myDrawer close];
                     _progessView.hidden = NO;
@@ -331,7 +330,7 @@
                         
                         _progessView.hidden = YES;
                         [session disconnect];
-                        _emailMessageTextView.string = [NSString stringWithFormat:@"OTA Build For %@ is ready, attached QR for downloading Apps",_projectLabel.stringValue];
+                        _emailMessageTextView.string = [NSString stringWithFormat:@"OTA Build For %@ (Commit %@) is ready, attached QR for downloading Apps or download in %@/index.html \n",_projectLabel.stringValue, task.response, _domainTextField.stringValue];
                         
                         [self showEmail];
                     }else{
