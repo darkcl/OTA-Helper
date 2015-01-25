@@ -1,4 +1,11 @@
 #To-Do list
+
+In Progress
+---
+* [ ] Side Menu, Multiple Projects
+
+New
+---
 * [ ] SVN Version checking
 * [ ] SFTP Upload / Download Progress
 * [ ] Generate Page for project

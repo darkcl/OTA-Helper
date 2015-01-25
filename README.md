@@ -21,13 +21,13 @@ The helper will generate a json file that will be upload to sftp server, here is
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Example</title>
-  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>        
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(e) {
 			$.getJSON('./generated_json.json', function (response) {
 				$.each(response, function(idx, rec){
-				
+
 					var parser = new DOMParser();
 					$('.ios-list').append($(document.createElement('li')).append(rec));
 				})
@@ -39,7 +39,7 @@ The helper will generate a json file that will be upload to sftp server, here is
 <body>
   <b>iPhone</b>
   <ul class='ios-list'>
-  	
+
   </ul>
   <br>
 </body>
@@ -48,7 +48,7 @@ The helper will generate a json file that will be upload to sftp server, here is
 
 ```
 
-Build Instructions : 
+Build Instructions :
 ---
  1. Download the project
  2. Install Cocoapods
@@ -57,10 +57,11 @@ Build Instructions :
  3. Install dependency
  	<pre><code>pod install
 	</code></pre>
-	
 
-Reference : 
+
+Reference :
 ---
 
  1. OTA Buddy : https://github.com/sveinungkb/ios-ota-buddy
  2. NSTask Tutorial in *raywenderlich.com* :http://www.raywenderlich.com/36537/nstask-tutorial
+ 3. Icon By iconmonstr : http://iconmonstr.com/

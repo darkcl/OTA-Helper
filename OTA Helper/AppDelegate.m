@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "OTASettingViewController.h"
 #define SAVED_INFO @"saveInfo"
 
 @interface AppDelegate ()
@@ -39,13 +39,15 @@
 @property (unsafe_unretained) IBOutlet NSTextView *emailMessageTextView;
 @property (weak) IBOutlet NSTextField *emailDisplayNameField;
 
+@property (weak) IBOutlet NSWindow *projectsManagerWindow;
+@property (weak) IBOutlet NSView *projectSettingView;
+
 @property (weak) IBOutlet NSWindow *window;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if ([userDefault objectForKey:SAVED_INFO]) {
         NSDictionary *saveInfoDict = [userDefault objectForKey:SAVED_INFO];

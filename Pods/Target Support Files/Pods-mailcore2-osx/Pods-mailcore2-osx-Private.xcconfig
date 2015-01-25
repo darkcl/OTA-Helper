@@ -1,0 +1,6 @@
+#include "Pods-mailcore2-osx.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/mailcore2-osx" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/NMSSH" "${PODS_ROOT}/Headers/Public/PXSourceList" "${PODS_ROOT}/Headers/Public/ZXingObjC" "${PODS_ROOT}/Headers/Public/mailcore2-osx" "${PODS_ROOT}/Headers/Public/mailcore2-osx/MailCore"
+LIBRARY_SEARCH_PATHS = ${PODS_MAILCORE__OSX_LIBRARY_SEARCH_PATHS}
+OTHER_LDFLAGS = ${PODS_MAILCORE__OSX_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}

@@ -1,6 +1,7 @@
 PODS:
   - mailcore2-osx (0.5.0)
   - NMSSH (2.2.0)
+  - PXSourceList (2.0.5)
   - ZXingObjC (3.0.3):
     - ZXingObjC/All (= 3.0.3)
   - ZXingObjC/All (3.0.3)
@@ -8,11 +9,13 @@ PODS:
 DEPENDENCIES:
   - mailcore2-osx
   - NMSSH
+  - PXSourceList (~> 2.0)
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
   mailcore2-osx: 91139d7e08fa55fc2b48036af0dcdde06216839f
   NMSSH: 6075839f1d4415ce55bf5db62fa1178888e12ae5
+  PXSourceList: 1a718d3e11e08d49524fb417fab565c248bf9f64
   ZXingObjC: 1eebdf4334b7de660ae42ddd23bd97b6d777b07d
 
 COCOAPODS: 0.35.0

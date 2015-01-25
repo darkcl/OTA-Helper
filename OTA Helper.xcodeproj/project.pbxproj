@@ -15,6 +15,8 @@
 		0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C7B1A5E45C100A4107C /* MainMenu.xib */; };
 		0EED1C891A5E45C100A4107C /* OTA_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */; };
 		0EED1C9B1A5E67B600A4107C /* BuildScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */; };
+		741A45691A72B2D4008F2750 /* OTASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 741A45671A72B2D4008F2750 /* OTASettingViewController.m */; };
+		741A456A1A72B2D4008F2750 /* OTASettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741A45681A72B2D4008F2750 /* OTASettingViewController.xib */; };
 		E19A7869EE60B21DBCD002B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B303B49CDD441E523EF3CA8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,9 @@
 		0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTA_HelperTests.m; sourceTree = "<group>"; };
 		0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = BuildScript.sh; sourceTree = "<group>"; };
 		6B303B49CDD441E523EF3CA8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		741A45661A72B2D4008F2750 /* OTASettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTASettingViewController.h; sourceTree = "<group>"; };
+		741A45671A72B2D4008F2750 /* OTASettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTASettingViewController.m; sourceTree = "<group>"; };
+		741A45681A72B2D4008F2750 /* OTASettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTASettingViewController.xib; sourceTree = "<group>"; };
 		92E1EEF620F0970353BD4E3C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E0020711F8B38C60F1898D93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,13 +96,13 @@
 		0EED1C711A5E45C100A4107C /* OTA Helper */ = {
 			isa = PBXGroup;
 			children = (
-				0E08DB461A5F6DC7001CBA8C /* NMTask.h */,
-				0E08DB471A5F6DC7001CBA8C /* NMTask.m */,
+				741A45651A72B1CA008F2750 /* NMTask */,
 				0EED1C741A5E45C100A4107C /* AppDelegate.h */,
 				0EED1C751A5E45C100A4107C /* AppDelegate.m */,
 				0EED1C791A5E45C100A4107C /* Images.xcassets */,
 				0EED1C7B1A5E45C100A4107C /* MainMenu.xib */,
 				0EED1C721A5E45C100A4107C /* Supporting Files */,
+				741A456B1A72B2E4008F2750 /* SettingView */,
 			);
 			path = "OTA Helper";
 			sourceTree = "<group>";
@@ -127,6 +132,25 @@
 				0EED1C871A5E45C100A4107C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		741A45651A72B1CA008F2750 /* NMTask */ = {
+			isa = PBXGroup;
+			children = (
+				0E08DB461A5F6DC7001CBA8C /* NMTask.h */,
+				0E08DB471A5F6DC7001CBA8C /* NMTask.m */,
+			);
+			name = NMTask;
+			sourceTree = "<group>";
+		};
+		741A456B1A72B2E4008F2750 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				741A45661A72B2D4008F2750 /* OTASettingViewController.h */,
+				741A45671A72B2D4008F2750 /* OTASettingViewController.m */,
+				741A45681A72B2D4008F2750 /* OTASettingViewController.xib */,
+			);
+			name = SettingView;
 			sourceTree = "<group>";
 		};
 		DD3196B244825E35C9816045 /* Pods */ = {
@@ -192,6 +216,7 @@
 		0EED1C671A5E45C100A4107C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = OTA;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Yeung Yiu Hung";
 				TargetAttributes = {
@@ -228,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741A456A1A72B2D4008F2750 /* OTASettingViewController.xib in Resources */,
 				0EED1C7A1A5E45C100A4107C /* Images.xcassets in Resources */,
 				0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */,
 				0EB4EC4F1A5E8186008FBAEC /* otabuddy.sh in Resources */,
@@ -284,6 +310,7 @@
 			files = (
 				0EED1C781A5E45C100A4107C /* main.m in Sources */,
 				0E08DB481A5F6DC7001CBA8C /* NMTask.m in Sources */,
+				741A45691A72B2D4008F2750 /* OTASettingViewController.m in Sources */,
 				0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
