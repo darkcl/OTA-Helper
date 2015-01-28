@@ -312,7 +312,7 @@
                                     NSError *jsonError;
                                     NSMutableArray *links = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&jsonError];
                                     
-                                    [links addObject:htmlString];
+                                    [links insertObject:htmlString atIndex:0];
                                     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:links
                                                                                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
                                                                                          error:nil];
@@ -330,7 +330,7 @@
                         
                         _progessView.hidden = YES;
                         [session disconnect];
-                        _emailMessageTextView.string = [NSString stringWithFormat:@"OTA Build For %@ (Commit %@) is ready, attached QR for downloading Apps or download in %@/index.html \n",_projectLabel.stringValue, task.response, _domainTextField.stringValue];
+                        _emailMessageTextView.string = [NSString stringWithFormat:@"OTA Build For %@ (Commit %@) is ready. \nAttached QR for downloading the app or download here :%@index.html \n",_projectLabel.stringValue, task.response, _domainTextField.stringValue];
                         
                         [self showEmail];
                     }else{
