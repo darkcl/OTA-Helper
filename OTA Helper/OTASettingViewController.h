@@ -8,6 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface OTASettingViewController : NSViewController
+@interface OTASettingViewController : NSViewController{
+    NSString *xcodeProjURL;
+    NSString *exportURL;
+    
+    NSString *projectName;
+    
+    NSString *dateString;
+    NSDate *now;
+    bool isBuildSucess;
+    
+    NSString *qrString;
+}
 
 @end

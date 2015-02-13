@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PXSourceList.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TSAppKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ZXingObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>039218A04C01069E465C7684</key>
+		<key>129B020EE2841088DE4C9ABC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55B18C114627BCE775E9A832</key>
+		<key>49A7C0B5F56C5E9A83138D6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96B8A0F91EA03D7C3AB8B3BD</key>
+		<key>4C942A3DFEE0796415501558</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4529813659E487DED0A27E0</key>
+		<key>607EFA2F8A85DFD20367FBC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>883A80C93F28A9A95EE54894</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4E04F469900332E896C32CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

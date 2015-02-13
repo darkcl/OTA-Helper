@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -697,7 +697,7 @@
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="323" height="478"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="323" height="478"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1077,7 +1077,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="707" height="622"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="0mT-G3-lwc">
                 <rect key="frame" x="0.0" y="0.0" width="707" height="622"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1223,7 +1223,7 @@
                                         <rect key="frame" x="195" y="546" width="122" height="19"/>
                                         <buttonCell key="cell" type="roundRect" title="Open Project" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wG3-9g-G1A">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="titleBar" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="selectProject:" target="Voe-Tx-rLC" id="PRv-Cm-MpR"/>
@@ -1336,7 +1336,7 @@
                     <constraint firstAttribute="bottom" secondItem="x65-q3-abn" secondAttribute="bottom" id="vGd-rp-Hps"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="514.5" y="371"/>
+            <point key="canvasLocation" x="550.5" y="372"/>
         </window>
         <viewController id="74H-0w-Jf5" customClass="OTASettingViewController">
             <connections>
