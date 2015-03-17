@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0E08DB481A5F6DC7001CBA8C /* NMTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E08DB471A5F6DC7001CBA8C /* NMTask.m */; };
+		0E58DDB11AB7D95F008040C8 /* OTAWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */; };
+		0E58DDB21AB7D95F008040C8 /* OTAWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */; };
 		0EB4EC4F1A5E8186008FBAEC /* otabuddy.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */; };
 		0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C751A5E45C100A4107C /* AppDelegate.m */; };
 		0EED1C781A5E45C100A4107C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C771A5E45C100A4107C /* main.m */; };
@@ -31,6 +33,9 @@
 /* Begin PBXFileReference section */
 		0E08DB461A5F6DC7001CBA8C /* NMTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTask.h; sourceTree = "<group>"; };
 		0E08DB471A5F6DC7001CBA8C /* NMTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTask.m; sourceTree = "<group>"; };
+		0E58DDAE1AB7D95F008040C8 /* OTAWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTAWindowController.h; sourceTree = "<group>"; };
+		0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTAWindowController.m; sourceTree = "<group>"; };
+		0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTAWindowController.xib; sourceTree = "<group>"; };
 		0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = otabuddy.sh; sourceTree = "<group>"; };
 		0EED1C6F1A5E45C100A4107C /* OTA Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTA Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EED1C731A5E45C100A4107C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 				0EED1C791A5E45C100A4107C /* Images.xcassets */,
 				0EED1C7B1A5E45C100A4107C /* MainMenu.xib */,
 				0EED1C721A5E45C100A4107C /* Supporting Files */,
+				0E58DDAE1AB7D95F008040C8 /* OTAWindowController.h */,
+				0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */,
+				0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */,
 			);
 			path = "OTA Helper";
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 				0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */,
 				0EB4EC4F1A5E8186008FBAEC /* otabuddy.sh in Resources */,
 				0EED1C9B1A5E67B600A4107C /* BuildScript.sh in Resources */,
+				0E58DDB21AB7D95F008040C8 /* OTAWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E58DDB11AB7D95F008040C8 /* OTAWindowController.m in Sources */,
 				0EED1C781A5E45C100A4107C /* main.m in Sources */,
 				0E08DB481A5F6DC7001CBA8C /* NMTask.m in Sources */,
 				0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */,

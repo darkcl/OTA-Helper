@@ -1,16 +1,17 @@
 //
-//  AppDelegate.m
+//  OTAWindowController.m
 //  OTA Helper
 //
-//  Created by Yeung Yiu Hung on 8/1/15.
+//  Created by Yeung Yiu Hung on 17/3/15.
 //  Copyright (c) 2015 Yeung Yiu Hung. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "OTAWindowController.h"
 
-#define SAVED_INFO @"saveInfo"
+#define SAVED_INFO @"saveInfo_projects"
 
-@interface AppDelegate ()
+@interface OTAWindowController ()
+
 @property (weak) IBOutlet NSTextField *projectLabel;
 @property (weak) IBOutlet NSTextField *exportPathLabel;
 @property (weak) IBOutlet NSButton *exportButton;
@@ -38,16 +39,21 @@
 @property (weak) IBOutlet NSTextField *ccEmailField;
 @property (unsafe_unretained) IBOutlet NSTextView *emailMessageTextView;
 @property (weak) IBOutlet NSTextField *emailDisplayNameField;
-
-@property (weak) IBOutlet NSWindow *window;
 @end
 
-@implementation AppDelegate
+@implementation OTAWindowController
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+- (id)initWithIndicator:(NSString *)indicator{
+    if (self = [super initWithWindowNibName:@"OTAWindowController"]) {
+        indicatorStr = indicator;
+    }
+    return self;
+}
+
+- (void)windowDidLoad {
+    [super windowDidLoad];
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    if ([userDefault objectForKey:SAVED_INFO]) {
+    if ([[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr]) {
         NSDictionary *saveInfoDict = [userDefault objectForKey:SAVED_INFO];
         xcodeProjURL = saveInfoDict[@"project"];
         projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcodeproj" withString:@""];
@@ -61,6 +67,10 @@
         _ftpField.stringValue = saveInfoDict[@"ftpDomain"];
         _userField.stringValue = saveInfoDict[@"ftpUser"];
         _passwordField.stringValue = saveInfoDict[@"ftpPassword"];
+    }else{
+        NSMutableDictionary *savedProjects = [[NSMutableDictionary alloc] init];
+        [userDefault setObject:savedProjects forKey:SAVED_INFO];
+        [userDefault synchronize];
     }
     [_myDrawer setContentSize:NSMakeSize(300, _myDrawer.contentSize.height)];
     [_statusDrawer setContentSize:NSMakeSize(300, _statusDrawer.contentSize.height)];
@@ -71,11 +81,7 @@
     [_progessView setLayer:viewLayer];
     _progessView.hidden = YES;
     [_progressIndicator startAnimation:nil];
-    //[self showEmail];
-}
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 - (IBAction)selectProject:(id)sender {
@@ -132,10 +138,10 @@
         [arguments addObject:dateString];
         
         
-//        _ftpPathField.stringValue = saveInfoDict[@"ftpPath"];
-//        _ftpField.stringValue = saveInfoDict[@"ftpDomain"];
-//        _userField.stringValue = saveInfoDict[@"ftpUser"];
-//        _passwordField.stringValue = saveInfoDict[@"ftpPassword"];
+        //        _ftpPathField.stringValue = saveInfoDict[@"ftpPath"];
+        //        _ftpField.stringValue = saveInfoDict[@"ftpDomain"];
+        //        _userField.stringValue = saveInfoDict[@"ftpUser"];
+        //        _passwordField.stringValue = saveInfoDict[@"ftpPassword"];
         NSDictionary *saveInfoDicr = @{@"project":xcodeProjURL,
                                        @"export":exportURL,
                                        @"cert":_certificateLabel.stringValue,
@@ -145,7 +151,9 @@
                                        @"ftpDomain":_ftpField.stringValue,
                                        @"ftpUser":_userField.stringValue,
                                        @"ftpPassword":_passwordField.stringValue};
-        [[NSUserDefaults standardUserDefaults] setObject:saveInfoDicr forKey:SAVED_INFO];
+        NSMutableDictionary *savedProjects = [[NSUserDefaults standardUserDefaults] objectForKey:SAVED_INFO];
+        [savedProjects setObject:saveInfoDicr forKey:indicatorStr];
+        [[NSUserDefaults standardUserDefaults] setObject:savedProjects forKey:SAVED_INFO];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [self runScript:arguments];
@@ -251,7 +259,7 @@
                     [_myDrawer close];
                     _progessView.hidden = NO;
                     NSPasteboard *generalPasteBoard = [NSPasteboard generalPasteboard];
-                
+                    
                     [generalPasteBoard declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:nil];
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                     [dateFormatter setLocale:[NSLocale currentLocale]];
@@ -266,7 +274,7 @@
                                                      defaultButton:@"OK"
                                                    alternateButton:@"Cancel"
                                                        otherButton:nil
-                                         informativeTextWithFormat:[NSString stringWithFormat:@"Copied %@ to Pasteboard",htmlString]];
+                                         informativeTextWithFormat:@"Copied %@ to Pasteboard",htmlString];
                     
                     
                     if ([alert runModal] == NSAlertDefaultReturn) {
@@ -306,8 +314,8 @@
                                     NSLog(@"%@",jsonString);
                                     
                                     [jsonString writeToFile:resultJson
-                                                   atomically:YES
-                                                     encoding:NSUTF8StringEncoding error:nil];
+                                                 atomically:YES
+                                                   encoding:NSUTF8StringEncoding error:nil];
                                 }else{
                                     NSString *jsonString = [[NSString alloc] initWithContentsOfFile:resultJson encoding:NSUTF8StringEncoding error:NULL];
                                     NSError *jsonError;
@@ -352,7 +360,7 @@
     [alert addButtonWithTitle:@"Cancel"];
     [alert setAlertStyle:NSInformationalAlertStyle];
     [alert setMessageText:@"Send Email?"];
-    [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    [alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 - (BOOL) validateEmail: (NSString *) candidate {
