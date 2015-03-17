@@ -13,7 +13,7 @@
 #import <ZXingObjC/ZXWriter.h>
 #import <ZXingObjC/ZXMultiFormatWriter.h>
 #import <ZXingObjC/ZXImage.h>
-
+#define SAVED_INFO @"saveInfo_projects"
 @interface OTAWindowController : NSWindowController{
     NSString *xcodeProjURL;
     NSString *exportURL;
@@ -27,6 +27,8 @@
     NSString *qrString;
     
     NSString *indicatorStr;
+    
+    
 }
 
 @property (nonatomic) BOOL isRunning;

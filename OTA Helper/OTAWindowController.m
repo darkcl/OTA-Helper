@@ -8,7 +8,7 @@
 
 #import "OTAWindowController.h"
 
-#define SAVED_INFO @"saveInfo_projects"
+
 
 @interface OTAWindowController ()
 
@@ -24,10 +24,12 @@
 @property (weak) IBOutlet NSSecureTextField *passwordField;
 @property (weak) IBOutlet NSDrawer *myDrawer;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleLogs;
+
 @property (weak) IBOutlet NSDrawer *statusDrawer;
 @property (weak) IBOutlet NSTextField *ipaStatusLabel;
 @property (weak) IBOutlet NSTextField *plistStatusLabel;
 @property (weak) IBOutlet NSTextField *jsonStatusLabel;
+
 @property (weak) IBOutlet NSView *progessView;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 
@@ -44,7 +46,7 @@
 @implementation OTAWindowController
 
 - (id)initWithIndicator:(NSString *)indicator{
-    if (self = [super initWithWindowNibName:@"OTAWindowController"]) {
+    if (self = [super initWithWindowNibName:@"OTAWindowController" owner:self]) {
         indicatorStr = indicator;
     }
     return self;
@@ -54,7 +56,7 @@
     [super windowDidLoad];
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if ([[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr]) {
-        NSDictionary *saveInfoDict = [userDefault objectForKey:SAVED_INFO];
+        NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
         xcodeProjURL = saveInfoDict[@"project"];
         projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcodeproj" withString:@""];
         _projectLabel.stringValue = projectName;
@@ -72,6 +74,7 @@
         [userDefault setObject:savedProjects forKey:SAVED_INFO];
         [userDefault synchronize];
     }
+    
     [_myDrawer setContentSize:NSMakeSize(300, _myDrawer.contentSize.height)];
     [_statusDrawer setContentSize:NSMakeSize(300, _statusDrawer.contentSize.height)];
     
@@ -151,7 +154,7 @@
                                        @"ftpDomain":_ftpField.stringValue,
                                        @"ftpUser":_userField.stringValue,
                                        @"ftpPassword":_passwordField.stringValue};
-        NSMutableDictionary *savedProjects = [[NSUserDefaults standardUserDefaults] objectForKey:SAVED_INFO];
+        NSMutableDictionary *savedProjects = [[[NSUserDefaults standardUserDefaults] objectForKey:SAVED_INFO] mutableCopy];
         [savedProjects setObject:saveInfoDicr forKey:indicatorStr];
         [[NSUserDefaults standardUserDefaults] setObject:savedProjects forKey:SAVED_INFO];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -161,7 +164,8 @@
 }
 
 - (void)runScript:(NSArray*)arguments {
-    [_myDrawer open];
+//    [_myDrawer open];
+    [_progessView setHidden:NO];
     _consoleLogs.string = @"";
     dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     dispatch_async(taskQueue, ^{
@@ -190,8 +194,9 @@
                 NSString *outStr = [[NSString alloc] initWithData:output encoding:NSUTF8StringEncoding];
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    _consoleLogs.string = [_consoleLogs.string stringByAppendingString:[NSString stringWithFormat:@"\n%@", outStr]];
+//                    _consoleLogs.string = [_consoleLogs.string stringByAppendingString:[NSString stringWithFormat:@"\n%@", outStr]];
                     // Scroll to end of outputText field
+                    NSLog(@"%@", outStr);
                     NSRange range;
                     range = NSMakeRange([_consoleLogs.string length], 0);
                     [_consoleLogs scrollRangeToVisible:range];
@@ -206,11 +211,12 @@
         @catch (NSException *exception) {
             NSLog(@"Problem Running Task: %@", [exception description]);
             isBuildSucess = NO;
+            [_progessView setHidden:YES];
         }
         @finally {
             [self.exportButton setEnabled:YES];
             self.isRunning = NO;
-            
+            [_progessView setHidden:YES];
             if (isBuildSucess) {
                 [self exportPlistForOTA];
             }

@@ -10,6 +10,7 @@
                 <outlet property="ccEmailField" destination="niz-TP-irq" id="hVX-fE-s37"/>
                 <outlet property="certificateLabel" destination="G1S-AI-paz" id="M3F-uu-ymI"/>
                 <outlet property="consoleLogs" destination="6TE-O8-NDN" id="s2U-OT-NDm"/>
+                <outlet property="domainTextField" destination="Erh-id-Dgy" id="cKA-cb-gKR"/>
                 <outlet property="emailDisplayNameField" destination="7l4-FV-rjw" id="l0N-JC-KXj"/>
                 <outlet property="emailInfoView" destination="1r1-pi-xA2" id="L1g-oB-Y4m"/>
                 <outlet property="emailMessageTextView" destination="a2m-a7-mgf" id="fsF-7r-t5a"/>
@@ -19,7 +20,7 @@
                 <outlet property="ftpPathField" destination="Aji-rr-D9j" id="qQH-rJ-4Sf"/>
                 <outlet property="gmailPasswordField" destination="8dM-oy-owZ" id="Cwo-7x-40P"/>
                 <outlet property="gmailTextField" destination="Ihm-xE-2Pd" id="eUf-1m-lzo"/>
-                <outlet property="myDrawer" destination="I2J-3e-vTK" id="9AJ-EH-0kF"/>
+                <outlet property="myDrawer" destination="DUl-iH-RVP" id="0DG-9d-YGi"/>
                 <outlet property="passwordField" destination="3lD-1h-rBI" id="EXv-RP-rou"/>
                 <outlet property="progessView" destination="2nk-cM-XBc" id="DrJ-9J-xjv"/>
                 <outlet property="progressIndicator" destination="x2o-Ls-e6P" id="m2G-Gn-58j"/>
@@ -29,15 +30,9 @@
                 <outlet property="window" destination="vPy-uN-bSN" id="DVu-xZ-DjS"/>
             </connections>
         </customObject>
-        <customObject id="I2J-3e-vTK" customClass="NSDrawer">
-            <connections>
-                <outlet property="contentView" destination="6TE-O8-NDN" id="vo1-oz-2aG"/>
-                <outlet property="parentWindow" destination="vPy-uN-bSN" id="Fow-qe-eRS"/>
-            </connections>
-        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="OTA Helper" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="vPy-uN-bSN">
+        <window title="OTA Helper" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" animationBehavior="default" id="vPy-uN-bSN">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="323" height="478"/>
@@ -128,6 +123,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="exportIPA:" target="-2" id="dqs-Sn-ftf"/>
+                        </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aji-rr-D9j">
                         <rect key="frame" x="20" y="205" width="202" height="22"/>
@@ -169,7 +167,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4ME-bd-3Hx"/>
             </connections>
-            <point key="canvasLocation" x="542.5" y="52"/>
+            <point key="canvasLocation" x="526.5" y="64"/>
         </window>
         <customView id="S5z-uC-gQw" userLabel="Drawer Content View">
             <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>
@@ -220,7 +218,7 @@
                 <constraint firstItem="DTt-jm-6iD" firstAttribute="top" secondItem="S5z-uC-gQw" secondAttribute="top" id="kbF-aY-2nL"/>
                 <constraint firstAttribute="bottom" secondItem="DTt-jm-6iD" secondAttribute="bottom" id="y3O-gk-XLc"/>
             </constraints>
-            <point key="canvasLocation" x="924" y="39.5"/>
+            <point key="canvasLocation" x="893" y="2.5"/>
         </customView>
         <customView id="1r1-pi-xA2">
             <rect key="frame" x="0.0" y="0.0" width="398" height="408"/>
@@ -349,5 +347,13 @@
             </constraints>
             <point key="canvasLocation" x="542" y="566"/>
         </customView>
+        <drawer trailingOffset="15" id="DUl-iH-RVP">
+            <size key="contentSize" width="100" height="100"/>
+            <size key="maxContentSize" width="10000" height="10000"/>
+            <connections>
+                <outlet property="contentView" destination="S5z-uC-gQw" id="NRY-9T-8cQ"/>
+                <outlet property="parentWindow" destination="vPy-uN-bSN" id="5kP-OY-Pn7"/>
+            </connections>
+        </drawer>
     </objects>
 </document>

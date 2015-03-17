@@ -7,27 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <NMSSH/NMSSH.h>
-#import "NMTask.h"
-#import <MailCore/MailCore.h>
-#import <ZXingObjC/ZXWriter.h>
-#import <ZXingObjC/ZXMultiFormatWriter.h>
-#import <ZXingObjC/ZXImage.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>{
-    NSString *xcodeProjURL;
-    NSString *exportURL;
-    
-    NSString *projectName;
-    
-    NSString *dateString;
-    NSDate *now;
-    bool isBuildSucess;
-    
-    NSString *qrString;
+    NSMutableArray *projectWindows;
 }
-
-@property (nonatomic) BOOL isRunning;
 
 @end
 
