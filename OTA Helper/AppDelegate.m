@@ -29,6 +29,8 @@
         for (NSString *str in [aDict allKeys]) {
             [_recentProjects.submenu addItem:[[NSMenuItem alloc] initWithTitle:str action:@selector(projectSelected:) keyEquivalent:@""]];
         }
+    }else{
+        [self createNewProject:nil];
     }
 }
 
