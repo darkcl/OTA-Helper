@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="OTAWindowController">
@@ -36,7 +36,7 @@
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="323" height="478"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="SMh-4f-9kn">
                 <rect key="frame" x="0.0" y="0.0" width="323" height="478"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -45,7 +45,7 @@
                         <rect key="frame" x="100" y="402" width="122" height="19"/>
                         <buttonCell key="cell" type="roundRect" title="Open Project" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NGz-Wr-tCc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="titleBar" size="12"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
                             <action selector="selectProject:" target="-2" id="15M-3V-mNC"/>
@@ -167,7 +167,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4ME-bd-3Hx"/>
             </connections>
-            <point key="canvasLocation" x="526.5" y="64"/>
+            <point key="canvasLocation" x="468.5" y="140"/>
         </window>
         <customView id="S5z-uC-gQw" userLabel="Drawer Content View">
             <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>

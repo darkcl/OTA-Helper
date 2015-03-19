@@ -72,7 +72,11 @@
     }else{
         NSMutableDictionary *savedProjects = [[NSMutableDictionary alloc] init];
         [userDefault setObject:savedProjects forKey:SAVED_INFO];
-        [userDefault synchronize];
+        
+        NSDictionary *saveInfoDicr = [[NSDictionary alloc] init];
+        [savedProjects setObject:saveInfoDicr forKey:indicatorStr];
+        [[NSUserDefaults standardUserDefaults] setObject:savedProjects forKey:SAVED_INFO];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
     [_myDrawer setContentSize:NSMakeSize(300, _myDrawer.contentSize.height)];
