@@ -24,7 +24,7 @@
 @property (weak) IBOutlet NSSecureTextField *passwordField;
 @property (weak) IBOutlet NSDrawer *myDrawer;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleLogs;
-
+    
 @property (weak) IBOutlet NSDrawer *statusDrawer;
 @property (weak) IBOutlet NSTextField *ipaStatusLabel;
 @property (weak) IBOutlet NSTextField *plistStatusLabel;
@@ -139,7 +139,7 @@
         now = [NSDate date];
         dateString = [dateFormatter stringFromDate:now];
         [arguments addObject:dateString];
-        
+        [arguments addObject:[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
         
         //        _ftpPathField.stringValue = saveInfoDict[@"ftpPath"];
         //        _ftpField.stringValue = saveInfoDict[@"ftpDomain"];
@@ -240,9 +240,9 @@
             buildTask.launchPath = path;
             buildTask.currentDirectoryPath = exportURL;
             buildTask.arguments = @[@"plist",
-                                    [NSString stringWithFormat:@"%@-%@.ipa",projectName,dateString],
-                                    [NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.ipa",projectName,dateString]],
-                                    [NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]];
+                                    [NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString],
+                                    [NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]],
+                                    [NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
             [buildTask launch];
             
             [buildTask waitUntilExit];
@@ -272,9 +272,9 @@
                     [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm"];
                     NSString *htmlDateString = [dateFormatter stringFromDate:now];
                     
-                    NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>)",htmlDateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]] ,task.response];
+                    NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>)",htmlDateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]] ,task.response];
                     
-                    qrString = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@",[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]]];
+                    qrString = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@",[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]]];
                     [generalPasteBoard setString:htmlString forType:NSPasteboardTypeString];
                     NSAlert *alert = [NSAlert alertWithMessageText:@"Upload To SFTP?"
                                                      defaultButton:@"OK"
