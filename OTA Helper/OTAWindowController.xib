@@ -22,6 +22,8 @@
                 <outlet property="gmailTextField" destination="Ihm-xE-2Pd" id="eUf-1m-lzo"/>
                 <outlet property="myDrawer" destination="DUl-iH-RVP" id="0DG-9d-YGi"/>
                 <outlet property="passwordField" destination="3lD-1h-rBI" id="EXv-RP-rou"/>
+                <outlet property="popupButton" destination="ydX-nJ-fog" id="yba-Tb-38c"/>
+                <outlet property="popupMenu" destination="hgp-uD-tK2" id="cqH-jW-gTQ"/>
                 <outlet property="progessView" destination="2nk-cM-XBc" id="DrJ-9J-xjv"/>
                 <outlet property="progressIndicator" destination="x2o-Ls-e6P" id="m2G-Gn-58j"/>
                 <outlet property="projectLabel" destination="pv8-PE-4fv" id="KF8-si-39m"/>
@@ -59,7 +61,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1S-AI-paz">
+                    <textField hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1S-AI-paz">
                         <rect key="frame" x="20" y="324" width="202" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Provisioning Profile" drawsBackground="YES" id="HAk-uT-gtV">
                             <font key="font" metaFont="system"/>
@@ -109,6 +111,20 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydX-nJ-fog">
+                        <rect key="frame" x="18" y="320" width="207" height="26"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="DCA-nd-Xmn">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="hgp-uD-tK2">
+                                <items>
+                                    <menuItem title="Item 1" id="PlE-zQ-Oei"/>
+                                    <menuItem title="Item 2" id="hwd-Tl-KZx"/>
+                                    <menuItem title="Item 3" id="BWH-3c-TUC"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bwt-81-iMW">
                         <rect key="frame" x="20" y="267" width="26" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="FTP" id="adv-9N-dxb">
@@ -146,7 +162,7 @@
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                     </secureTextField>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2nk-cM-XBc">
+                    <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2nk-cM-XBc">
                         <rect key="frame" x="0.0" y="0.0" width="323" height="478"/>
                         <subviews>
                             <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="x2o-Ls-e6P">
@@ -167,7 +183,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4ME-bd-3Hx"/>
             </connections>
-            <point key="canvasLocation" x="468.5" y="140"/>
+            <point key="canvasLocation" x="425.5" y="46"/>
         </window>
         <customView id="S5z-uC-gQw" userLabel="Drawer Content View">
             <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>

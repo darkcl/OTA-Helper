@@ -17,6 +17,8 @@
 		0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C7B1A5E45C100A4107C /* MainMenu.xib */; };
 		0EED1C891A5E45C100A4107C /* OTA_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */; };
 		0EED1C9B1A5E67B600A4107C /* BuildScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */; };
+		74078B541ABB20570025592F /* Provisioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 74078B511ABB20570025592F /* Provisioning.m */; };
+		74078B551ABB20570025592F /* SigningIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 74078B531ABB20570025592F /* SigningIdentity.m */; };
 		E19A7869EE60B21DBCD002B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B303B49CDD441E523EF3CA8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,10 @@
 		0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTA_HelperTests.m; sourceTree = "<group>"; };
 		0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = BuildScript.sh; sourceTree = "<group>"; };
 		6B303B49CDD441E523EF3CA8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74078B501ABB20570025592F /* Provisioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Provisioning.h; sourceTree = "<group>"; };
+		74078B511ABB20570025592F /* Provisioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Provisioning.m; sourceTree = "<group>"; };
+		74078B521ABB20570025592F /* SigningIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigningIdentity.h; sourceTree = "<group>"; };
+		74078B531ABB20570025592F /* SigningIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigningIdentity.m; sourceTree = "<group>"; };
 		92E1EEF620F0970353BD4E3C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E0020711F8B38C60F1898D93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +102,7 @@
 		0EED1C711A5E45C100A4107C /* OTA Helper */ = {
 			isa = PBXGroup;
 			children = (
+				74078B561ABB205C0025592F /* Model */,
 				0E08DB461A5F6DC7001CBA8C /* NMTask.h */,
 				0E08DB471A5F6DC7001CBA8C /* NMTask.m */,
 				0EED1C741A5E45C100A4107C /* AppDelegate.h */,
@@ -135,6 +142,17 @@
 				0EED1C871A5E45C100A4107C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74078B561ABB205C0025592F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74078B501ABB20570025592F /* Provisioning.h */,
+				74078B511ABB20570025592F /* Provisioning.m */,
+				74078B521ABB20570025592F /* SigningIdentity.h */,
+				74078B531ABB20570025592F /* SigningIdentity.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		DD3196B244825E35C9816045 /* Pods */ = {
@@ -291,10 +309,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74078B541ABB20570025592F /* Provisioning.m in Sources */,
 				0E58DDB11AB7D95F008040C8 /* OTAWindowController.m in Sources */,
 				0EED1C781A5E45C100A4107C /* main.m in Sources */,
 				0E08DB481A5F6DC7001CBA8C /* NMTask.m in Sources */,
 				0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */,
+				74078B551ABB20570025592F /* SigningIdentity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

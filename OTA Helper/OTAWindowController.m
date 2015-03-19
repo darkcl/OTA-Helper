@@ -8,7 +8,7 @@
 
 #import "OTAWindowController.h"
 
-
+#import "Provisioning.h"
 
 @interface OTAWindowController ()
 
@@ -25,6 +25,9 @@
 @property (weak) IBOutlet NSDrawer *myDrawer;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleLogs;
     
+@property (strong) IBOutlet NSPopUpButton *popupButton;
+@property (strong) IBOutlet NSMenu *popupMenu;
+
 @property (weak) IBOutlet NSDrawer *statusDrawer;
 @property (weak) IBOutlet NSTextField *ipaStatusLabel;
 @property (weak) IBOutlet NSTextField *plistStatusLabel;
@@ -41,6 +44,9 @@
 @property (weak) IBOutlet NSTextField *ccEmailField;
 @property (unsafe_unretained) IBOutlet NSTextView *emailMessageTextView;
 @property (weak) IBOutlet NSTextField *emailDisplayNameField;
+
+@property (nonatomic, strong) NSMutableArray *provisioningArray;
+
 @end
 
 @implementation OTAWindowController
@@ -48,12 +54,53 @@
 - (id)initWithIndicator:(NSString *)indicator{
     if (self = [super initWithWindowNibName:@"OTAWindowController" owner:self]) {
         indicatorStr = indicator;
+        _provisioningArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
+- (void)buildListIdentity {
+    [self.popupMenu removeAllItems];
+    NSString *library = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSString *mobileProvisioningFolder = [library stringByAppendingPathComponent:@"MobileDevice/Provisioning Profiles"];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *contents = [fm contentsOfDirectoryAtPath:mobileProvisioningFolder error:nil];
+    [self.provisioningArray removeAllObjects];
+    
+    for (NSString *name in contents) {
+        if ([name hasPrefix:@"."]) continue;
+        if ([name.pathExtension caseInsensitiveCompare:@"mobileprovision"] != NSOrderedSame) continue;
+        
+        NSString *path = [mobileProvisioningFolder stringByAppendingPathComponent:name];
+        Provisioning *provisioning = [[Provisioning alloc] initWithPath:path];
+        [self.provisioningArray addObject:provisioning];
+    }
+    [self.provisioningArray sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
+    
+    for (Provisioning *provision in self.provisioningArray) {
+        //Ignore expired provisioning
+        if (provision.isExpired)
+            continue;
+        
+        NSMenuItem *item = [[NSMenuItem alloc] init];
+        item.title = [NSString stringWithFormat:@"%@", provision.name];
+        
+        [item setEnabled:NO];
+        [self.popupMenu addItem:item];
+    }
+    if (self.popupButton.numberOfItems > 0) {
+        [self.popupButton selectItemAtIndex:1];
+    }
+}
+
+- (void)lookupBestIdentity {
+    
+}
+
 - (void)windowDidLoad {
     [super windowDidLoad];
+    [self buildListIdentity];
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if ([[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr]) {
         NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
@@ -64,7 +111,11 @@
         _exportPathLabel.stringValue = saveInfoDict[@"export"];
         _domainTextField.stringValue = saveInfoDict[@"domain"];
         _certificateLabel.stringValue = saveInfoDict[@"cert"];
-        
+        for (NSString *itemTitle in _popupButton.itemTitles) {
+            if ([itemTitle isEqualToString:saveInfoDict[@"cert"]]) {
+                [_popupButton selectItemWithTitle:itemTitle];
+            }
+        }
         _ftpPathField.stringValue = saveInfoDict[@"ftpPath"];
         _ftpField.stringValue = saveInfoDict[@"ftpDomain"];
         _userField.stringValue = saveInfoDict[@"ftpUser"];
@@ -124,6 +175,8 @@
 }
 
 - (IBAction)exportIPA:(id)sender {
+    _certificateLabel.stringValue = _popupButton.selectedItem.title;
+    
     if (projectName.length == 0 ||
         exportURL.length == 0 ||
         xcodeProjURL.length == 0||
