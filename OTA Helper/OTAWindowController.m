@@ -221,7 +221,7 @@
 }
 
 - (void)runScript:(NSArray*)arguments {
-//    [_myDrawer open];
+    [_myDrawer open];
     [_progessView setHidden:NO];
     _consoleLogs.string = @"";
     dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
@@ -251,12 +251,7 @@
                 NSString *outStr = [[NSString alloc] initWithData:output encoding:NSUTF8StringEncoding];
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
-//                    _consoleLogs.string = [_consoleLogs.string stringByAppendingString:[NSString stringWithFormat:@"\n%@", outStr]];
-                    // Scroll to end of outputText field
-                    NSLog(@"%@", outStr);
-                    NSRange range;
-                    range = NSMakeRange([_consoleLogs.string length], 0);
-                    [_consoleLogs scrollRangeToVisible:range];
+                    _consoleLogs.string = [NSString stringWithFormat:@"\n%@", outStr];
                 });
                 [[outputPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
             }];
@@ -351,8 +346,8 @@
                                 //                        NSError *error = nil;
                                 //                        NSString *response = [session.channel execute:[NSString stringWithFormat:@"ls -l %@", _ftpPathField.stringValue] error:&error];
                                 //                        NSLog(@"List : %@", response);
-                                NSString *ipaURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.ipa",projectName,dateString]];
-                                NSString *plistURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.plist",projectName,dateString]];
+                                NSString *ipaURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+                                NSString *plistURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
                                 
                                 
                                 
@@ -402,7 +397,7 @@
                         
                         _progessView.hidden = YES;
                         [session disconnect];
-                        _emailMessageTextView.string = [NSString stringWithFormat:@"OTA Build For %@ (Commit %@) is ready. \nAttached QR for downloading the app or download here :%@index.html \n",_projectLabel.stringValue, task.response, _domainTextField.stringValue];
+                        _emailMessageTextView.string = [NSString stringWithFormat:@"<html>OTA Build For %@ (Commit %@) is ready. <p>Attached QR for downloading the app or download here :%@index.html </p></html>",_projectLabel.stringValue, task.response, _domainTextField.stringValue];
                         
                         [self showEmail];
                     }else{

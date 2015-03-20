@@ -12,6 +12,7 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSView *inputProjectName;
+@property (weak) IBOutlet SUUpdater *updater;
 
 @property (weak) IBOutlet NSMenuItem *recentProjects;
 @property (weak) IBOutlet NSTextField *projectName;

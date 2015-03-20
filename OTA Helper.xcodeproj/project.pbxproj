@@ -10,6 +10,9 @@
 		0E08DB481A5F6DC7001CBA8C /* NMTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E08DB471A5F6DC7001CBA8C /* NMTask.m */; };
 		0E58DDB11AB7D95F008040C8 /* OTAWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */; };
 		0E58DDB21AB7D95F008040C8 /* OTAWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */; };
+		0EA3156C1ABBCA28006E0CC6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EA3156A1ABBCA26006E0CC6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EA3156E1ABBCBF5006E0CC6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0EA3156D1ABBCBF4006E0CC6 /* dsa_pub.pem */; };
+		0EA315701ABC0EF3006E0CC6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA3156A1ABBCA26006E0CC6 /* Sparkle.framework */; };
 		0EB4EC4F1A5E8186008FBAEC /* otabuddy.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */; };
 		0EED1C761A5E45C100A4107C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C751A5E45C100A4107C /* AppDelegate.m */; };
 		0EED1C781A5E45C100A4107C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED1C771A5E45C100A4107C /* main.m */; };
@@ -32,12 +35,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0EA315681ABBC9FB006E0CC6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0EA3156C1ABBCA28006E0CC6 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0E08DB461A5F6DC7001CBA8C /* NMTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTask.h; sourceTree = "<group>"; };
 		0E08DB471A5F6DC7001CBA8C /* NMTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTask.m; sourceTree = "<group>"; };
 		0E58DDAE1AB7D95F008040C8 /* OTAWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTAWindowController.h; sourceTree = "<group>"; };
 		0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTAWindowController.m; sourceTree = "<group>"; };
 		0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTAWindowController.xib; sourceTree = "<group>"; };
+		0EA3156A1ABBCA26006E0CC6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		0EA3156D1ABBCBF4006E0CC6 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = otabuddy.sh; sourceTree = "<group>"; };
 		0EED1C6F1A5E45C100A4107C /* OTA Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTA Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EED1C731A5E45C100A4107C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19A7869EE60B21DBCD002B2 /* libPods.a in Frameworks */,
+				0EA315701ABC0EF3006E0CC6 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +100,8 @@
 		0EED1C661A5E45C100A4107C = {
 			isa = PBXGroup;
 			children = (
+				0EA3156D1ABBCBF4006E0CC6 /* dsa_pub.pem */,
+				0EA3156A1ABBCA26006E0CC6 /* Sparkle.framework */,
 				0EB4EC4E1A5E8186008FBAEC /* otabuddy.sh */,
 				0EED1C711A5E45C100A4107C /* OTA Helper */,
 				0EED1C851A5E45C100A4107C /* OTA HelperTests */,
@@ -184,6 +205,7 @@
 				0EED1C6C1A5E45C100A4107C /* Frameworks */,
 				0EED1C6D1A5E45C100A4107C /* Resources */,
 				84A75EB802B87F27E0D3E962 /* Copy Pods Resources */,
+				0EA315681ABBC9FB006E0CC6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -255,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EED1C7A1A5E45C100A4107C /* Images.xcassets in Resources */,
+				0EA3156E1ABBCBF5006E0CC6 /* dsa_pub.pem in Resources */,
 				0EED1C7D1A5E45C100A4107C /* MainMenu.xib in Resources */,
 				0EB4EC4F1A5E8186008FBAEC /* otabuddy.sh in Resources */,
 				0EED1C9B1A5E67B600A4107C /* BuildScript.sh in Resources */,
@@ -430,8 +453,36 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/yeungyiuhung/Downloads/Sparkle-1.8.0",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "OTA Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-Wl,-rpath,@loader_path/../Frameworks",
+					"-ObjC",
+					"-l\"MailCore\"",
+					"-l\"Pods-NMSSH\"",
+					"-l\"Pods-ZXingObjC\"",
+					"-l\"Pods-mailcore2-osx\"",
+					"-l\"c++\"",
+					"-l\"crypto\"",
+					"-l\"iconv\"",
+					"-l\"sasl2\"",
+					"-l\"ssh2\"",
+					"-l\"ssl\"",
+					"-l\"tidy\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"QuartzCore\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -442,8 +493,36 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/yeungyiuhung/Downloads/Sparkle-1.8.0",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "OTA Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-Wl,-rpath,@loader_path/../Frameworks",
+					"-ObjC",
+					"-l\"MailCore\"",
+					"-l\"Pods-NMSSH\"",
+					"-l\"Pods-ZXingObjC\"",
+					"-l\"Pods-mailcore2-osx\"",
+					"-l\"c++\"",
+					"-l\"crypto\"",
+					"-l\"iconv\"",
+					"-l\"sasl2\"",
+					"-l\"ssh2\"",
+					"-l\"ssl\"",
+					"-l\"tidy\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"QuartzCore\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

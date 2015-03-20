@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import <Sparkle/Sparkle.h>
 int main(int argc, const char * argv[]) {
     return NSApplicationMain(argc, argv);
 }

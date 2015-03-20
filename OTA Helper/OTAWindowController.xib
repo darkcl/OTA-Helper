@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="OTAWindowController">
@@ -38,7 +38,7 @@
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="323" height="478"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="SMh-4f-9kn">
                 <rect key="frame" x="0.0" y="0.0" width="323" height="478"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -234,7 +234,7 @@
                 <constraint firstItem="DTt-jm-6iD" firstAttribute="top" secondItem="S5z-uC-gQw" secondAttribute="top" id="kbF-aY-2nL"/>
                 <constraint firstAttribute="bottom" secondItem="DTt-jm-6iD" secondAttribute="bottom" id="y3O-gk-XLc"/>
             </constraints>
-            <point key="canvasLocation" x="893" y="2.5"/>
+            <point key="canvasLocation" x="964" y="-23.5"/>
         </customView>
         <customView id="1r1-pi-xA2">
             <rect key="frame" x="0.0" y="0.0" width="398" height="408"/>
