@@ -4,7 +4,7 @@ Simple helper application that export Ad Hoc Deployment for iOS Project, includi
 Download:
 ---
 Pre-built binaries can be found [here].
-[here]: https://github.com/darkcl/OTA-Helper/releases/download/v0.1.0/OTA.Helper.app.zip
+[here]: http://darkcl.github.io/OTA-Helper-1.01.zip
 
 How to use:
 ---
