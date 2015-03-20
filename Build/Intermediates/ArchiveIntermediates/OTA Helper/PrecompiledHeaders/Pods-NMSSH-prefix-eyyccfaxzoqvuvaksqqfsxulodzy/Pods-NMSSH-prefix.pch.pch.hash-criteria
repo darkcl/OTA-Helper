@@ -1,0 +1,35 @@
+-x
+objective-c
+-arch
+x86_64
+-std=gnu99
+-fobjc-arc
+-fmodules
+-fmodules-cache-path=/Users/yeungyiuhung/Library/Developer/Xcode/DerivedData/ModuleCache
+-fpascal-strings
+-Os
+-DRELEASE=1
+-DCOCOAPODS=1
+-DNS_BLOCK_ASSERTIONS=1
+-isysroot
+/Applications/Xcode6/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk
+-fasm-blocks
+-mmacosx-version-min=10.9
+-g
+-iquote
+-iquote
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Build/Intermediates/ArchiveIntermediates/OTA Helper/BuildProductsPath/Release/include
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Pods/Headers/Build
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Pods/Headers/Build/NMSSH
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Pods/Headers/Public
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Pods/Headers/Public/NMSSH
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Pods/Headers/Public/ZXingObjC
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Pods/Headers/Public/mailcore2-osx
+-I/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Pods/Headers/Public/mailcore2-osx/MailCore
+-F/Users/yeungyiuhung/Documents/Workspace/OTA Helper/Build/Intermediates/ArchiveIntermediates/OTA Helper/BuildProductsPath/Release
+-DNS_BLOCK_ASSERTIONS=1
+-DOS_OBJECT_USE_OBJC=0
+x86_64-apple-darwin14.1.0
+"4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.54)"
+SDK_PRODUCT_BUILD_VERSION=14A382
+14A382

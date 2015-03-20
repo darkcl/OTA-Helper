@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B9E7F744-D0DB-4C07-9B2D-2AE8D544B301</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OTA Helper</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1297717D4081343EA69796A7F6301FE2A20C2F98</key>
+		<string>https://github.com/darkcl/OTA-Helper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OTA Helper.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1297717D4081343EA69796A7F6301FE2A20C2F98</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/darkcl/OTA-Helper.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1297717D4081343EA69796A7F6301FE2A20C2F98</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1297717D4081343EA69796A7F6301FE2A20C2F98</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OTA%20Helper</string>
+		</dict>
+	</array>
+</dict>
+</plist>

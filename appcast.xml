@@ -1,0 +1,13 @@
+ <item>
+    <title>Version 1.0</title>
+    <sparkle:releaseNotesLink>
+        http://you.com/app/2.0.html
+    </sparkle:releaseNotesLink>
+    <pubDate>Wed, 09 Jan 2006 19:20:11 +0000</pubDate>
+    <enclosure url="http://darkcl.github.io/OTA-Helper/OTA-Helper1.0"
+               sparkle:version="2.0"
+               sparkle:dsaSignature="MC4CFQCxoG44yDP4b+w3jFkfK2EDb8yS/gIVAMGUjiZll6m1S3h7d3RhihkM0QfH
+" <!-- if you're not code signing -->
+               length="1623481"
+               type="application/octet-stream" />
+</item>
