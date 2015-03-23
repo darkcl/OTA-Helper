@@ -37,7 +37,7 @@ else
 # Extract IPA-files
 APP_PLIST=temp.plist
 OTA_PLIST=$3
-unzip -p "$1" "**/Info.plist" > $APP_PLIST
+unzip -p "$1" "Payload/$4.app/Info.plist" > $APP_PLIST
 
 #Read contents
 BUNDLE_IDENTIFIER=$($PLIST_BUDDY "Print CFBundleIdentifier" $APP_PLIST)
@@ -102,7 +102,7 @@ provisioning)
 provisioning "$2" "$3"
 ;;
 plist)
-otaplist "$2" "$3" "$4"
+otaplist "$2" "$3" "$4" "$5"
 ;;
 itms)
 itms "$2"

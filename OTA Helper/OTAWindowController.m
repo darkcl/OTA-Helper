@@ -252,6 +252,7 @@
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     _consoleLogs.string = [NSString stringWithFormat:@"\n%@", outStr];
+//                    NSLog(@"%@", outStr);
                 });
                 [[outputPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
             }];
@@ -291,10 +292,13 @@
             NSTask *buildTask = [[NSTask alloc] init];
             buildTask.launchPath = path;
             buildTask.currentDirectoryPath = exportURL;
-            buildTask.arguments = @[@"plist",
-                                    [NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString],
-                                    [NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]],
-                                    [NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+            NSArray *arg = @[@"plist",
+                             [NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString],
+                             [NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]],
+                             [NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString],
+                             projectName];
+            NSLog(@"%@",arg);
+            buildTask.arguments = arg;
             [buildTask launch];
             
             [buildTask waitUntilExit];

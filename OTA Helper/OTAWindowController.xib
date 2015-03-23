@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="ccEmailField" destination="niz-TP-irq" id="hVX-fE-s37"/>
                 <outlet property="certificateLabel" destination="G1S-AI-paz" id="M3F-uu-ymI"/>
-                <outlet property="consoleLogs" destination="6TE-O8-NDN" id="s2U-OT-NDm"/>
+                <outlet property="consoleLogs" destination="0Ya-mf-XbW" id="q7z-2j-8jI"/>
                 <outlet property="domainTextField" destination="Erh-id-Dgy" id="cKA-cb-gKR"/>
                 <outlet property="emailDisplayNameField" destination="7l4-FV-rjw" id="l0N-JC-KXj"/>
                 <outlet property="emailInfoView" destination="1r1-pi-xA2" id="L1g-oB-Y4m"/>
@@ -183,58 +183,42 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4ME-bd-3Hx"/>
             </connections>
-            <point key="canvasLocation" x="425.5" y="46"/>
+            <point key="canvasLocation" x="286.5" y="75"/>
         </window>
         <customView id="S5z-uC-gQw" userLabel="Drawer Content View">
             <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="DTt-jm-6iD">
+                <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm6-rS-MgN">
                     <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>
-                    <clipView key="contentView" id="jD5-Fb-Sb5">
+                    <clipView key="contentView" ambiguous="YES" misplaced="YES" id="WZ4-se-u60">
                         <rect key="frame" x="1" y="1" width="223" height="133"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView editable="NO" selectable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" spellingCorrection="YES" id="6TE-O8-NDN">
-                                <rect key="frame" x="0.0" y="0.0" width="223" height="453"/>
+                            <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="0Ya-mf-XbW">
+                                <rect key="frame" x="0.0" y="0.0" width="223" height="451"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="minSize" width="323" height="453"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="321" height="451"/>
                                 <size key="maxSize" width="463" height="10000000"/>
-                                <attributedString key="textStorage">
-                                    <fragment content="Console Logs">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="Monaco"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="323" height="453"/>
+                                <size key="minSize" width="321" height="451"/>
                                 <size key="maxSize" width="463" height="10000000"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="Pp5-gp-K0E">
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="a7n-2M-cAP">
                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Pjy-Ye-uAH">
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="PQp-2h-xPC">
                         <rect key="frame" x="224" y="1" width="15" height="133"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
             </subviews>
-            <constraints>
-                <constraint firstItem="DTt-jm-6iD" firstAttribute="leading" secondItem="S5z-uC-gQw" secondAttribute="leading" id="SZH-p1-yEr"/>
-                <constraint firstAttribute="trailing" secondItem="DTt-jm-6iD" secondAttribute="trailing" id="XTc-NT-7x2"/>
-                <constraint firstItem="DTt-jm-6iD" firstAttribute="top" secondItem="S5z-uC-gQw" secondAttribute="top" id="kbF-aY-2nL"/>
-                <constraint firstAttribute="bottom" secondItem="DTt-jm-6iD" secondAttribute="bottom" id="y3O-gk-XLc"/>
-            </constraints>
-            <point key="canvasLocation" x="964" y="-23.5"/>
+            <point key="canvasLocation" x="678" y="74.5"/>
         </customView>
         <customView id="1r1-pi-xA2">
             <rect key="frame" x="0.0" y="0.0" width="398" height="408"/>
