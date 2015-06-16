@@ -13,6 +13,7 @@
 
 @property (weak) IBOutlet NSView *inputProjectName;
 @property (weak) IBOutlet SUUpdater *updater;
+@property (weak) IBOutlet NSMenu *allProjects;
 
 @property (weak) IBOutlet NSMenuItem *recentProjects;
 @property (weak) IBOutlet NSTextField *projectName;
@@ -28,7 +29,10 @@
         NSDictionary *aDict = [[NSUserDefaults standardUserDefaults] objectForKey:SAVED_INFO];
         
         for (NSString *str in [aDict allKeys]) {
-            [_recentProjects.submenu addItem:[[NSMenuItem alloc] initWithTitle:str action:@selector(projectSelected:) keyEquivalent:@""]];
+            NSLog(@"Added %@", str);
+            NSMenuItem *anItem = [_allProjects addItemWithTitle:str action:@selector(projectSelected:) keyEquivalent:@""];
+            [anItem setTarget:self];
+            
         }
     }else{
         [self createNewProject:nil];
@@ -45,9 +49,26 @@
     a.accessoryView = _inputProjectName;
     NSInteger i = [a runModal];
     if (i == NSAlertAlternateReturn) {
-        OTAWindowController *aWindow = [[OTAWindowController alloc] initWithIndicator:_projectName.stringValue];
-        [aWindow showWindow:nil];
-        [projectWindows addObject:aWindow];
+        
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:SAVED_INFO]){
+            NSDictionary *infoDict = [[NSUserDefaults standardUserDefaults] objectForKey:SAVED_INFO];
+            NSMutableDictionary *userDefault = [[NSMutableDictionary alloc] initWithDictionary:infoDict];
+            NSDictionary *aDict = [NSDictionary dictionary];
+            
+            [userDefault setObject:aDict forKey:_projectName.stringValue];
+            [[NSUserDefaults standardUserDefaults] setObject:userDefault forKey:SAVED_INFO];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [_allProjects removeAllItems];
+            for (NSString *str in [userDefault allKeys]) {
+                NSLog(@"Added %@", str);
+                [_allProjects addItem:[[NSMenuItem alloc] initWithTitle:str action:@selector(projectSelected:) keyEquivalent:@""]];
+            }
+            
+            OTAWindowController *aWindow = [[OTAWindowController alloc] initWithIndicator:_projectName.stringValue];
+            [aWindow showWindow:nil];
+            [projectWindows addObject:aWindow];
+        }
     }
 }
 

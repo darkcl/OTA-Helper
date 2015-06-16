@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "830E2C3353D2326E83B24CED"
+               BlueprintIdentifier = "99EF4D3CECFE03C9BA499DD5"
                BuildableName = "libPods-NMSSH.a"
                BlueprintName = "Pods-NMSSH"
                ReferencedContainer = "container:Pods.xcodeproj">

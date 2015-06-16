@@ -101,6 +101,8 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     [self buildListIdentity];
+    
+    self.window.title = indicatorStr;
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if ([[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr]) {
         NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
@@ -124,7 +126,7 @@
         NSMutableDictionary *savedProjects = [[NSMutableDictionary alloc] init];
         [userDefault setObject:savedProjects forKey:SAVED_INFO];
         
-        NSDictionary *saveInfoDicr = [[NSDictionary alloc] init];
+        NSMutableDictionary *saveInfoDicr = [[NSMutableDictionary alloc] init];
         [savedProjects setObject:saveInfoDicr forKey:indicatorStr];
         [[NSUserDefaults standardUserDefaults] setObject:savedProjects forKey:SAVED_INFO];
         [[NSUserDefaults standardUserDefaults] synchronize];
