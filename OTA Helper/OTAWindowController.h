@@ -28,7 +28,7 @@
     
     NSString *indicatorStr;
     
-    
+    bool isCocoaPods;
 }
 
 @property (nonatomic) BOOL isRunning;

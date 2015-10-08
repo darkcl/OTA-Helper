@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="OTAWindowController">
@@ -20,6 +20,7 @@
                 <outlet property="ftpPathField" destination="Aji-rr-D9j" id="qQH-rJ-4Sf"/>
                 <outlet property="gmailPasswordField" destination="8dM-oy-owZ" id="Cwo-7x-40P"/>
                 <outlet property="gmailTextField" destination="Ihm-xE-2Pd" id="eUf-1m-lzo"/>
+                <outlet property="htmlStringText" destination="YLZ-es-VyN" id="Kbk-f2-oOh"/>
                 <outlet property="myDrawer" destination="DUl-iH-RVP" id="0DG-9d-YGi"/>
                 <outlet property="passwordField" destination="3lD-1h-rBI" id="EXv-RP-rou"/>
                 <outlet property="popupButton" destination="ydX-nJ-fog" id="yba-Tb-38c"/>
@@ -162,6 +163,34 @@
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                     </secureTextField>
+                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27J-Hq-rnL">
+                        <rect key="frame" x="20" y="21" width="198" height="108"/>
+                        <clipView key="contentView" misplaced="YES" id="mzy-jF-sFc">
+                            <rect key="frame" x="1" y="1" width="223" height="133"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YLZ-es-VyN">
+                                    <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="181" height="106"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="181" height="106"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="4s1-Vf-laN">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Pkx-d0-2Vj">
+                            <rect key="frame" x="224" y="1" width="15" height="133"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
                     <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2nk-cM-XBc">
                         <rect key="frame" x="0.0" y="0.0" width="323" height="478"/>
                         <subviews>
@@ -183,7 +212,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4ME-bd-3Hx"/>
             </connections>
-            <point key="canvasLocation" x="286.5" y="75"/>
+            <point key="canvasLocation" x="358.5" y="-53"/>
         </window>
         <customView id="S5z-uC-gQw" userLabel="Drawer Content View">
             <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>
@@ -191,11 +220,11 @@
             <subviews>
                 <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm6-rS-MgN">
                     <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>
-                    <clipView key="contentView" ambiguous="YES" misplaced="YES" id="WZ4-se-u60">
+                    <clipView key="contentView" misplaced="YES" id="WZ4-se-u60">
                         <rect key="frame" x="1" y="1" width="223" height="133"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="0Ya-mf-XbW">
+                            <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="0Ya-mf-XbW">
                                 <rect key="frame" x="0.0" y="0.0" width="223" height="451"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,7 +247,7 @@
                     </scroller>
                 </scrollView>
             </subviews>
-            <point key="canvasLocation" x="678" y="74.5"/>
+            <point key="canvasLocation" x="894" y="-27.5"/>
         </customView>
         <customView id="1r1-pi-xA2">
             <rect key="frame" x="0.0" y="0.0" width="398" height="408"/>

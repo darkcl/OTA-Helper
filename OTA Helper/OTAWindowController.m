@@ -11,6 +11,7 @@
 #import "Provisioning.h"
 
 @interface OTAWindowController ()
+@property (unsafe_unretained) IBOutlet NSTextView *htmlStringText;
 
 @property (weak) IBOutlet NSTextField *projectLabel;
 @property (weak) IBOutlet NSTextField *exportPathLabel;
@@ -107,7 +108,14 @@
     if ([[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr]) {
         NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
         xcodeProjURL = saveInfoDict[@"project"];
-        projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcodeproj" withString:@""];
+        
+        if ([[xcodeProjURL lastPathComponent] rangeOfString:@"xcodeproj"].location != NSNotFound) {
+            isCocoaPods = NO;
+            projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcodeproj" withString:@""];
+        }else{
+            isCocoaPods = YES;
+            projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcworkspace" withString:@""];
+        }
         _projectLabel.stringValue = projectName;
         exportURL = saveInfoDict[@"export"];
         _exportPathLabel.stringValue = saveInfoDict[@"export"];
@@ -150,13 +158,17 @@
     [panel setCanChooseDirectories:NO];
     [panel setCanChooseFiles:YES];
     [panel setAllowsMultipleSelection:NO];
-    [panel setAllowedFileTypes:[NSArray arrayWithObject:@"xcodeproj"]];
+    [panel setAllowedFileTypes:@[@"xcodeproj", @"xcworkspace"]];
     NSInteger i = [panel runModal];
     if(i == NSModalResponseOK){
         xcodeProjURL = [[panel URL] path];
         NSLog(@"XCODE PROJ : %@", xcodeProjURL);
+        if ([projectName rangeOfString:@"xcodeproj"].location != NSNotFound) {
+            projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcodeproj" withString:@""];
+        }else{
+            projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcworkspace" withString:@""];
+        }
         
-        projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcodeproj" withString:@""];
         [_projectLabel setStringValue:projectName];
     }
 }
@@ -199,6 +211,8 @@
         dateString = [dateFormatter stringFromDate:now];
         [arguments addObject:dateString];
         [arguments addObject:[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+        //"$appname.xcodeproj/project.xcworkspace"
+        [arguments addObject:isCocoaPods ? [NSString stringWithFormat:@"%@.xcworkspace", projectName] : [NSString stringWithFormat:@"%@.xcodeproj/project.xcworkspace", projectName]];
         
         //        _ftpPathField.stringValue = saveInfoDict[@"ftpPath"];
         //        _ftpField.stringValue = saveInfoDict[@"ftpDomain"];
@@ -254,7 +268,7 @@
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     _consoleLogs.string = [NSString stringWithFormat:@"\n%@", outStr];
-//                    NSLog(@"%@", outStr);
+                    NSLog(@"%@", outStr);
                 });
                 [[outputPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
             }];
@@ -322,6 +336,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_myDrawer close];
                     _progessView.hidden = NO;
+                    
                     NSPasteboard *generalPasteBoard = [NSPasteboard generalPasteboard];
                     
                     [generalPasteBoard declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:nil];
@@ -340,7 +355,7 @@
                                                        otherButton:nil
                                          informativeTextWithFormat:@"Copied %@ to Pasteboard",htmlString];
                     
-                    
+                    [_htmlStringText setString:htmlString];
                     if ([alert runModal] == NSAlertDefaultReturn) {
                         NMSSHSession *session = [NMSSHSession connectToHost:_ftpField.stringValue
                                                                withUsername:_userField.stringValue];

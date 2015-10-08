@@ -14,14 +14,14 @@ project_dir="${3}"
 build_location="${4}"
 NOW="${5}"
 ipaname="${6}"
-
+workspace="${7}"
 if [ ! -d "$build_location" ]; then
     mkdir -p "$build_location"
 fi
 
 cd "$project_dir"
 
-xcodebuild -configuration Release -scheme "$appname" -destination generic/platform=iOS  -workspace "$appname.xcodeproj/project.xcworkspace" clean archive -archivePath "$build_location/App-$NOW"
+xcodebuild -configuration Release -scheme "$appname" -destination generic/platform=iOS  -workspace "$workspace" clean archive -archivePath "$build_location/App-$NOW"
 xcodebuild -configuration Release -exportArchive -exportFormat ipa -archivePath "$build_location/App-$NOW.xcarchive" -exportPath "$build_location/$ipaname-$NOW.ipa" -exportProvisioningProfile "$provision"
 
 #xcodebuild -target "$appname" OBJROOT="$build_location/obj.root" SYMROOT="$build_location/sym.root"
