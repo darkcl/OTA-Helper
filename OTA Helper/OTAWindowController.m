@@ -164,8 +164,10 @@
         xcodeProjURL = [[panel URL] path];
         NSLog(@"XCODE PROJ : %@", xcodeProjURL);
         if ([projectName rangeOfString:@"xcodeproj"].location != NSNotFound) {
+            isCocoaPods = NO;
             projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcodeproj" withString:@""];
         }else{
+            isCocoaPods = YES;
             projectName = [[xcodeProjURL lastPathComponent] stringByReplacingOccurrencesOfString:@".xcworkspace" withString:@""];
         }
         
@@ -378,9 +380,9 @@
                                 [session.channel uploadFile:plistURL
                                                          to:_ftpPathField.stringValue];
                                 
-                                NSString *resultJson = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",projectName]];
+                                NSString *resultJson = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",indicatorStr]];
                                 
-                                [session.channel downloadFile:[_ftpPathField.stringValue stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",projectName]]
+                                [session.channel downloadFile:[_ftpPathField.stringValue stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",indicatorStr]]
                                                            to:resultJson];
                                 
                                 if (![[NSFileManager defaultManager] fileExistsAtPath:resultJson]) {
