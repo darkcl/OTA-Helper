@@ -68,6 +68,24 @@
             OTAWindowController *aWindow = [[OTAWindowController alloc] initWithIndicator:_projectName.stringValue];
             [aWindow showWindow:nil];
             [projectWindows addObject:aWindow];
+        }else{
+            NSDictionary *infoDict = [[NSDictionary alloc] init];
+            NSMutableDictionary *userDefault = [[NSMutableDictionary alloc] initWithDictionary:infoDict];
+            NSDictionary *aDict = [NSDictionary dictionary];
+            
+            [userDefault setObject:aDict forKey:_projectName.stringValue];
+            [[NSUserDefaults standardUserDefaults] setObject:userDefault forKey:SAVED_INFO];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [_allProjects removeAllItems];
+            for (NSString *str in [userDefault allKeys]) {
+                NSLog(@"Added %@", str);
+                [_allProjects addItem:[[NSMenuItem alloc] initWithTitle:str action:@selector(projectSelected:) keyEquivalent:@""]];
+            }
+            
+            OTAWindowController *aWindow = [[OTAWindowController alloc] initWithIndicator:_projectName.stringValue];
+            [aWindow showWindow:nil];
+            [projectWindows addObject:aWindow];
         }
     }
 }
