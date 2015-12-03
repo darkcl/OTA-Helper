@@ -1,10 +1,14 @@
 {
-  "name": "proton-template-app",
-  "version": "1.0.0",
-  "description": "A simple template app for Proton",
+  "name": "OTA-Helper",
+  "version": "1.1.0",
+  "author": "Yeung Yiu Hung",
+  "description": "Simple helper application that export Ad Hoc Deployment for iOS Project, including upload and version checking.",
   "main": "app.js",
-  "author": "Connor Sears",
   "scripts": {
     "start": "electron ."
+  },
+  "dependencies": {
+    "fs": "0.0.2",
+    "plist": "^1.2.0"
   }
 }

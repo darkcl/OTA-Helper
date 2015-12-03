@@ -21,7 +21,7 @@ fi
 
 cd "$project_dir"
 
-xcodebuild -configuration Release -scheme "$appname" -destination generic/platform=iOS  -workspace "$workspace" clean archive -archivePath "$build_location/App-$NOW"
+xcodebuild -configuration Production -scheme "$appname" -destination generic/platform=iOS  -workspace "$workspace" clean archive -archivePath "$build_location/App-$NOW"
 xcodebuild -configuration Release -exportArchive -exportFormat ipa -archivePath "$build_location/App-$NOW.xcarchive" -exportPath "$build_location/$ipaname-$NOW.ipa" -exportProvisioningProfile "$provision"
 
 #echo "gym -s $appname -o $build_location -n $ipaname-$NOW -i $provision"

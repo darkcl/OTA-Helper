@@ -1,11 +1,15 @@
-var app = require('app');  // Module to control application life.
+const electron = require('electron');
+const app = electron.app;
+const globalShortcut = electron.globalShortcut;
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow = null;
-
+var devToolsOpen = false;
 // Quit when all windows are closed.
+
+
 app.on('window-all-closed', function() {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -19,19 +23,34 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 600,
-    height: 300,
-    'min-width': 500,
-    'min-height': 200,
+    width: 800,
+    height: 600,
+    resizable: false,
     'accept-first-mouse': true,
     'title-bar-style': 'hidden'
   });
 
-  // and load the index.html of the app.
+  var ret = globalShortcut.register('ctrl+x', function() {
+    console.log('ctrl+x is pressed');
+    // Open the DevTools.
+    if (mainWindow.isDevToolsOpened()) {
+      mainWindow.closeDevTools();
+    } else {
+      mainWindow.openDevTools({detach: true});
+    }
+    
+  });
+
+  if (!ret) {
+    console.log('registration failed');
+  }
+
+  // Check whether a shortcut is registered.
+  console.log(globalShortcut.isRegistered('ctrl+x'));
+
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
-  // Open the DevTools.
-  //mainWindow.openDevTools();
+  
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
@@ -40,4 +59,12 @@ app.on('ready', function() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+});
+
+app.on('will-quit', function() {
+  // Unregister a shortcut.
+  globalShortcut.unregister('ctrl+x');
+
+  // Unregister all shortcuts.
+  globalShortcut.unregisterAll();
 });
