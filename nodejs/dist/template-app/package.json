@@ -8,7 +8,13 @@
     "start": "electron ."
   },
   "dependencies": {
+    "darwin-developer": "^0.2.0",
+    "electron-prebuilt": "^0.35.2",
     "fs": "0.0.2",
-    "plist": "^1.2.0"
+    "plist": "^1.2.0",
+    "provisioning": "^1.4.0"
+  },
+  "devDependencies": {
+    "electron-reload": "^0.2.0"
   }
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppIDName</key>
+	<string>Test app for Apphaus</string>
+	<key>ApplicationIdentifierPrefix</key>
+	<array>
+	<string>PE9CV42DPD</string>
+	</array>
+	<key>CreationDate</key>
+	<date>2015-06-01T14:33:41Z</date>
+	<key>DeveloperCertificates</key>
+	<array>
+		<data>MIIFnTCCBIWgAwIBAgIIduhY/nzZVi4wDQYJKoZIhvcNAQEFBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMTUwMTI3MTMyNzAxWhcNMTYwMTI3MTMyNzAxWjCBkDEaMBgGCgmSJomT8ixkAQEMClBFOUNWNDJEUEQxODA2BgNVBAMML2lQaG9uZSBEaXN0cmlidXRpb246IFNlcnZpY2UyTWVkaWEgKFBFOUNWNDJEUEQpMRMwEQYDVQQLDApQRTlDVjQyRFBEMRYwFAYDVQQKDA1TZXJ2aWNlMk1lZGlhMQswCQYDVQQGEwJOTDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALn2N4D9Qk0satwKaVabMBH1IpuA2v/t8JyUIyo3AmUwX2yRFD/Ps4IfFBgvWpPWZRoFpyFbV8MAoeghPsVYFB8cb4f1KDoVg7Pokl/9CR2JamRwGN3rQktIqsDPomz+4IITR2UUz9dfw9tLl1EEyvzFqHE5iiFiP7DvacH7cVQBl9sXzv6tz4NQZioKRcMvfqsVqsSlZe0ZBPvBk46FE9VBwbAan5NDVC9a7ZBQUWJuwE1L7W6q4EkfyXxqTgl0oiOhuQjrb5e7Dvzn8qV9S2+ORpszSGl7ZL9vTnvl41JtYncPktvba2LZ3PCBcc2iS7Vy8piY0fiuSkjJp0lG3CECAwEAAaOCAfEwggHtMB0GA1UdDgQWBBS8fatfUT80xKRK8oqdxiew3kbSDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFIgnFwmpthhgi+zruvZHWcVSVKO3MIIBDwYDVR0gBIIBBjCCAQIwgf8GCSqGSIb3Y2QFATCB8TCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjApBggrBgEFBQcCARYdaHR0cDovL3d3dy5hcHBsZS5jb20vYXBwbGVjYS8wTQYDVR0fBEYwRDBCoECgPoY8aHR0cDovL2RldmVsb3Blci5hcHBsZS5jb20vY2VydGlmaWNhdGlvbmF1dGhvcml0eS93d2RyY2EuY3JsMA4GA1UdDwEB/wQEAwIHgDAWBgNVHSUBAf8EDDAKBggrBgEFBQcDAzATBgoqhkiG92NkBgEEAQH/BAIFADANBgkqhkiG9w0BAQUFAAOCAQEAN4js5FDkpfYT7JWpG3CCaKvm25eytjH9OzNF6Way2A/EQdyqrxfMk+oWM0+Mz0HpMkxI9xSL6VIXhtwxaLQoRs/dsZzOUV1ZVC/838H4cMYX6XUsRCxScQ9RRowH+AMMIFcNvvOt3IKxj5Pnr1nPeBGYiWiQbDpGxPzZwJrPaZ4q+1ofjpBajbohyRLXwTeGpOiF33WFJUtOBzRvuVN8DA2qfgGIdNzP0lW9bO0gcvz7hOgEJ7eMH+fC2L6WYfx0kghmRXF60bNSLv9HFPZdTxsX/BgV3x6G9I+b1naPDbrSyZCcZhkC4cIdtJx2PkF37Q2ROK45MpOtWHmu/lC/Cw==</data>
+	</array>
+	<key>Entitlements</key>
+	<dict>
+		<key>keychain-access-groups</key>
+		<array>
+			<string>PE9CV42DPD.*</string>		
+		</array>
+		<key>get-task-allow</key>
+		<false/>
+		<key>application-identifier</key>
+		<string>PE9CV42DPD.com.service2media.signtest</string>
+		<key>com.apple.developer.team-identifier</key>
+		<string>PE9CV42DPD</string>
+
+	</dict>
+	<key>ExpirationDate</key>
+	<date>2016-01-27T13:27:01Z</date>
+	<key>Name</key>
+	<string>Apphaus testapp Ad Hoc</string>
+	<key>ProvisionedDevices</key>
+	<array>
+		<string>73333ef898750effbc5b474414e91c2452040302</string>
+		<string>8cf95ce4f1ac77a7443c32ecca7c3c26d561d033</string>
+		<string>861edc29680ad2159e022d212629b83775eef6d5</string>
+	</array>
+	<key>TeamIdentifier</key>
+	<array>
+		<string>PE9CV42DPD</string>
+	</array>
+	<key>TeamName</key>
+	<string>Service2Media</string>
+	<key>TimeToLive</key>
+	<integer>239</integer>
+	<key>UUID</key>
+	<string>699713d3-b246-4ede-a511-cf33552cc791</string>
+	<key>Version</key>
+	<integer>1</integer>
+</dict>
+</plist>

@@ -2,13 +2,17 @@ const electron = require('electron');
 const app = electron.app;
 const globalShortcut = electron.globalShortcut;
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
+require('electron-reload')(__dirname);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow = null;
 var devToolsOpen = false;
-// Quit when all windows are closed.
 
+// In main process.
+const ipcMain = electron.ipcMain;
+
+// Quit when all windows are closed.
 
 app.on('window-all-closed', function() {
   // On OS X it is common for applications and their menu bar
@@ -49,7 +53,17 @@ app.on('ready', function() {
   console.log(globalShortcut.isRegistered('ctrl+x'));
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
-
+  mainWindow.webContents.on('did-finish-load', function() {
+    // In main process.
+    const ipcMain = require('electron').ipcMain;
+    ipcMain.on('asynchronous-message', function(event, arg) {
+      console.log(arg);  // prints "ping"
+      const dialog = require('electron').dialog;
+      var result = dialog.showOpenDialog({ properties: [ 'openFile', 'openDirectory' ]})
+      event.sender.send('asynchronous-reply', result);
+    });
+  });
+  // In main process.
   
 
   // Emitted when the window is closed.
@@ -59,6 +73,8 @@ app.on('ready', function() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+
 });
 
 app.on('will-quit', function() {
