@@ -11,7 +11,7 @@ var devToolsOpen = false;
 
 // In main process.
 const ipcMain = electron.ipcMain;
-
+const dialog = require('electron').dialog;
 // Quit when all windows are closed.
 
 app.on('window-all-closed', function() {
@@ -56,11 +56,35 @@ app.on('ready', function() {
   mainWindow.webContents.on('did-finish-load', function() {
     // In main process.
     const ipcMain = require('electron').ipcMain;
-    ipcMain.on('asynchronous-message', function(event, arg) {
+    ipcMain.on('synchronous-message', function(event, arg) {
       console.log(arg);  // prints "ping"
-      const dialog = require('electron').dialog;
-      var result = dialog.showOpenDialog({ properties: [ 'openFile', 'openDirectory' ]})
-      event.sender.send('asynchronous-reply', result);
+
+      if (arg == 'project_path') {
+        var response = require('dialog').showOpenDialog({
+          browserWindows: mainWindow,
+          properties: [ 'openFile' ], 
+          filters: [
+            {name: 'Xcode Project', extensions: ['xcodeproj']}, 
+            {name: 'Xcode Workspace', extensions: ['xcworkspace']}
+          ]
+        });
+        if (response === undefined) {
+          event.returnValue = "Error";
+        }else{
+          event.returnValue = response;
+        }
+      }else if (arg == 'export_path') {
+        var response = require('dialog').showOpenDialog({
+          browserWindows: mainWindow, 
+          properties: [ 'openDirectory' ]
+        });
+
+        if (response === undefined) {
+          event.returnValue = "Error";
+        }else{
+          event.returnValue = response;
+        }
+      }
     });
   });
   // In main process.

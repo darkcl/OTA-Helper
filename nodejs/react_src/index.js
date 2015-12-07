@@ -3,13 +3,63 @@ var plist = require('plist');
 
 const ipcRenderer = require('electron').ipcRenderer;
 
-var fs = require('fs');
+var provisionloader = require(__dirname + '/js/provision-loader.js');
+var xcodebuild = require(__dirname + '/js/xcode-build.js');
+
+xcodebuild.listConfig('/Users/yeungyiuhung/Documents/Workspace/Facesss')
+.then(function(value){
+  console.log(value);
+});
 
 var appController = {
   listener: null,
   data: plist.parse(fs.readFileSync(__dirname +'/data/test.plist', 'utf8')),
   selectedProject: null,
   title: "OTA Helper",
+  isReady: false,
+  provisionings: [],
+  addProvisionings: function(data) {
+    // console.log(data);
+    this.provisionings.push(data);
+  },
+
+  startLoading: function() {
+    var provisioningDir = process.env.HOME + '/Library/MobileDevice/Provisioning\ Profiles/';
+    var that = this;
+    fs.readdir( provisioningDir, function (err, files) { 
+      if (!err) {
+        for (var i = files.length - 1; i >= 0; i--) {
+          var fileName = files[i];
+          // console.log(fileName);
+          var count = 0;
+          if (fileName.indexOf('mobileprovision') != -1) {
+            var dir = process.env.HOME + '/Library/MobileDevice/Provisioning\ Profiles/';
+
+            provisionloader.loadProfile(dir + fileName)
+            .then(function (value){
+              that.addProvisionings(value);
+            })
+            .fin(function (){
+              count++;
+              // console.log('Loaded: ' + count  + '/' + files.length);
+
+              that.setIsReady(count == files.length - 1);
+            });
+            
+          }
+        }
+      }else{
+        console.log(err);
+      }
+    });
+    
+  },
+
+  setIsReady: function(ready){
+    this.isReady = ready;
+    this.listener.changed();
+  },
+
   setSelected: function(project) {
     this.selectedProject = project;
     this.listener.changed();
@@ -23,6 +73,15 @@ var appController = {
   getCurrentProjectData: function() {
     // console.log(this.selectedProject);
     return this.data["saveInfo_projects"][this.selectedProject];
+  },
+
+  saveProjects: function() {
+
+  },
+
+  setProjectData: function(project) {
+    this.data["saveInfo_projects"][this.selectedProject] = project;
+    this.listener.changed();
   }
 }
 
@@ -35,6 +94,8 @@ var TitleBar = React.createClass({
     );
   }
 });
+
+// console.log(plist.parse(fs.readFileSync('/Users/yeungyiuhung/Library/MobileDevice/Provisioning\ Profiles/6d774418-a45f-45cd-8373-e045573a316c.mobileprovision', 'utf8')));
 
 // Project List
 
@@ -93,18 +154,26 @@ var InputField = React.createClass({
 
 var OptionField = React.createClass({
   render: function() {
+    // console.log(this.props.data);
+    var preselect = this.props.preselect;
+    var itemNodes = this.props.data.map(function(item) {
+      // console.log(projects);
+      if (item == preselect) {
+        return (
+          <option selected>{item}</option>
+        );
+      }else{
+        return (
+          <option>{item}</option>
+        );
+      }
+      
+    });
     return (
       <div className="form-group">
         <label>{this.props.inputName}</label>
         <select className="form-control">
-          <option>Option one</option>
-          <option>Option two</option>
-          <option>Option three</option>
-          <option>Option four</option>
-          <option>Option five</option>
-          <option>Option six</option>
-          <option>Option seven</option>
-          <option>Option eight</option>
+          {itemNodes}
         </select>
       </div>
     )
@@ -113,13 +182,17 @@ var OptionField = React.createClass({
 
 var MainContent = React.createClass({
   handleExportPathClick: function() {
-    ipcRenderer.on('asynchronous-reply', function(event, arg) {
-      console.log(arg); // prints "pong"
-    });
-    ipcRenderer.send('asynchronous-message', 'ping');
+    console.log('click');
+    var path = ipcRenderer.sendSync('synchronous-message', 'export_path');
+    console.log(path);
   },
+
+  handleProjectPathClick: function() {
+    console.log('click project');
+    console.log(ipcRenderer.sendSync('synchronous-message', 'project_path'));
+  },
+
   handleClick: function() {
-    // body...
     console.log("Export");
   },
   render: function () {
@@ -127,17 +200,42 @@ var MainContent = React.createClass({
     if (this.props.appState.selectedProject != null) {
       var data = this.props.appState.getCurrentProjectData();
       // console.log(data);
+      var provisions = this.props.appState.provisionings.map(function(value){
+        return value["Name"];
+      });
+      // console.log("Provision :"+provisions);
+    //   <key>cert</key>
+    // <string>CP Development Profile</string>
+    // <key>domain</key>
+    // <string>https://download.cherrypicks.com/StylishPark/Source/OTA/</string>
+    // <key>export</key>
+    // <string>/Users/yeungyiuhung/Documents/OTA Build/Stylistpark</string>
+    // <key>ftpDomain</key>
+    // <string>download.cherrypicks.com:22</string>
+    // <key>ftpPassword</key>
+    // <string>down123load0</string>
+    // <key>ftpPath</key>
+    // <string>/var/www/download.cherrypicks.com/StylishPark/Source/OTA/</string>
+    // <key>ftpUser</key>
+    // <string>download</string>
+    // <key>project</key>
+    // <string>/Users/yeungyiuhung/Documents/Workspace/Stylistpark/Stylistpark.xcodeproj</string>
+    // <InputField inputType='text' placeholder='Email1' inputName='Email' />
+    //       <InputField inputType='password' placeholder='Password' inputName='Password' />
       return(
         <div className="pane">
         <div style={divStyle}>
-          <InputField inputType='text' placeholder='Email1' inputName='Email' />
-          <InputField inputType='password' placeholder='Password' inputName='Password' />
+          <div className="form-group">
+            <label>Project Path</label><br/>
+            <label>{this.props.appState.getCurrentProjectData()["project"]}</label>
+            <button className="btn btn-form btn-default pull-right" onClick={this.handleProjectPathClick}>...</button>
+          </div>
           <div className="form-group">
             <label>Export Path</label><br/>
             <label>{this.props.appState.getCurrentProjectData()["export"]}</label>
             <button className="btn btn-form btn-default pull-right" onClick={this.handleExportPathClick}>...</button>
           </div>
-          <OptionField inputName='Provisioning Profile' />
+          <OptionField inputName='Provisioning Profile' data={provisions} preselect={this.props.appState.getCurrentProjectData()["cert"]}/>
 
           <div className="form-actions padded-top">
             <button className="btn btn-form btn-primary pull-right" onClick={this.handleClick}>Export</button>
@@ -192,6 +290,7 @@ var WindowsContent = React.createClass({
   //before we render, start listening to the app for changes
   componentWillMount: function () {
     this.state.app.listener = this;
+    this.state.app.startLoading();
   },
   //update if the app tells us it changed
   changed: function () {
@@ -199,13 +298,24 @@ var WindowsContent = React.createClass({
   },
   render : function() {
     var app = this.state.app;
-    return (
-      <div className="window">
-        <TitleBar title={app.title}/>
-        <AppContent appState={app}/>
-        <FooterBar />
-      </div>
-    )
+    if (app.isReady) {
+      // console.log(app.provisionings);
+      return (
+        <div className="window">
+          <TitleBar title={app.title}/>
+          <AppContent appState={app}/>
+          <FooterBar />
+        </div>
+      );
+    }else{
+      return (
+        <div className="window">
+          <TitleBar title={app.title}/>
+          <h1>Loading...</h1>
+        </div>
+      );
+    }
+    
   }
 })
 
