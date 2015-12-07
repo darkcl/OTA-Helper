@@ -36,9 +36,6 @@ exports.listConfig = function (dirname) {
     			schemaStartLine = i;
     		}
     	}
-    	console.log (targetStartLine);
-    	console.log (configStartLine);
-    	console.log (schemaStartLine);
     	for (var i = targetStartLine+1; i < arr.length; i++) {
     		var output = arr[i];
     		if (output == '') {

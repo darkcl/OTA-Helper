@@ -6,11 +6,6 @@ const ipcRenderer = require('electron').ipcRenderer;
 var provisionloader = require(__dirname + '/js/provision-loader.js');
 var xcodebuild = require(__dirname + '/js/xcode-build.js');
 
-xcodebuild.listConfig('/Users/yeungyiuhung/Documents/Workspace/Facesss')
-.then(function(value){
-  console.log(value);
-});
-
 var appController = {
   listener: null,
   data: plist.parse(fs.readFileSync(__dirname +'/data/test.plist', 'utf8')),
@@ -204,24 +199,7 @@ var MainContent = React.createClass({
         return value["Name"];
       });
       // console.log("Provision :"+provisions);
-    //   <key>cert</key>
-    // <string>CP Development Profile</string>
-    // <key>domain</key>
-    // <string>https://download.cherrypicks.com/StylishPark/Source/OTA/</string>
-    // <key>export</key>
-    // <string>/Users/yeungyiuhung/Documents/OTA Build/Stylistpark</string>
-    // <key>ftpDomain</key>
-    // <string>download.cherrypicks.com:22</string>
-    // <key>ftpPassword</key>
-    // <string>down123load0</string>
-    // <key>ftpPath</key>
-    // <string>/var/www/download.cherrypicks.com/StylishPark/Source/OTA/</string>
-    // <key>ftpUser</key>
-    // <string>download</string>
-    // <key>project</key>
-    // <string>/Users/yeungyiuhung/Documents/Workspace/Stylistpark/Stylistpark.xcodeproj</string>
-    // <InputField inputType='text' placeholder='Email1' inputName='Email' />
-    //       <InputField inputType='password' placeholder='Password' inputName='Password' />
+
       return(
         <div className="pane">
         <div style={divStyle}>
