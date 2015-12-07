@@ -5,14 +5,16 @@ const ipcRenderer = require('electron').ipcRenderer;
 
 var provisionloader = require(__dirname + '/js/provision-loader.js');
 var xcodebuild = require(__dirname + '/js/xcode-build.js');
-
 var appController = {
   listener: null,
   data: plist.parse(fs.readFileSync(__dirname + '/data/test.plist', 'utf8')),
   selectedProject: null,
   title: "OTA Helper",
   isReady: false,
+  isProjectLoading: false,
   provisionings: [],
+  currentXcodeConfig: null,
+
   addProvisionings: function (data) {
     // console.log(data);
     this.provisionings.push(data);
@@ -53,7 +55,17 @@ var appController = {
 
   setSelected: function (project) {
     this.selectedProject = project;
+    this.isProjectLoading = true;
+    var that = this;
+    var path = this.getCurrentProjectData()["project"].substring(0, this.getCurrentProjectData()["project"].lastIndexOf("/"));
+    console.log(path);
     this.listener.changed();
+    xcodebuild.listConfig(path).then(function (response) {
+      that.currentXcodeConfig = response;
+    }).fin(function () {
+      that.isProjectLoading = false;
+      that.listener.changed();
+    });
   },
 
   setTitle: function (title) {
@@ -214,76 +226,103 @@ var MainContent = React.createClass({
   },
 
   handleClick: function () {
+    // [arguments addObject:isCocoaPods ? [NSString stringWithFormat:@"%@.xcworkspace", projectName] : [NSString stringWithFormat:@"%@.xcodeproj/project.xcworkspace", projectName]];
+
+    var file = this.props.appState.getCurrentProjectData()["project"].substr(this.props.appState.getCurrentProjectData()["project"].lastIndexOf('/') + 1);
+
+    var isProject = file.indexOf("xcodeproj") == -1 ? false : true;
+    var that = this;
+    xcodebuild.buildArchieve(this.props.appState.getCurrentProjectData()["export"], isProject ? this.props.appState.getCurrentProjectData()["project"] + '/project.xcworkspace' : this.props.appState.getCurrentProjectData()["project"], "Release", this.props.appState.currentXcodeConfig.targets[0]).then(function (response) {
+      console.log(response);
+      xcodebuild.buildIpa(that.props.appState.getCurrentProjectData()["export"], "Release", that.props.appState.currentXcodeConfig.targets[0], that.props.appState.getCurrentProjectData()["cert"], response).then(function (response2) {
+        console.log(response2);
+      }).fin(function () {});
+    }).fin(function () {});
     console.log("Export");
   },
   render: function () {
 
     if (this.props.appState.selectedProject != null) {
-      var data = this.props.appState.getCurrentProjectData();
-      // console.log(data);
-      var provisions = this.props.appState.provisionings.map(function (value) {
-        return value["Name"];
-      });
-      // console.log("Provision :"+provisions);
-
-      return React.createElement(
-        'div',
-        { className: 'pane' },
-        React.createElement(
+      if (this.props.appState.isProjectLoading) {
+        return React.createElement(
           'div',
-          { style: divStyle },
+          { className: 'pane' },
+          React.createElement(
+            'h1',
+            null,
+            'Loading...'
+          )
+        );
+      } else {
+        var data = this.props.appState.getCurrentProjectData();
+        // console.log(data);
+        var provisions = this.props.appState.provisionings.map(function (value) {
+          return value["Name"];
+        });
+        console.log("Config :" + this.props.appState.currentXcodeConfig);
+
+        return React.createElement(
+          'div',
+          { className: 'pane' },
           React.createElement(
             'div',
-            { className: 'form-group' },
+            { style: divStyle },
             React.createElement(
-              'label',
-              null,
-              'Project Path'
-            ),
-            React.createElement('br', null),
-            React.createElement(
-              'label',
-              null,
-              this.props.appState.getCurrentProjectData()["project"]
-            ),
-            React.createElement(
-              'button',
-              { className: 'btn btn-form btn-default pull-right', onClick: this.handleProjectPathClick },
-              '...'
-            )
-          ),
-          React.createElement(
-            'div',
-            { className: 'form-group' },
-            React.createElement(
-              'label',
-              null,
-              'Export Path'
-            ),
-            React.createElement('br', null),
-            React.createElement(
-              'label',
-              null,
-              this.props.appState.getCurrentProjectData()["export"]
+              'div',
+              { className: 'form-group' },
+              React.createElement(
+                'label',
+                null,
+                'Project Path'
+              ),
+              React.createElement('br', null),
+              React.createElement(
+                'label',
+                null,
+                this.props.appState.getCurrentProjectData()["project"]
+              ),
+              React.createElement(
+                'button',
+                { className: 'btn btn-form btn-default pull-right', onClick: this.handleProjectPathClick },
+                '...'
+              )
             ),
             React.createElement(
-              'button',
-              { className: 'btn btn-form btn-default pull-right', onClick: this.handleExportPathClick },
-              '...'
-            )
-          ),
-          React.createElement(OptionField, { inputName: 'Provisioning Profile', data: provisions, preselect: this.props.appState.getCurrentProjectData()["cert"] }),
-          React.createElement(
-            'div',
-            { className: 'form-actions padded-top' },
+              'div',
+              { className: 'form-group' },
+              React.createElement(
+                'label',
+                null,
+                'Export Path'
+              ),
+              React.createElement('br', null),
+              React.createElement(
+                'label',
+                null,
+                this.props.appState.getCurrentProjectData()["export"]
+              ),
+              React.createElement(
+                'button',
+                { className: 'btn btn-form btn-default pull-right', onClick: this.handleExportPathClick },
+                '...'
+              )
+            ),
+            React.createElement(OptionField, { inputName: 'Targets', data: this.props.appState.currentXcodeConfig.targets }),
+            React.createElement(OptionField, { inputName: 'Build Configurations (Default is Release)', data: this.props.appState.currentXcodeConfig.configs, preselect: 'Release' }),
+            React.createElement(OptionField, { inputName: 'Schema', data: this.props.appState.currentXcodeConfig.schema, preselect: this.props.appState.currentXcodeConfig.schema[0] }),
+            React.createElement(OptionField, { inputName: 'Provisioning Profile', data: provisions, preselect: this.props.appState.getCurrentProjectData()["cert"] }),
             React.createElement(
-              'button',
-              { className: 'btn btn-form btn-primary pull-right', onClick: this.handleClick },
-              'Export'
+              'div',
+              { className: 'form-actions padded-top' },
+              React.createElement(
+                'button',
+                { className: 'btn btn-form btn-primary pull-right', onClick: this.handleClick },
+                'Export'
+              )
             )
           )
-        )
-      );
+        );
+      }
     } else {
       return React.createElement(
         'div',
@@ -291,7 +330,7 @@ var MainContent = React.createClass({
         React.createElement(
           'h1',
           null,
-          'Project Settings'
+          'Select A Project'
         )
       );
     }
@@ -355,6 +394,7 @@ var WindowsContent = React.createClass({
   },
   render: function () {
     var app = this.state.app;
+
     if (app.isReady) {
       // console.log(app.provisionings);
       return React.createElement(
