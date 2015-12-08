@@ -31,7 +31,9 @@ app.on('ready', function() {
     height: 600,
     resizable: false,
     'accept-first-mouse': true,
-    'title-bar-style': 'hidden'
+    'title-bar-style': 'hidden',
+    title: 'OTA Helper',
+    icon: (__dirname + '/icon.png')
   });
 
   var ret = globalShortcut.register('ctrl+x', function() {

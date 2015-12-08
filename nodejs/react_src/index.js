@@ -1,19 +1,30 @@
 var fs = require('fs');
 var plist = require('plist');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Dropzone = require('dropzone');
+
+// <script src="js/react.js" charset="utf-8"></script>
+//     <script src="js/react-dom.js" charset="utf-8"></script>
 
 const ipcRenderer = require('electron').ipcRenderer;
+
+if(fs.existsSync(__dirname +'/data/projects.json') == false){
+  fs.writeFileSync(__dirname +'/data/projects.json', "{\"saveInfo_projects\": \"\"}" , 'utf8')
+}
 
 var provisionloader = require(__dirname + '/js/provision-loader.js');
 var xcodebuild = require(__dirname + '/js/xcode-build.js');
 var appController = {
   listener: null,
-  data: plist.parse(fs.readFileSync(__dirname +'/data/test.plist', 'utf8')),
+  data: JSON.parse(fs.readFileSync(__dirname +'/data/projects.json', 'utf8')),
   selectedProject: null,
   title: "OTA Helper",
   isReady: false,
   isProjectLoading: false,
   provisionings: [],
   currentXcodeConfig: null,
+  currentBuildSetting: null,
 
   addProvisionings: function(data) {
     // console.log(data);
@@ -23,6 +34,7 @@ var appController = {
   startLoading: function() {
     var provisioningDir = process.env.HOME + '/Library/MobileDevice/Provisioning\ Profiles/';
     var that = this;
+
     fs.readdir( provisioningDir, function (err, files) { 
       if (!err) {
         for (var i = files.length - 1; i >= 0; i--) {
@@ -298,11 +310,41 @@ var AppContent = React.createClass({
 });
 
 var FooterBar = React.createClass({
+  handleClick: function(event) {
+    var _this = this;
+    swal({   
+      title: "Add Project",   
+      text: "Enter Project Name:",   
+      type: "input",   
+      showCancelButton: true,   
+      closeOnConfirm: false,   
+      animation: "slide-from-top",   
+      inputPlaceholder: "Project Name" }, 
+      function(inputValue){   
+        if (inputValue === false) return false;      
+        if (inputValue === "") {     
+          swal.showInputError("You need to enter a name");     
+          return false   
+        }
+        var data = _this.props.appState.data["saveInfo_projects"]
+        if (String(inputValue) in data) {
+          swal.showInputError("You need to enter a unique name");     
+          return false
+        }
+        // swal("Project Added.", "Project " + inputValue + " is added.", "success"); 
+
+        swal({   
+          title: "HTML <small>Title</small>!",   
+          text: "<div id=\"myId\"></div>",   
+          html: true });
+        var myDropzone = new Dropzone("div#myId", { url: "/file/post"});
+      });
+  },
   render : function() {
     return (
       <footer className="toolbar toolbar-footer">
       <div className="toolbar-actions">
-        <button className="btn btn-primary">
+        <button className="btn btn-primary" onClick={this.handleClick}>
           Add
         </button>
       </div>
@@ -335,7 +377,7 @@ var WindowsContent = React.createClass({
         <div className="window">
           <TitleBar title={app.title}/>
           <AppContent appState={app}/>
-          <FooterBar />
+          <FooterBar appState={app}/>
         </div>
       );
     }else{
@@ -354,5 +396,5 @@ var WindowsContent = React.createClass({
 
 ReactDOM.render(
   <WindowsContent />,
-  document.body
+  document.getElementById("main")
 );
