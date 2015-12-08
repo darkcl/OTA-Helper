@@ -214,21 +214,13 @@ var MainContent = React.createClass({
     xcodebuild.buildArchieve(this.props.appState.getCurrentProjectData()["export"], 
       isProject? (this.props.appState.getCurrentProjectData()["project"]+ '/project.xcworkspace') : this.props.appState.getCurrentProjectData()["project"], 
       "Release",
-      this.props.appState.currentXcodeConfig.targets[0])
+      this.props.appState.currentXcodeConfig.targets[0], this.props.appState.getCurrentProjectData()["cert"])
     .then(function(response){
       console.log(response);
-      xcodebuild.buildIpa(
-        that.props.appState.getCurrentProjectData()["export"], 
-        "Release", 
-        that.props.appState.currentXcodeConfig.targets[0],
-        that.props.appState.getCurrentProjectData()["cert"],
-        response)
-      .then(function(response2){
-        console.log(response2);
-      })
-      .fin(function() {
-
-      });
+      
+    })
+    .progress(function(log){
+      console.log(log);
     })
     .fin(function() {
 

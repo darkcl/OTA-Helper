@@ -6,42 +6,45 @@ var moment = require('moment');
 
 // xcodebuild -configuration Release -scheme "$appname" -destination generic/platform=iOS  -workspace "$workspace" clean archive -archivePath "$build_location/App-$NOW"
 // xcodebuild -configuration Release -exportArchive -exportFormat ipa -archivePath "$build_location/App-$NOW.xcarchive" -exportPath "$build_location/$ipaname-$NOW.ipa" -exportProvisioningProfile "$provision"
-
-exports.buildIpa = function(outputPath, config, schema, provision, dateStr) {
+var _this = this;
+exports.exportIpa = function (outputPath, config, schema, provision, dateStr) {
 	var deferred = Q.defer();
-	console.log(outputPath + '/App-' + nowStr);
+	var nowStr = dateStr;
+	console.log('Build IPA' + outputPath + '/App-' + nowStr);
 
 	var process = childProcess.spawn(
 		'xcodebuild', 
 		['-configuration', config,
 		'-exportArchive', 
 		'-exportFormat', 'ipa',
-		'-archivePath', (outputPath + '/App-' + nowStr),
+		'-archivePath', (outputPath + '/App-' + nowStr + '.xcarchive'),
 		'-exportPath', (outputPath + '/' + schema + '-' + nowStr + '.ipa'),
 		'-exportProvisioningProfile', provision
 		]);
 	process.stdout.on('close', function (data) {
 		if(fs.existsSync(outputPath + '/' + schema + '-' + nowStr + '.ipa')){
-			deferred.resolve(nowStr);
+			deferred.resolve('Export Success');
 		}else{
 			deferred.reject("Archieve Failed");
 		}
 	}); 
 	process.stdout.on('data', function (data) {
     	// console.log(String(data));
-		console.log(String(data));
+		// console.log(String(data));
+		deferred.notify(String(data));
         // result += String(data);
     });
     process.stderr.on('data', function (data) {
-    	console.log(String(data));
-    	deferred.reject("Archieve Failed");
+    	// console.log('Error: ' + String(data));
+    	deferred.notify(String(data));
+    	// deferred.reject("Archieve Failed");
         // deferred.reject(String(data));
     });
 
     return deferred.promise;
 }
 
-exports.buildArchieve = function(outputPath, workspace, config, schema) {
+exports.buildArchieve = function(outputPath, workspace, config, schema, provision) {
 	
 	var deferred = Q.defer();
 	var now = new Date();
@@ -59,18 +62,29 @@ exports.buildArchieve = function(outputPath, workspace, config, schema) {
 		'-archivePath', (outputPath + '/App-' + nowStr)]);
 	process.stdout.on('close', function (data) {
 		if(fs.existsSync(outputPath + '/App-' + nowStr + '.xcarchive')){
-			deferred.resolve(nowStr);
+			_this.exportIpa(outputPath, config, schema, provision, nowStr)
+			.then(function(response){
+				deferred.resolve(response);
+			})
+			.progress(function(log){
+				deferred.notify(log);
+			})
+			.fail(function(err){
+				deferred.reject(err);
+			})
 		}else{
 			deferred.reject("Archieve Failed");
 		}
 	}); 
 	process.stdout.on('data', function (data) {
     	// console.log(String(data));
-		console.log(String(data));
+		// console.log(String(data));
+		deferred.notify(String(data));
         // result += String(data);
     });
     process.stderr.on('data', function (data) {
-    	console.log(String(data));
+    	// console.log(String(data));
+    	deferred.notify(String(data));
         // deferred.reject(String(data));
     });
 	return deferred.promise;
