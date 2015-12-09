@@ -172,11 +172,27 @@
     transform: scale(1); } }
 .dropzone, .dropzone * {
   box-sizing: border-box; }
-  
+
 #myId {
     height: 150px;
     border-style: dashed;
     border-width: 2px;
+}
+
+#myId p {
+    text-align: center;
+    line-height: 100px;
+}
+
+#myId2 {
+    height: 150px;
+    border-style: dashed;
+    border-width: 2px;
+}
+
+#myId2 p {
+    text-align: center;
+    line-height: 100px;
 }
 
 .dropzone {

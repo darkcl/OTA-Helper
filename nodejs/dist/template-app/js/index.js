@@ -80,6 +80,15 @@ var appController = {
     });
   },
 
+  addProject: function (projectName, projectPath, outputPath, baseUrl) {
+    this.data["saveInfo_projects"][projectName] = {
+      "export": outputPath,
+      "project": projectPath,
+      "domain": baseUrl
+    };
+    this.listener.changed();
+  },
+
   setTitle: function (title) {
     this.title = title;
     this.listener.changed();
@@ -251,6 +260,11 @@ var MainContent = React.createClass({
     }).fin(function () {});
     console.log("Export");
   },
+
+  targetChanged: function (value) {
+    console.log(value);
+  },
+
   render: function () {
 
     if (this.props.appState.selectedProject != null) {
@@ -371,6 +385,10 @@ var FooterBar = React.createClass({
 
   handleClick: function (event) {
     var _this = this;
+    var projectName = '';
+    var projectLocation = '';
+    var outputPath = '';
+
     swal({
       title: "Add Project",
       text: "Enter Project Name:",
@@ -392,12 +410,109 @@ var FooterBar = React.createClass({
       // swal("Project Added.", "Project " + inputValue + " is added.", "success");
 
       swal({
-        title: "HTML <small>Title</small>!",
-        text: "<div id=\"myId\"></div>",
-        html: true });
-      var myDropzone = new Dropzone("div#myId", { url: "/file/post" });
+        title: "Select Xcode Project",
+        text: '<div id="myId"><p>Drop project file here.</p></div>',
+        html: true,
+        showConfirmButton: false,
+        allowEscapeKey: false
+      });
+      var myDropzone = new Dropzone("div#myId", {
+        url: "/file/post",
+        acceptedFiles: '.xcodeproj,.xcworkspace',
+        createImageThumbnails: false,
+        previewTemplate: '<div style="display:none"></div>',
+        maxFiles: 1,
+        clickable: false,
+        autoProcessQueue: false
+      });
+      var isShown = false;
+      myDropzone.on("addedfile", function (file) {
+        /* Maybe display some more file information on your page */
+        // if (file.type && file.filePath) {
+        if (isShown) {
+          return;
+        };
+
+        if (file.hasOwnProperty('fullPath')) {
+          var fileName = file.fullPath.split('/')[0];
+          if (fileName.indexOf('xcodeproj') != -1 || fileName.indexOf('xcworkspace') != -1) {
+            var path = file.path.substring(0, file.path.indexOf(fileName) + fileName.length);
+            console.log(path);
+            console.log(_this);
+            isShown = true;
+            _this.selectOutput(inputValue, path);
+          } else {
+            swal.showInputError("You need to select the xcode project");
+          }
+        } else {
+          swal.showInputError("You need to select the xcode project");
+        }
+
+        // };
+      });
     });
   },
+  selectOutput: function (projectName, projectPath) {
+    var _this = this;
+    console.log('ssssss');
+    swal({
+      title: "Select Output Path",
+      text: '<div id="myId2"><p>Drop a folder here.</p></div>',
+      html: true,
+      showConfirmButton: false,
+      allowEscapeKey: false
+    });
+    var myDropzone = new Dropzone("div#myId2", {
+      url: "/file/post",
+      createImageThumbnails: false,
+      previewsContainer: false,
+      clickable: false,
+      autoProcessQueue: false
+    });
+    var isShown = false;
+    myDropzone.on("addedfile", function (file) {
+      if (isShown) return;
+      if (file.hasOwnProperty('fullPath')) {
+        var fileName = file.fullPath.split('/')[0];
+        var path = file.path.substring(0, file.path.indexOf(fileName) + fileName.length);
+        console.log(path);
+        console.log(_this);
+        isShown = true;
+        // swal({
+        //   title: "Select Output path",
+        //   text: path,
+        //   type: "success"
+        // }, function(e){
+        //   console.log(e);
+        swal({
+          title: "Enter Base URL",
+          text: "Enter Base URL for ipa to store:",
+          type: "input",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+          inputPlaceholder: "http://...." }, function (inputValue) {
+          if (inputValue === false) return false;
+          if (inputValue === "") {
+            swal.showInputError("You need to enter a url");
+            return false;
+          } else {
+
+            swal({
+              title: "Added " + projectName,
+              text: 'Project' + projectName + ' added.',
+              type: 'success'
+            }, function (e) {
+              _this.props.appState.addProject(projectName, projectPath, path, inputValue);
+            });
+          }
+        });
+      } else {
+        swal.showInputError("You need to select a folder");
+      }
+    });
+  },
+
   render: function () {
     return React.createElement(
       'footer',
