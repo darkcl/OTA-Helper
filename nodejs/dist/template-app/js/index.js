@@ -107,6 +107,14 @@ var appController = {
   }
 };
 
+xcodebuild.exportPlist('Facesss-20151211052546', '/Users/yeungyiuhung/Documents/OTA Build/Facesss', 'https://download.cherrypicks.com/FACESSS/OTA/', 'Facesss').then(function (res) {
+  console.log(res);
+}).fail(function (err) {
+  console.log(err);
+}).progress(function (log) {
+  console.log(log);
+});
+
 var TitleBar = React.createClass({
   displayName: 'TitleBar',
 
@@ -232,6 +240,16 @@ var OptionField = React.createClass({
   }
 });
 
+var projectController = {
+  listener: null,
+  target: null,
+  scheme: null,
+  config: null,
+  provisioning: null,
+  projectPath: null,
+  outputPath: null
+};
+
 var MainContent = React.createClass({
   displayName: 'MainContent',
 
@@ -253,7 +271,7 @@ var MainContent = React.createClass({
 
     var isProject = file.indexOf("xcodeproj") == -1 ? false : true;
     var that = this;
-    xcodebuild.buildArchieve(this.props.appState.getCurrentProjectData()["export"], isProject ? this.props.appState.getCurrentProjectData()["project"] + '/project.xcworkspace' : this.props.appState.getCurrentProjectData()["project"], "Release", this.props.appState.currentXcodeConfig.targets[0], this.props.appState.getCurrentProjectData()["cert"]).then(function (response) {
+    xcodebuild.buildArchieve(this.props.appState.getCurrentProjectData()["export"], isProject ? this.props.appState.getCurrentProjectData()["project"] + '/project.xcworkspace' : this.props.appState.getCurrentProjectData()["project"], "Release", this.props.appState.currentXcodeConfig.targets[0], this.props.appState.getCurrentProjectData()["cert"], this.props.appState.selectedProject, this.props.appState.getCurrentProjectData()["domain"]).then(function (response) {
       console.log(response);
     }).progress(function (log) {
       console.log(log);

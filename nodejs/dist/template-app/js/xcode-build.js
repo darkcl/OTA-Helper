@@ -7,7 +7,51 @@ var moment = require('moment');
 // xcodebuild -configuration Release -scheme "$appname" -destination generic/platform=iOS  -workspace "$workspace" clean archive -archivePath "$build_location/App-$NOW"
 // xcodebuild -configuration Release -exportArchive -exportFormat ipa -archivePath "$build_location/App-$NOW.xcarchive" -exportPath "$build_location/$ipaname-$NOW.ipa" -exportProvisioningProfile "$provision"
 var _this = this;
-exports.exportIpa = function (outputPath, config, schema, provision, dateStr) {
+
+exports.escapeShellArg = function (cmd) {
+    return '\'' + cmd.replace(/\'/g, "'\\''") + '\'';
+};
+
+exports.exportPlist = function(ipaName, ipaPath, downloadUrl, schema) {
+	var deferred = Q.defer();
+	console.log('Export plist for path: ' + ipaPath);
+	console.log('Export plist for downloadUrl ' + downloadUrl);
+	// NSArray *arg = @[@"plist",
+ //                             [NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString],
+ //                             [NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]],
+ //                             [NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString],
+ //                             projectName];
+ 	var path = _this.escapeShellArg(__dirname + '/sh/otabuddy.sh');
+ 	var arg = ['plist',
+		ipaName + '.ipa',
+		downloadUrl,
+		ipaName + '.plist',
+		schema
+		];
+	var process = childProcess.exec(
+		path + ' plist ' + ipaName + '.ipa ' + downloadUrl + ' ' + ipaName + '.plist ' + _this.escapeShellArg(schema),
+		{ cwd: ipaPath}
+		)
+	process.stdout.on('close', function (data) {
+		if(fs.existsSync(ipaPath + '/' + ipaName + '.plist')){
+			deferred.resolve('Export Plist Success');
+		}else{
+			deferred.reject("Export Plist Failed");
+		}
+	}); 
+
+	process.stdout.on('data', function (data) {
+		deferred.notify(String(data));
+    });
+
+    process.stderr.on('data', function (data) {
+    	deferred.notify(String(data));
+    });
+
+	return deferred.promise;
+};
+
+exports.exportIpa = function (outputPath, config, schema, provision, dateStr, projectName) {
 	var deferred = Q.defer();
 	var nowStr = dateStr;
 	console.log('Build IPA' + outputPath + '/App-' + nowStr);
@@ -18,12 +62,12 @@ exports.exportIpa = function (outputPath, config, schema, provision, dateStr) {
 		'-exportArchive', 
 		'-exportFormat', 'ipa',
 		'-archivePath', (outputPath + '/App-' + nowStr + '.xcarchive'),
-		'-exportPath', (outputPath + '/' + schema + '-' + nowStr + '.ipa'),
+		'-exportPath', (outputPath + '/' + projectName + '-' + nowStr + '.ipa'),
 		'-exportProvisioningProfile', provision
 		]);
 	process.stdout.on('close', function (data) {
-		if(fs.existsSync(outputPath + '/' + schema + '-' + nowStr + '.ipa')){
-			deferred.resolve('Export Success');
+		if(fs.existsSync(outputPath + '/' + projectName + '-' + nowStr + '.ipa')){
+			deferred.resolve(projectName + '-' + nowStr);
 		}else{
 			deferred.reject("Archieve Failed");
 		}
@@ -44,7 +88,7 @@ exports.exportIpa = function (outputPath, config, schema, provision, dateStr) {
     return deferred.promise;
 }
 
-exports.buildArchieve = function(outputPath, workspace, config, schema, provision) {
+exports.buildArchieve = function(outputPath, workspace, config, schema, provision, projectName, downloadUrl) {
 	
 	var deferred = Q.defer();
 	var now = new Date();
@@ -60,11 +104,21 @@ exports.buildArchieve = function(outputPath, workspace, config, schema, provisio
 		'archive',
 		'-workspace', workspace,
 		'-archivePath', (outputPath + '/App-' + nowStr)]);
+
 	process.stdout.on('close', function (data) {
 		if(fs.existsSync(outputPath + '/App-' + nowStr + '.xcarchive')){
-			_this.exportIpa(outputPath, config, schema, provision, nowStr)
+			_this.exportIpa(outputPath, config, projectName, provision, nowStr, projectName)
 			.then(function(response){
-				deferred.resolve(response);
+				_this.exportPlist(response, outputPath, downloadUrl, schema)
+				.then(function(re){
+					deferred.resolve(re);
+				})
+				.progress(function(log){
+					deferred.notify(log);
+				})
+				.fail(function(err){
+					deferred.reject(err);
+				})
 			})
 			.progress(function(log){
 				deferred.notify(log);
