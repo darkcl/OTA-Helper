@@ -19,10 +19,12 @@
     "url": "https://github.com/darkcl/OTA-Helper/issues"
   },
   "scripts": {
-    "start": "electron dist/template-app"
+    "start": "electron dist/template-app",
+    "watch": "babel --presets react react_src --watch --out-dir dist/template-app/js"
   },
   "license": "MIT",
   "devDependencies": {
+    "babel-preset-react": "^6.3.13",
     "electron-prebuilt": "^0.33.3",
     "grunt": "~0.4.5",
     "grunt-banner": "~0.5.0",
@@ -41,6 +43,21 @@
     "time-grunt": "~1.2.0"
   },
   "dependencies": {
-    "sqlite3": "^3.1.1"
+    "electron": "^0.4.1",
+    "sqlite3": "^3.1.1",
+    "darwin-developer": "^0.2.0",
+    "dropzone": "^4.2.0",
+    "electron-prebuilt": "^0.35.2",
+    "fs": "0.0.2",
+    "ipa-data": "^1.0.2",
+    "moment": "^2.10.6",
+    "plist": "^1.2.0",
+    "provisioning": "^1.4.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-dropzone": "^3.2.2",
+    "react-sweetalert": "0.0.1",
+    "sweetalert": "^1.1.3",
+    "sweetalert-react": "^0.4.4"
   }
 }

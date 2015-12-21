@@ -4,9 +4,6 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Dropzone = require('dropzone');
 
-// <script src="js/react.js" charset="utf-8"></script>
-//     <script src="js/react-dom.js" charset="utf-8"></script>
-
 const ipcRenderer = require('electron').ipcRenderer;
 
 if (fs.existsSync(__dirname + '/data/projects.json') == false) {
@@ -107,13 +104,16 @@ var appController = {
   }
 };
 
-xcodebuild.exportPlist('Facesss-20151211052546', '/Users/yeungyiuhung/Documents/OTA Build/Facesss', 'https://download.cherrypicks.com/FACESSS/OTA/', 'Facesss').then(function (res) {
-  console.log(res);
-}).fail(function (err) {
-  console.log(err);
-}).progress(function (log) {
-  console.log(log);
-});
+// xcodebuild.exportPlist('Facesss-20151211052546', '/Users/yeungyiuhung/Documents/OTA Build/Facesss', 'https://download.cherrypicks.com/FACESSS/OTA/', 'Facesss')
+// .then(function(res){
+//   console.log(res);
+// })
+// .fail(function(err){
+//   console.log(err);
+// })
+// .progress(function(log){
+//   console.log(log);
+// })
 
 var TitleBar = React.createClass({
   displayName: 'TitleBar',
@@ -233,7 +233,7 @@ var OptionField = React.createClass({
       ),
       React.createElement(
         'select',
-        { className: 'form-control' },
+        { className: 'form-control', onChange: this.props.valueChanged },
         itemNodes
       )
     );
@@ -279,8 +279,20 @@ var MainContent = React.createClass({
     console.log("Export");
   },
 
-  targetChanged: function (value) {
-    console.log(value);
+  targetChanged: function (e) {
+    console.log(e.target.value);
+  },
+
+  configChanged: function (e) {
+    console.log(e.target.value);
+  },
+
+  schemeChanged: function (e) {
+    console.log(e.target.value);
+  },
+
+  provisionChanged: function (e) {
+    console.log(e.target.value);
   },
 
   render: function () {
@@ -350,10 +362,10 @@ var MainContent = React.createClass({
                 '...'
               )
             ),
-            React.createElement(OptionField, { inputName: 'Targets', data: this.props.appState.currentXcodeConfig.targets }),
-            React.createElement(OptionField, { inputName: 'Build Configurations (Default is Release)', data: this.props.appState.currentXcodeConfig.configs, preselect: 'Release' }),
-            React.createElement(OptionField, { inputName: 'Schema', data: this.props.appState.currentXcodeConfig.schema, preselect: this.props.appState.currentXcodeConfig.schema[0] }),
-            React.createElement(OptionField, { inputName: 'Provisioning Profile', data: provisions, preselect: this.props.appState.getCurrentProjectData()["cert"] }),
+            React.createElement(OptionField, { inputName: 'Targets', data: this.props.appState.currentXcodeConfig.targets, valueChanged: this.targetChanged }),
+            React.createElement(OptionField, { inputName: 'Build Configurations (Default is Release)', data: this.props.appState.currentXcodeConfig.configs, preselect: 'Release', valueChanged: this.configChanged }),
+            React.createElement(OptionField, { inputName: 'Schema', data: this.props.appState.currentXcodeConfig.schema, preselect: this.props.appState.currentXcodeConfig.schema[0], valueChanged: this.schemeChanged }),
+            React.createElement(OptionField, { inputName: 'Provisioning Profile', data: provisions, preselect: this.props.appState.getCurrentProjectData()["cert"], valueChanged: this.provisionChanged }),
             React.createElement(
               'div',
               { className: 'form-actions padded-top' },

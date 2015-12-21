@@ -29,7 +29,7 @@ exports.exportPlist = function(ipaName, ipaPath, downloadUrl, schema) {
 		schema
 		];
 	var process = childProcess.exec(
-		path + ' plist ' + ipaName + '.ipa ' + downloadUrl + ' ' + ipaName + '.plist ' + _this.escapeShellArg(schema),
+		path + ' plist ' + ipaName + '.ipa ' + _this.escapeShellArg(downloadUrl+ipaName+'.ipa') + ' ' + ipaName + '.plist ' + _this.escapeShellArg(schema),
 		{ cwd: ipaPath}
 		)
 	process.stdout.on('close', function (data) {
