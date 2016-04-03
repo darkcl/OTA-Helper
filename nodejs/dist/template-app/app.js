@@ -55,6 +55,8 @@ app.on('ready', function() {
   console.log(globalShortcut.isRegistered('ctrl+x'));
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  
+  console.log('file://' + __dirname + '/index.html');
   mainWindow.webContents.on('did-finish-load', function() {
     // In main process.
     const ipcMain = require('electron').ipcMain;

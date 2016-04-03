@@ -24,6 +24,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.6.5",
     "babel-preset-react": "^6.3.13",
     "electron-prebuilt": "^0.33.3",
     "grunt": "~0.4.5",

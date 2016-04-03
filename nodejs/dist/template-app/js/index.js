@@ -7,7 +7,8 @@ var Dropzone = require('dropzone');
 const ipcRenderer = require('electron').ipcRenderer;
 
 if (fs.existsSync(__dirname + '/data/projects.json') == false) {
-  fs.writeFileSync(__dirname + '/data/projects.json', "{\"saveInfo_projects\": \"\"}", 'utf8');
+    console.log("cretate empty project");
+  fs.writeFileSync(__dirname + '/data/projects.json', "{\"saveInfo_projects\": []}", 'utf8');
 }
 
 var provisionloader = require(__dirname + '/js/provision-loader.js');
@@ -36,7 +37,7 @@ var appController = {
       if (!err) {
         for (var i = files.length - 1; i >= 0; i--) {
           var fileName = files[i];
-          // console.log(fileName);
+        //   console.log(fileName);
           var count = 0;
           if (fileName.indexOf('mobileprovision') != -1) {
             var dir = process.env.HOME + '/Library/MobileDevice/Provisioning\ Profiles/';
@@ -45,9 +46,9 @@ var appController = {
               that.addProvisionings(value);
             }).fin(function () {
               count++;
-              // console.log('Loaded: ' + count  + '/' + files.length);
+              console.log('Loaded: ' + count  + '/' + files.length);
 
-              that.setIsReady(count == files.length - 1);
+              that.setIsReady(count >= files.length - 1);
             });
           }
         }
@@ -58,6 +59,10 @@ var appController = {
   },
 
   setIsReady: function (ready) {
+      if (ready) {
+          console.log("app is ready")
+      }
+      
     this.isReady = ready;
     this.listener.changed();
   },
@@ -575,6 +580,7 @@ var WindowsContent = React.createClass({
   },
   //update if the app tells us it changed
   changed: function () {
+      console.log("forceUpdate")
     this.forceUpdate();
   },
   render: function () {
@@ -582,6 +588,7 @@ var WindowsContent = React.createClass({
 
     if (app.isReady) {
       // console.log(app.provisionings);
+      
       return React.createElement(
         'div',
         { className: 'window' },
