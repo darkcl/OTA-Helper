@@ -1,0 +1,16 @@
+{
+    "version": "0.1.0",
+    "command": "electron",
+    "isShellCommand": true,
+    "args": [
+        "dist/template-app"
+    ],
+    "tasks": [
+        {
+            "taskName": "build",
+            "args": [],
+            "isBuildCommand": true,
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

@@ -51,3 +51,9 @@ xcuserdata
 *.moved-aside
 DerivedData
 *.xcuserstate
+
+nodejs/dist/template-app/data/test.plist
+
+nodejs/dist/template-app/data/projects--.json
+
+nodejs/dist/template-app/data/projects.json

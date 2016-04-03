@@ -1,0 +1,10 @@
+{
+  "name": "OTA-Helper",
+  "version": "1.1.0",
+  "author": "Yeung Yiu Hung",
+  "description": "Simple helper application that export Ad Hoc Deployment for iOS Project, including upload and version checking.",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  }
+}
