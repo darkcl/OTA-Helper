@@ -83,11 +83,13 @@ var appController = {
   },
 
   addProject: function (projectName, projectPath, outputPath, baseUrl) {
-    this.data["saveInfo_projects"][projectName] = {
+    this.data["saveInfo_projects"].push({
       "export": outputPath,
       "project": projectPath,
-      "domain": baseUrl
-    };
+      "domain": baseUrl,
+      "projectName": projectName
+    });
+    fs.writeFileSync(__dirname + '/data/projects.json', JSON.stringify(this.data), 'utf8');
     this.listener.changed();
   },
 
@@ -98,10 +100,18 @@ var appController = {
 
   getCurrentProjectData: function () {
     // console.log(this.selectedProject);
-    return this.data["saveInfo_projects"][this.selectedProject];
+    for (var i = 0; i < this.data["saveInfo_projects"].length ; i++) {
+        if (this.selectedProject == this.data["saveInfo_projects"][i]["projectName"]) {
+            return this.data["saveInfo_projects"][i]
+        }
+    }
+    
+    return null;
   },
 
-  saveProjects: function () {},
+  saveProjects: function () {
+      
+  },
 
   setProjectData: function (project) {
     this.data["saveInfo_projects"][this.selectedProject] = project;
@@ -163,9 +173,9 @@ var SideBar = React.createClass({
   render: function () {
     var data = this.props.appState.data["saveInfo_projects"];
     var app = this.props.appState;
-    var itemNodes = Object.keys(data).map(function (projects) {
-      // console.log(projects);
-      return React.createElement(SideBarItem, { itemName: projects, appState: app });
+    var itemNodes = data.map(function (project) {
+      console.log(project["projectName"]);
+      return React.createElement(SideBarItem, { itemName: project["projectName"], appState: app });
     });
     return React.createElement(
       'div',
