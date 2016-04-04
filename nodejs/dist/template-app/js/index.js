@@ -119,17 +119,6 @@ var appController = {
   }
 };
 
-// xcodebuild.exportPlist('Facesss-20151211052546', '/Users/yeungyiuhung/Documents/OTA Build/Facesss', 'https://download.cherrypicks.com/FACESSS/OTA/', 'Facesss')
-// .then(function(res){
-//   console.log(res);
-// })
-// .fail(function(err){
-//   console.log(err);
-// })
-// .progress(function(log){
-//   console.log(log);
-// })
-
 var TitleBar = React.createClass({
   displayName: 'TitleBar',
 
@@ -145,9 +134,6 @@ var TitleBar = React.createClass({
     );
   }
 });
-
-// console.log(plist.parse(fs.readFileSync('/Users/yeungyiuhung/Library/MobileDevice/Provisioning\ Profiles/6d774418-a45f-45cd-8373-e045573a316c.mobileprovision', 'utf8')));
-
 // Project List
 
 var SideBarItem = React.createClass({
