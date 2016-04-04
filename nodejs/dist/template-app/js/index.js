@@ -83,11 +83,13 @@ var appController = {
   },
 
   addProject: function (projectName, projectPath, outputPath, baseUrl) {
-    this.data["saveInfo_projects"][projectName] = {
+    this.data["saveInfo_projects"].push({
       "export": outputPath,
       "project": projectPath,
-      "domain": baseUrl
-    };
+      "domain": baseUrl,
+      "projectName": projectName
+    });
+    fs.writeFileSync(__dirname + '/data/projects.json', JSON.stringify(this.data), 'utf8');
     this.listener.changed();
   },
 
@@ -98,27 +100,24 @@ var appController = {
 
   getCurrentProjectData: function () {
     // console.log(this.selectedProject);
-    return this.data["saveInfo_projects"][this.selectedProject];
+    for (var i = 0; i < this.data["saveInfo_projects"].length ; i++) {
+        if (this.selectedProject == this.data["saveInfo_projects"][i]["projectName"]) {
+            return this.data["saveInfo_projects"][i]
+        }
+    }
+    
+    return null;
   },
 
-  saveProjects: function () {},
+  saveProjects: function () {
+      
+  },
 
   setProjectData: function (project) {
     this.data["saveInfo_projects"][this.selectedProject] = project;
     this.listener.changed();
   }
 };
-
-// xcodebuild.exportPlist('Facesss-20151211052546', '/Users/yeungyiuhung/Documents/OTA Build/Facesss', 'https://download.cherrypicks.com/FACESSS/OTA/', 'Facesss')
-// .then(function(res){
-//   console.log(res);
-// })
-// .fail(function(err){
-//   console.log(err);
-// })
-// .progress(function(log){
-//   console.log(log);
-// })
 
 var TitleBar = React.createClass({
   displayName: 'TitleBar',
@@ -135,9 +134,6 @@ var TitleBar = React.createClass({
     );
   }
 });
-
-// console.log(plist.parse(fs.readFileSync('/Users/yeungyiuhung/Library/MobileDevice/Provisioning\ Profiles/6d774418-a45f-45cd-8373-e045573a316c.mobileprovision', 'utf8')));
-
 // Project List
 
 var SideBarItem = React.createClass({
@@ -163,9 +159,9 @@ var SideBar = React.createClass({
   render: function () {
     var data = this.props.appState.data["saveInfo_projects"];
     var app = this.props.appState;
-    var itemNodes = Object.keys(data).map(function (projects) {
-      // console.log(projects);
-      return React.createElement(SideBarItem, { itemName: projects, appState: app });
+    var itemNodes = data.map(function (project) {
+      console.log(project["projectName"]);
+      return React.createElement(SideBarItem, { itemName: project["projectName"], appState: app });
     });
     return React.createElement(
       'div',
