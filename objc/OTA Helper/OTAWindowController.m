@@ -10,6 +10,8 @@
 
 #import "Provisioning.h"
 
+#import <IPABuddy/IPABuild.h>
+
 @interface OTAWindowController ()
 @property (unsafe_unretained) IBOutlet NSTextView *htmlStringText;
 
@@ -234,7 +236,123 @@
         [[NSUserDefaults standardUserDefaults] setObject:savedProjects forKey:SAVED_INFO];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        [self runScript:arguments];
+//        [self runScript:arguments];
+        [_myDrawer open];
+        [_progessView setHidden:NO];
+        _consoleLogs.string = @"";
+        [IPABuild buildWithProjectPath:xcodeProjURL
+                                scheme:projectName
+                                config:@"Release"
+                                target:projectName
+                            exportPath:exportURL
+                                domain:_domainTextField.stringValue
+                             provision:_certificateLabel.stringValue
+                               ipaName:[NSString stringWithFormat:@"%@-%@",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]
+                               success:^{
+                                   NSLog(@"Git Commit Number");
+                                   NMTask *task = [NMTask runScript:@"git log --pretty=format:'%h' -n 1" withWorkingDirectory:[xcodeProjURL stringByDeletingLastPathComponent]];
+                                   NSLog(@"Response: %@", task.response);
+                                   NSLog(@"Error: %@", task.errorMessage);
+                                   
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       [_myDrawer close];
+                                       _progessView.hidden = NO;
+                                       
+                                       NSPasteboard *generalPasteBoard = [NSPasteboard generalPasteboard];
+                                       
+                                       [generalPasteBoard declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:nil];
+                                       NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                                       [dateFormatter setLocale:[NSLocale currentLocale]];
+                                       [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm"];
+                                       NSString *htmlDateString = [dateFormatter stringFromDate:now];
+                                       
+                                       NSString *htmlString = [NSString stringWithFormat:@"%@ (<a href=\"itms-services://?action=download-manifest&url=%@\">Commit %@</a>)",htmlDateString,[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]] ,task.response];
+                                       
+                                       qrString = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@",[NSString stringWithFormat:@"%@%@",_domainTextField.stringValue,[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]]];
+                                       [generalPasteBoard setString:htmlString forType:NSPasteboardTypeString];
+                                       NSAlert *alert = [NSAlert alertWithMessageText:@"Upload To SFTP?"
+                                                                        defaultButton:@"OK"
+                                                                      alternateButton:@"Cancel"
+                                                                          otherButton:nil
+                                                            informativeTextWithFormat:@"Copied %@ to Pasteboard",htmlString];
+                                       
+                                       [_htmlStringText setString:htmlString];
+                                       if ([alert runModal] == NSAlertDefaultReturn) {
+                                           NMSSHSession *session = [NMSSHSession connectToHost:_ftpField.stringValue
+                                                                                  withUsername:_userField.stringValue];
+                                           
+                                           if (session.isConnected) {
+                                               [session authenticateByPassword:_passwordField.stringValue];
+                                               if (session.isAuthorized) {
+                                                   NSLog(@"Authentication succeeded");
+                                                   NSString *ipaURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+                                                   NSString *plistURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+                                                   
+                                                   
+                                                   
+                                                   [session.channel uploadFile:ipaURL
+                                                                            to:_ftpPathField.stringValue];
+                                                   
+                                                   [session.channel uploadFile:plistURL
+                                                                            to:_ftpPathField.stringValue];
+                                                   
+                                                   NSString *resultJson = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",indicatorStr]];
+                                                   
+                                                   [session.channel downloadFile:[_ftpPathField.stringValue stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",indicatorStr]]
+                                                                              to:resultJson];
+                                                   
+                                                   if (![[NSFileManager defaultManager] fileExistsAtPath:resultJson]) {
+                                                       NSArray *links = @[htmlString];
+                                                       NSData *jsonData = [NSJSONSerialization dataWithJSONObject:links
+                                                                                                          options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                                                                            error:nil];
+                                                       
+                                                       NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                                                       NSLog(@"%@",jsonString);
+                                                       
+                                                       [jsonString writeToFile:resultJson
+                                                                    atomically:YES
+                                                                      encoding:NSUTF8StringEncoding error:nil];
+                                                   }else{
+                                                       NSString *jsonString = [[NSString alloc] initWithContentsOfFile:resultJson encoding:NSUTF8StringEncoding error:NULL];
+                                                       NSError *jsonError;
+                                                       NSMutableArray *links = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&jsonError];
+                                                       
+                                                       [links insertObject:htmlString atIndex:0];
+                                                       NSData *jsonData = [NSJSONSerialization dataWithJSONObject:links
+                                                                                                          options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                                                                            error:nil];
+                                                       
+                                                       NSString *jsonExportString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                                                       [jsonExportString writeToFile:resultJson
+                                                                          atomically:YES
+                                                                            encoding:NSUTF8StringEncoding error:nil];
+                                                   }
+                                                   
+                                                   [session.channel uploadFile:resultJson
+                                                                            to:_ftpPathField.stringValue];
+                                               }
+                                           }
+                                           
+                                           _progessView.hidden = YES;
+                                           [session disconnect];
+                                           _emailMessageTextView.string = [NSString stringWithFormat:@"<html>OTA Build For %@ (Commit %@) is ready. <p>Attached QR for downloading the app or download here :%@index.html </p></html>",_projectLabel.stringValue, task.response, _domainTextField.stringValue];
+                                           
+                                           [self showEmail];
+                                       }else{
+                                           _progessView.hidden = YES;
+                                       }
+                                   });
+                               }
+                              progress:^(NSString *logs) {
+                                  _consoleLogs.string = [NSString stringWithFormat:@"\n%@", logs];
+                              }
+                               failure:^(NSException *err) {
+                                   NSLog(@"Failed: %@", err.debugDescription);
+                                   [_myDrawer close];
+                                   [_progessView setHidden:YES];
+                                   _consoleLogs.string = @"";
+                               }];
     }
 }
 

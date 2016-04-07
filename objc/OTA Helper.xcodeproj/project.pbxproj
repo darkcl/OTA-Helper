@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E08DB481A5F6DC7001CBA8C /* NMTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E08DB471A5F6DC7001CBA8C /* NMTask.m */; };
+		0E43F72A1CB60CA200A21B4C /* IPABuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E43F7291CB60CA200A21B4C /* IPABuddy.framework */; };
 		0E58DDB11AB7D95F008040C8 /* OTAWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */; };
 		0E58DDB21AB7D95F008040C8 /* OTAWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */; };
 		0EA3156C1ABBCA28006E0CC6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EA3156A1ABBCA26006E0CC6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		0E08DB461A5F6DC7001CBA8C /* NMTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTask.h; sourceTree = "<group>"; };
 		0E08DB471A5F6DC7001CBA8C /* NMTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTask.m; sourceTree = "<group>"; };
+		0E43F7291CB60CA200A21B4C /* IPABuddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IPABuddy.framework; path = Carthage/Build/Mac/IPABuddy.framework; sourceTree = "<group>"; };
 		0E58DDAE1AB7D95F008040C8 /* OTAWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTAWindowController.h; sourceTree = "<group>"; };
 		0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTAWindowController.m; sourceTree = "<group>"; };
 		0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTAWindowController.xib; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			files = (
 				E19A7869EE60B21DBCD002B2 /* libPods.a in Frameworks */,
 				0EA315701ABC0EF3006E0CC6 /* Sparkle.framework in Frameworks */,
+				0E43F72A1CB60CA200A21B4C /* IPABuddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +191,7 @@
 		FF387C19960B7279458B8B1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E43F7291CB60CA200A21B4C /* IPABuddy.framework */,
 				6B303B49CDD441E523EF3CA8 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -206,6 +210,8 @@
 				0EED1C6D1A5E45C100A4107C /* Resources */,
 				84A75EB802B87F27E0D3E962 /* Copy Pods Resources */,
 				0EA315681ABBC9FB006E0CC6 /* CopyFiles */,
+				D3F6118062EEE81427181BFE /* Embed Pods Frameworks */,
+				0E43F72B1CB60CB000A21B4C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,6 +301,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E43F72B1CB60CB000A21B4C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/IPABuddy.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		59EDEA8961C7526293BFA6F0 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +343,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3F6118062EEE81427181BFE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -457,6 +492,7 @@
 					"$(inherited)",
 					"/Users/yeungyiuhung/Downloads/Sparkle-1.8.0",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "OTA Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -497,6 +533,7 @@
 					"$(inherited)",
 					"/Users/yeungyiuhung/Downloads/Sparkle-1.8.0",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "OTA Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

@@ -1,7 +1,6 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/NMSSH" "${PODS_ROOT}/Headers/Public/ReactiveCocoa" "${PODS_ROOT}/Headers/Public/ReactiveCocoa/ReactiveCocoa" "${PODS_ROOT}/Headers/Public/ZXingObjC" "${PODS_ROOT}/Headers/Public/mailcore2-osx" "${PODS_ROOT}/Headers/Public/mailcore2-osx/MailCore"
-LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/NMSSH/NMSSH-OSX/Libraries/lib" "$(PODS_ROOT)/mailcore2-osx/lib"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/NMSSH" -isystem "${PODS_ROOT}/Headers/Public/ReactiveCocoa" -isystem "${PODS_ROOT}/Headers/Public/ReactiveCocoa/ReactiveCocoa" -isystem "${PODS_ROOT}/Headers/Public/ZXingObjC" -isystem "${PODS_ROOT}/Headers/Public/mailcore2-osx" -isystem "${PODS_ROOT}/Headers/Public/mailcore2-osx/MailCore"
-OTHER_LDFLAGS = -ObjC -l"MailCore" -l"Pods-NMSSH" -l"Pods-ReactiveCocoa" -l"Pods-ZXingObjC" -l"Pods-mailcore2-osx" -l"c++" -l"crypto" -l"iconv" -l"sasl2" -l"ssh2" -l"ssl" -l"tidy" -l"xml2" -l"z" -framework "AVFoundation" -framework "CoreMedia" -framework "QuartzCore"
-OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/NMSSH" "${PODS_ROOT}/Headers/Public/ReactiveCocoa" "${PODS_ROOT}/Headers/Public/ZXingObjC" "${PODS_ROOT}/Headers/Public/mailcore2-osx"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/NMSSH/NMSSH-OSX/Libraries/lib" $(inherited) "${PODS_ROOT}/mailcore2-osx/lib"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/NMSSH" -isystem "${PODS_ROOT}/Headers/Public/ReactiveCocoa" -isystem "${PODS_ROOT}/Headers/Public/ZXingObjC" -isystem "${PODS_ROOT}/Headers/Public/mailcore2-osx"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"MailCore" -l"NMSSH" -l"ReactiveCocoa" -l"ZXingObjC" -l"c++" -l"crypto" -l"iconv" -l"sasl2" -l"ssh2" -l"ssl" -l"tidy" -l"xml2" -l"z" -framework "AVFoundation" -framework "CoreMedia" -framework "QuartzCore"
 PODS_ROOT = ${SRCROOT}/Pods

@@ -1,2 +1,0 @@
-PODS_MAILCORE__OSX_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/mailcore2-osx/lib"
-PODS_MAILCORE__OSX_OTHER_LDFLAGS = -l"MailCore" -l"c++" -l"crypto" -l"iconv" -l"sasl2" -l"ssl" -l"tidy" -l"xml2" -l"z"
