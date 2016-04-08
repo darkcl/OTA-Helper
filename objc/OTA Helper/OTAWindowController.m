@@ -50,6 +50,10 @@
 
 @property (nonatomic, strong) NSMutableArray *provisioningArray;
 
+@property (weak) IBOutlet NSPopUpButton *targetsPopUp;
+@property (weak) IBOutlet NSPopUpButton *configPopUp;
+@property (weak) IBOutlet NSPopUpButton *schemesPopUp;
+
 @end
 
 @implementation OTAWindowController
@@ -152,6 +156,43 @@
     _progessView.hidden = YES;
     [_progressIndicator startAnimation:nil];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    if (xcodeProjURL.length != 0) {
+        [_progessView setHidden:NO];
+        [IPABuild buildInformationForProjectPath:[xcodeProjURL stringByReplacingOccurrencesOfString:[xcodeProjURL lastPathComponent] withString:@""]
+                                         success:^(NSArray *targets, NSArray *configurations, NSArray *schemes) {
+                                             [_targetsPopUp removeAllItems];
+                                             [_configPopUp removeAllItems];
+                                             [_schemesPopUp removeAllItems];
+                                             
+                                             [_targetsPopUp addItemsWithTitles:targets];
+                                             [_configPopUp addItemsWithTitles:configurations];
+                                             [_schemesPopUp addItemsWithTitles:schemes];
+                                             
+                                             NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
+                                             
+                                             NSString *savedTarget = saveInfoDict[@"target"];
+                                             NSString *savedScheme = saveInfoDict[@"scheme"];
+                                             NSString *savedConfig = saveInfoDict[@"config"];
+                                             
+                                             if (savedTarget.length != 0) {
+                                                 [_targetsPopUp selectItemWithTitle:savedTarget];
+                                             }
+                                             
+                                             if (savedScheme.length != 0) {
+                                                 [_schemesPopUp selectItemWithTitle:savedScheme];
+                                             }
+                                             
+                                             if (savedConfig.length != 0) {
+                                                 [_configPopUp selectItemWithTitle:savedConfig];
+                                             }
+                                             
+                                             [_progessView setHidden:YES];
+                                         }
+                                         failure:^(NSException *err) {
+                                             [_progessView setHidden:YES];
+                                         }];
+    }
+    
 }
 
 - (IBAction)selectProject:(id)sender {
@@ -227,6 +268,10 @@
                                        @"cert":_certificateLabel.stringValue,
                                        @"domain":_domainTextField.stringValue,
                                        
+                                       @"target":_targetsPopUp.titleOfSelectedItem,
+                                       @"schemes":_schemesPopUp.titleOfSelectedItem,
+                                       @"config":_configPopUp.titleOfSelectedItem,
+                                       
                                        @"ftpPath":_ftpPathField.stringValue,
                                        @"ftpDomain":_ftpField.stringValue,
                                        @"ftpUser":_userField.stringValue,
@@ -241,9 +286,9 @@
         [_progessView setHidden:NO];
         _consoleLogs.string = @"";
         [IPABuild buildWithProjectPath:xcodeProjURL
-                                scheme:projectName
-                                config:@"Release"
-                                target:projectName
+                                scheme:_schemesPopUp.titleOfSelectedItem
+                                config:_configPopUp.titleOfSelectedItem
+                                target:_targetsPopUp.titleOfSelectedItem
                             exportPath:exportURL
                                 domain:_domainTextField.stringValue
                              provision:_certificateLabel.stringValue

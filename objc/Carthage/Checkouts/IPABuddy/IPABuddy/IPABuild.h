@@ -10,6 +10,10 @@
 
 @interface IPABuild : NSObject
 
++ (void)buildInformationForProjectPath:(NSString *)projectPath
+                               success:(void(^)(NSArray *targets, NSArray *configurations, NSArray *schemes))success
+                               failure:(void(^)(NSException *err))failure;
+
 + (void)buildWithProjectPath:(NSString *)path
                       scheme:(NSString *)scheme
                       config:(NSString *)config

@@ -10,6 +10,124 @@
 
 @implementation IPABuild
 
++ (void)buildInformationForProjectPath:(NSString *)projectPath
+                               success:(void(^)(NSArray *targets, NSArray *configurations, NSArray *schemes))success
+                               failure:(void(^)(NSException *err))failure{
+    dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+    dispatch_async(taskQueue, ^{
+        bool isExportSucess = YES;
+        __block NSString *result = @"";
+        @try {
+            
+            NSString *path  = [NSString stringWithFormat:@"%@", [[NSBundle bundleForClass:[self class]] pathForResource:@"listInfo" ofType:@"sh"]];
+            
+            NSTask *buildTask = [[NSTask alloc] init];
+            buildTask.launchPath = path;
+            buildTask.currentDirectoryPath = projectPath;
+            
+            // Output Handling
+            NSPipe *outputPipe = [[NSPipe alloc] init];
+            buildTask.standardOutput = outputPipe;
+            
+            [[outputPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
+            
+            [[NSNotificationCenter defaultCenter] addObserverForName:NSFileHandleDataAvailableNotification object:[outputPipe fileHandleForReading] queue:nil usingBlock:^(NSNotification *notification){
+                
+                NSData *output = [[outputPipe fileHandleForReading] availableData];
+                NSString *outStr = [[NSString alloc] initWithData:output encoding:NSUTF8StringEncoding];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    result = [NSString stringWithFormat:@"%@%@", result, outStr];
+                });
+                
+                [[outputPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
+            }];
+            
+            
+            [buildTask launch];
+            
+            [buildTask waitUntilExit];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Problem Running Task: %@", [exception description]);
+            isExportSucess = NO;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                failure(exception);
+            });
+        }
+        @finally {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (isExportSucess) {
+                    NSArray *arr = [result componentsSeparatedByString:@"\n"];
+                    NSMutableArray *targets = [[NSMutableArray alloc] init];
+                    NSMutableArray *configs = [[NSMutableArray alloc] init];
+                    NSMutableArray *schemes = [[NSMutableArray alloc] init];
+                    
+                    NSInteger targetStartLine = 0;
+                    NSInteger configStartLine = 0;
+                    NSInteger schemeStartLine = 0;
+                    
+                    for (NSInteger i = 0; i < arr.count; i++) {
+                        NSString *output = arr[i];
+                        
+                        if ([output rangeOfString:@"Targets:"].location != NSNotFound) {
+                            targetStartLine = i;
+                        }
+                        
+                        if ([output rangeOfString:@"Build Configurations:"].location != NSNotFound) {
+                            configStartLine = i;
+                        }
+                        
+                        if ([output rangeOfString:@"Schemes:"].location != NSNotFound) {
+                            schemeStartLine = i;
+                        }
+                    }
+                    
+                    for (NSInteger i = targetStartLine+1; i < arr.count; i++) {
+                        NSString *output = arr[i];
+                        if ([output isEqualToString:@""]) {
+                            break;
+                        }else{
+                            NSRange range = [output rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
+                            NSString *modifiedString = [output stringByReplacingCharactersInRange:range withString:@""];
+                            NSLog(@"%@", modifiedString);
+                            
+                            [targets addObject:modifiedString];
+                        }
+                    }
+                    
+                    for (NSInteger i = configStartLine+1; i < arr.count; i++) {
+                        NSString *output = arr[i];
+                        if ([output isEqualToString:@""]) {
+                            break;
+                        }else{
+                            NSRange range = [output rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
+                            NSString *modifiedString = [output stringByReplacingCharactersInRange:range withString:@""];
+                            NSLog(@"%@", modifiedString);
+                            
+                            [configs addObject:modifiedString];
+                        }
+                    }
+                    
+                    for (NSInteger i = schemeStartLine+1; i < arr.count; i++) {
+                        NSString *output = arr[i];
+                        if ([output isEqualToString:@""]) {
+                            break;
+                        }else{
+                            NSRange range = [output rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
+                            NSString *modifiedString = [output stringByReplacingCharactersInRange:range withString:@""];
+                            NSLog(@"%@", modifiedString);
+                            
+                            [schemes addObject:modifiedString];
+                        }
+                    }
+                    
+                    success(targets, configs, schemes);
+                }
+            });
+        }
+    });
+}
+
 + (void)exportPlistForIPA:(NSString *)ipaName
                targetName:(NSString *)target
                    inPath:(NSString *)currentDirectoryPath

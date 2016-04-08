@@ -14,6 +14,7 @@
 		0E43F71C1CB4BCB400A21B4C /* BuildScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0E43F71B1CB4BCB400A21B4C /* BuildScript.sh */; };
 		0E43F7211CB4BD4300A21B4C /* IPABuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E43F71F1CB4BD4300A21B4C /* IPABuild.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E43F7221CB4BD4300A21B4C /* IPABuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E43F7201CB4BD4300A21B4C /* IPABuild.m */; };
+		0EC168471CB755BC0037447F /* listInfo.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EC168461CB755BC0037447F /* listInfo.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		0E43F71B1CB4BCB400A21B4C /* BuildScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = BuildScript.sh; sourceTree = "<group>"; };
 		0E43F71F1CB4BD4300A21B4C /* IPABuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPABuild.h; sourceTree = "<group>"; };
 		0E43F7201CB4BD4300A21B4C /* IPABuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPABuild.m; sourceTree = "<group>"; };
+		0EC168461CB755BC0037447F /* listInfo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = listInfo.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				0E43F7041CB4BC6C00A21B4C /* Info.plist */,
 				0E43F71F1CB4BD4300A21B4C /* IPABuild.h */,
 				0E43F7201CB4BD4300A21B4C /* IPABuild.m */,
+				0EC168461CB755BC0037447F /* listInfo.sh */,
 			);
 			path = IPABuddy;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EC168471CB755BC0037447F /* listInfo.sh in Resources */,
 				0E43F71C1CB4BCB400A21B4C /* BuildScript.sh in Resources */,
 				0E43F71A1CB4BCA100A21B4C /* otabuddy.sh in Resources */,
 			);
@@ -396,6 +400,7 @@
 				0E43F7151CB4BC6C00A21B4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E43F7161CB4BC6C00A21B4C /* Build configuration list for PBXNativeTarget "IPABuddyTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +409,7 @@
 				0E43F7181CB4BC6C00A21B4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

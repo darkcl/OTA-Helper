@@ -85,8 +85,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19A7869EE60B21DBCD002B2 /* libPods.a in Frameworks */,
-				0EA315701ABC0EF3006E0CC6 /* Sparkle.framework in Frameworks */,
 				0E43F72A1CB60CA200A21B4C /* IPABuddy.framework in Frameworks */,
+				0EA315701ABC0EF3006E0CC6 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
