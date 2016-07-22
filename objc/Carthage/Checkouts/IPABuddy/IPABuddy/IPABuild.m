@@ -24,7 +24,13 @@
             NSTask *buildTask = [[NSTask alloc] init];
             buildTask.launchPath = path;
             buildTask.currentDirectoryPath = projectPath;
-            
+            NSMutableDictionary *theEnvironment = [[NSProcessInfo processInfo].environment mutableCopy];
+            if (theEnvironment[@"MallocNanoZone"])
+            {
+                [theEnvironment removeObjectForKey:@"MallocNanoZone"];
+            }
+
+            buildTask.environment = theEnvironment;
             // Output Handling
             NSPipe *outputPipe = [[NSPipe alloc] init];
             buildTask.standardOutput = outputPipe;
@@ -144,6 +150,13 @@
             
             NSTask *buildTask = [[NSTask alloc] init];
             buildTask.launchPath = path;
+            
+            NSMutableDictionary *theEnvironment = [[NSProcessInfo processInfo].environment mutableCopy];
+            if (theEnvironment[@"MallocNanoZone"])
+            {
+                [theEnvironment removeObjectForKey:@"MallocNanoZone"];
+            }
+            buildTask.environment = theEnvironment;
             buildTask.currentDirectoryPath = currentDirectoryPath;
             NSArray *arg = @[@"plist",
                              [NSString stringWithFormat:@"%@.ipa", ipaName],
@@ -233,6 +246,14 @@
         bool isBuildSucess = YES;
         @try {
             NSTask *buildTask = [[NSTask alloc] init];
+            
+            NSMutableDictionary *theEnvironment = [[NSProcessInfo processInfo].environment mutableCopy];
+            if (theEnvironment[@"MallocNanoZone"])
+            {
+                [theEnvironment removeObjectForKey:@"MallocNanoZone"];
+            }
+            buildTask.environment = theEnvironment;
+            
             [buildTask setLaunchPath:shellpath];
             buildTask.arguments  = args;
             

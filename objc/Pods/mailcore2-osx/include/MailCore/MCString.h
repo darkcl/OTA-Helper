@@ -6,6 +6,7 @@
 #include <MailCore/MCRange.h>
 #include <MailCore/MCICUTypes.h>
 
+#include <stdlib.h>
 #include <stdarg.h>
 
 #ifdef __cplusplus
@@ -15,7 +16,7 @@ namespace mailcore {
     class Data;
     class Array;
     
-    class String : public Object {
+    class MAILCORE_EXPORT String : public Object {
     public:
         String(const UChar * unicodeChars = NULL);
         String(const UChar * unicodeChars, unsigned int length);
@@ -51,7 +52,8 @@ namespace mailcore {
         virtual String * stringByAppendingCharacters(const UChar * unicodeCharacters);
         virtual String * stringByAppendingPathComponent(String * component);
         virtual String * stringByDeletingLastPathComponent();
-        
+        virtual String * stringByDeletingPathExtension();
+
         virtual int compare(String * otherString);
         virtual int caseInsensitiveCompare(String * otherString);
         virtual String * lowercaseString();
@@ -61,7 +63,8 @@ namespace mailcore {
         virtual void deleteCharactersInRange(Range range);
         virtual unsigned int replaceOccurrencesOfString(String * occurrence, String * replacement);
         virtual int locationOfString(String * occurrence);
-        
+        virtual int lastLocationOfString(String * occurrence);
+
         virtual Array * componentsSeparatedByString(String * separator);
         
         virtual bool isEqualCaseInsensitive(String * otherString);
@@ -114,6 +117,9 @@ namespace mailcore {
         
         virtual Data * decodedBase64Data();
         
+        virtual String * urlDecodedString();
+        virtual String * urlEncodedString();
+
     public: // private
         static String * uniquedStringWithUTF8Characters(const char * UTF8Characters);
         
@@ -137,6 +143,7 @@ namespace mailcore {
         void appendUTF8CharactersLength(const char * UTF8Characters, unsigned int length);
     };
     
+    MAILCORE_EXPORT
     void setICUDataDirectory(String * directory);
 }
 

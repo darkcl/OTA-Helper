@@ -72,13 +72,37 @@ See MCOConnectionType for more information.*/
 @property (nonatomic, assign) dispatch_queue_t dispatchQueue;
 #endif
 
+/**
+ The value will be YES when asynchronous operations are running, else it will return NO.
+ */
+@property (nonatomic, assign, readonly, getter=isOperationQueueRunning) BOOL operationQueueRunning;
+
+/**
+ Sets operation running callback. It will be called when operations start or stop running.
+
+ [session setOperationQueueRunningChangeBlock:^{
+   if ([session isOperationQueueRunning]) {
+     ...
+   }
+   else {
+     ...
+   }
+ }];
+ */
+@property (nonatomic, copy) MCOOperationQueueRunningChangeBlock operationQueueRunningChangeBlock;
+
+/**
+ Cancel all operations
+ */
+- (void) cancelAllOperations;
+
 /** @name Operations */
 
 /**
  Returns an operation that will fetch the list of messages.
 
      MCOPOPFetchMessagesOperation * op = [session fetchMessagesOperation];
-     [op start:^(NSError * error, NSArray * messages) {
+     [op start:^(NSError * __nullable error, NSArray * messages) {
         // messages is an array of MCOPOPMessageInfo
         // [info index] can be used as reference for a given message in the other operations.
      }];
@@ -89,7 +113,7 @@ See MCOConnectionType for more information.*/
  Returns an operation that will fetch the header of the given message.
 
      MCOPOPFetchHeaderOperation * op = [session fetchHeaderOperationWithIndex:idx];
-     [op start:^(NSError * error, MCOMessageHeader * header) {
+     [op start:^(NSError * __nullable error, MCOMessageHeader * header) {
           // header is the parsed header of the message.
      }];
 */
@@ -99,7 +123,7 @@ See MCOConnectionType for more information.*/
  Returns an operation that will fetch the content of the given message.
 
      MCOPOPFetchMessageOperation * op = [session fetchMessageOperationWithIndex:idx];
-     [op start:^(NSError * error, NSData * messageData) {
+     [op start:^(NSError * __nullable error, NSData * messageData) {
           // messageData is the RFC 822 formatted message data.
      }];
 */
@@ -114,7 +138,7 @@ See MCOConnectionType for more information.*/
      [indexes addIndex:2];
      [indexes addIndex:3];
      MCOPOPOperation * op = [session deleteMessagesOperationWithIndexes:indexes];
-     [op start:^(NSError * error) {
+     [op start:^(NSError * __nullable error) {
           ...
      }];
 */
@@ -124,7 +148,7 @@ See MCOConnectionType for more information.*/
  Returns an operation that will disconnect the session.
  
  MCOPOPOperation * op = [session disconnectOperation];
- [op start:^(NSError * error) {
+ [op start:^(NSError * __nullable error) {
  ...
  }];
  */
@@ -134,7 +158,7 @@ See MCOConnectionType for more information.*/
  Returns an operation that will check whether the POP account is valid.
 
      MCOPOPOperation * op = [session checkAccountOperation];
-     [op start:^(NSError * error) {
+     [op start:^(NSError * __nullable error) {
           ...
      }];
 */
@@ -144,7 +168,7 @@ See MCOConnectionType for more information.*/
  Returns an operation that will perform a No-Op operation.
  
  MCOPOPOperation * op = [session noopOperation];
- [op start:^(NSError * error) {
+ [op start:^(NSError * __nullable error) {
  ...
  }];
  */

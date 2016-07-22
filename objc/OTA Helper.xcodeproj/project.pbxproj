@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E08DB481A5F6DC7001CBA8C /* NMTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E08DB471A5F6DC7001CBA8C /* NMTask.m */; };
-		0E43F72A1CB60CA200A21B4C /* IPABuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E43F7291CB60CA200A21B4C /* IPABuddy.framework */; };
 		0E58DDB11AB7D95F008040C8 /* OTAWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E58DDAF1AB7D95F008040C8 /* OTAWindowController.m */; };
 		0E58DDB21AB7D95F008040C8 /* OTAWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E58DDB01AB7D95F008040C8 /* OTAWindowController.xib */; };
 		0EA3156C1ABBCA28006E0CC6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EA3156A1ABBCA26006E0CC6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,7 +22,9 @@
 		0EED1C9B1A5E67B600A4107C /* BuildScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */; };
 		74078B541ABB20570025592F /* Provisioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 74078B511ABB20570025592F /* Provisioning.m */; };
 		74078B551ABB20570025592F /* SigningIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 74078B531ABB20570025592F /* SigningIdentity.m */; };
-		E19A7869EE60B21DBCD002B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B303B49CDD441E523EF3CA8 /* libPods.a */; };
+		743A4A9C1D4265E700531F36 /* IPABuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E43F7291CB60CA200A21B4C /* IPABuddy.framework */; };
+		743A4A9D1D4265E700531F36 /* IPABuddy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E43F7291CB60CA200A21B4C /* IPABuddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EECA5F6BDBF83B1F404A5D87 /* libPods-OTA Helper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75114197FDA25A9177BB64CD /* libPods-OTA Helper.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				743A4A9D1D4265E700531F36 /* IPABuddy.framework in CopyFiles */,
 				0EA3156C1ABBCA28006E0CC6 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,13 +72,13 @@
 		0EED1C871A5E45C100A4107C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EED1C881A5E45C100A4107C /* OTA_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTA_HelperTests.m; sourceTree = "<group>"; };
 		0EED1C9A1A5E61CF00A4107C /* BuildScript.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = BuildScript.sh; sourceTree = "<group>"; };
-		6B303B49CDD441E523EF3CA8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		59814E1C7805375803B13DCA /* Pods-OTA Helper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTA Helper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OTA Helper/Pods-OTA Helper.debug.xcconfig"; sourceTree = "<group>"; };
 		74078B501ABB20570025592F /* Provisioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Provisioning.h; sourceTree = "<group>"; };
 		74078B511ABB20570025592F /* Provisioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Provisioning.m; sourceTree = "<group>"; };
 		74078B521ABB20570025592F /* SigningIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigningIdentity.h; sourceTree = "<group>"; };
 		74078B531ABB20570025592F /* SigningIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigningIdentity.m; sourceTree = "<group>"; };
-		92E1EEF620F0970353BD4E3C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		E0020711F8B38C60F1898D93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		75114197FDA25A9177BB64CD /* libPods-OTA Helper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OTA Helper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4152B9734CF80C1C231DD52 /* Pods-OTA Helper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTA Helper.release.xcconfig"; path = "Pods/Target Support Files/Pods-OTA Helper/Pods-OTA Helper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E19A7869EE60B21DBCD002B2 /* libPods.a in Frameworks */,
-				0E43F72A1CB60CA200A21B4C /* IPABuddy.framework in Frameworks */,
+				743A4A9C1D4265E700531F36 /* IPABuddy.framework in Frameworks */,
 				0EA315701ABC0EF3006E0CC6 /* Sparkle.framework in Frameworks */,
+				EECA5F6BDBF83B1F404A5D87 /* libPods-OTA Helper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +111,8 @@
 				0EED1C711A5E45C100A4107C /* OTA Helper */,
 				0EED1C851A5E45C100A4107C /* OTA HelperTests */,
 				0EED1C701A5E45C100A4107C /* Products */,
-				DD3196B244825E35C9816045 /* Pods */,
 				FF387C19960B7279458B8B1C /* Frameworks */,
+				523331F2D554026F97E19ECE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +170,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		523331F2D554026F97E19ECE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59814E1C7805375803B13DCA /* Pods-OTA Helper.debug.xcconfig */,
+				E4152B9734CF80C1C231DD52 /* Pods-OTA Helper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		74078B561ABB205C0025592F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,20 +190,11 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		DD3196B244825E35C9816045 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				92E1EEF620F0970353BD4E3C /* Pods.debug.xcconfig */,
-				E0020711F8B38C60F1898D93 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		FF387C19960B7279458B8B1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				0E43F7291CB60CA200A21B4C /* IPABuddy.framework */,
-				6B303B49CDD441E523EF3CA8 /* libPods.a */,
+				75114197FDA25A9177BB64CD /* libPods-OTA Helper.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,14 +206,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EED1C8C1A5E45C100A4107C /* Build configuration list for PBXNativeTarget "OTA Helper" */;
 			buildPhases = (
-				59EDEA8961C7526293BFA6F0 /* Check Pods Manifest.lock */,
+				8AD522263FBF52868FBE6CDF /* 📦 Check Pods Manifest.lock */,
 				0EED1C6B1A5E45C100A4107C /* Sources */,
 				0EED1C6C1A5E45C100A4107C /* Frameworks */,
 				0EED1C6D1A5E45C100A4107C /* Resources */,
-				84A75EB802B87F27E0D3E962 /* Copy Pods Resources */,
 				0EA315681ABBC9FB006E0CC6 /* CopyFiles */,
-				D3F6118062EEE81427181BFE /* Embed Pods Frameworks */,
 				0E43F72B1CB60CB000A21B4C /* ShellScript */,
+				602F1A3D687BB40588B6B96E /* 📦 Embed Pods Frameworks */,
+				B4443CA213A7401CC751FA12 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,7 +248,7 @@
 		0EED1C671A5E45C100A4107C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Yeung Yiu Hung";
 				TargetAttributes = {
 					0EED1C6E1A5E45C100A4107C = {
@@ -315,14 +317,29 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		59EDEA8961C7526293BFA6F0 /* Check Pods Manifest.lock */ = {
+		602F1A3D687BB40588B6B96E /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OTA Helper/Pods-OTA Helper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AD522263FBF52868FBE6CDF /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,34 +347,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		84A75EB802B87F27E0D3E962 /* Copy Pods Resources */ = {
+		B4443CA213A7401CC751FA12 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D3F6118062EEE81427181BFE /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OTA Helper/Pods-OTA Helper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -426,6 +428,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -484,82 +487,38 @@
 		};
 		0EED1C8D1A5E45C100A4107C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92E1EEF620F0970353BD4E3C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 59814E1C7805375803B13DCA /* Pods-OTA Helper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/yeungyiuhung/Downloads/Sparkle-1.8.0",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "OTA Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-Wl,-rpath,@loader_path/../Frameworks",
-					"-ObjC",
-					"-l\"MailCore\"",
-					"-l\"Pods-NMSSH\"",
-					"-l\"Pods-ZXingObjC\"",
-					"-l\"Pods-mailcore2-osx\"",
-					"-l\"c++\"",
-					"-l\"crypto\"",
-					"-l\"iconv\"",
-					"-l\"sasl2\"",
-					"-l\"ssh2\"",
-					"-l\"ssl\"",
-					"-l\"tidy\"",
-					"-l\"xml2\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"CoreMedia\"",
-					"-framework",
-					"\"QuartzCore\"",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "darkcl.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		0EED1C8E1A5E45C100A4107C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0020711F8B38C60F1898D93 /* Pods.release.xcconfig */;
+			baseConfigurationReference = E4152B9734CF80C1C231DD52 /* Pods-OTA Helper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/yeungyiuhung/Downloads/Sparkle-1.8.0",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "OTA Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-Wl,-rpath,@loader_path/../Frameworks",
-					"-ObjC",
-					"-l\"MailCore\"",
-					"-l\"Pods-NMSSH\"",
-					"-l\"Pods-ZXingObjC\"",
-					"-l\"Pods-mailcore2-osx\"",
-					"-l\"c++\"",
-					"-l\"crypto\"",
-					"-l\"iconv\"",
-					"-l\"sasl2\"",
-					"-l\"ssh2\"",
-					"-l\"ssl\"",
-					"-l\"tidy\"",
-					"-l\"xml2\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"CoreMedia\"",
-					"-framework",
-					"\"QuartzCore\"",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "darkcl.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -579,6 +538,7 @@
 				);
 				INFOPLIST_FILE = "OTA HelperTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "darkcl.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTA Helper.app/Contents/MacOS/OTA Helper";
 			};
@@ -595,6 +555,7 @@
 				);
 				INFOPLIST_FILE = "OTA HelperTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "darkcl.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTA Helper.app/Contents/MacOS/OTA Helper";
 			};

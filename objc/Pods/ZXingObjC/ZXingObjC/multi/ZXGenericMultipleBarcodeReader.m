@@ -85,6 +85,9 @@ const int ZX_MAX_DEPTH = 4;
   float maxX = 0.0f;
   float maxY = 0.0f;
   for (ZXResultPoint *point in resultPoints) {
+    if ((id)point == [NSNull null]) {
+      continue;
+    }
     float x = [point x];
     float y = [point y];
     if (x < minX) {
@@ -124,7 +127,9 @@ const int ZX_MAX_DEPTH = 4;
   }
   NSMutableArray *newResultPoints = [NSMutableArray arrayWithCapacity:[oldResultPoints count]];
   for (ZXResultPoint *oldPoint in oldResultPoints) {
-    [newResultPoints addObject:[[ZXResultPoint alloc] initWithX:[oldPoint x] + xOffset y:[oldPoint y] + yOffset]];
+    if ((id)oldPoint != [NSNull null]) {
+      [newResultPoints addObject:[[ZXResultPoint alloc] initWithX:[oldPoint x] + xOffset y:[oldPoint y] + yOffset]];
+    }
   }
 
   ZXResult *newResult = [ZXResult resultWithText:result.text rawBytes:result.rawBytes resultPoints:newResultPoints format:result.barcodeFormat];

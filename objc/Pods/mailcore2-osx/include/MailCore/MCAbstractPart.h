@@ -11,7 +11,7 @@ namespace mailcore {
     
     class AbstractMessage;
     
-    class AbstractPart : public Object {
+    class MAILCORE_EXPORT AbstractPart : public Object {
     public:
         AbstractPart();
         virtual ~AbstractPart();
@@ -43,6 +43,9 @@ namespace mailcore {
         virtual bool isInlineAttachment();
         virtual void setInlineAttachment(bool inlineAttachment);
         
+        virtual bool isAttachment();
+        virtual void setAttachment(bool attachment);
+
         virtual AbstractPart * partForContentID(String * contentID);
         virtual AbstractPart * partForUniqueID(String * uniqueID);
         
@@ -75,6 +78,7 @@ namespace mailcore {
         String * mContentLocation;
         String * mContentDescription;
         bool mInlineAttachment;
+        bool mAttachment;
         PartType mPartType;
         HashMap * mContentTypeParameters;
         void init();

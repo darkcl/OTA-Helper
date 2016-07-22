@@ -15,11 +15,12 @@ namespace mailcore {
     
     class HTMLRendererTemplateCallback;
     
-    class MessageParser : public AbstractMessage {
+    class MAILCORE_EXPORT MessageParser : public AbstractMessage {
     public:
         static MessageParser * messageParserWithData(Data * data);
         static MessageParser * messageParserWithContentsOfFile(String * filename);
         
+        MessageParser();
         MessageParser(Data * data);
         virtual ~MessageParser();
         
@@ -41,7 +42,8 @@ namespace mailcore {
         virtual AbstractPart * partForUniqueID(String * uniqueID);
         
         virtual HashMap * serializable();
-        
+        virtual void importSerializable(HashMap * serializable);
+
 #ifdef __APPLE__
     public:
         static MessageParser * messageParserWithData(CFDataRef data);

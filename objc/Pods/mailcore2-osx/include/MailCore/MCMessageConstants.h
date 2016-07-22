@@ -180,6 +180,7 @@ namespace mailcore {
         IMAPSearchKindContent,
         IMAPSearchKindBody,
         IMAPSearchKindUIDs,
+        IMAPSearchKindNumbers,
         IMAPSearchKindHeader,
         IMAPSearchKindRead,
         IMAPSearchKindUnread,
@@ -208,7 +209,7 @@ namespace mailcore {
     };
     
     enum ErrorCode {
-        ErrorNone,
+        ErrorNone, // 0
         ErrorConnection,
         ErrorTLSNotAvailable,
         ErrorParse,
@@ -218,7 +219,7 @@ namespace mailcore {
         ErrorGmailExceededBandwidthLimit,
         ErrorGmailTooManySimultaneousConnections,
         ErrorMobileMeMoved,
-        ErrorYahooUnavailable,
+        ErrorYahooUnavailable, // 10
         ErrorNonExistantFolder,
         ErrorRename,
         ErrorDelete,
@@ -228,7 +229,7 @@ namespace mailcore {
         ErrorCopy,
         ErrorExpunge,
         ErrorFetch,
-        ErrorIdle,
+        ErrorIdle, // 20
         ErrorIdentity,
         ErrorNamespace,
         ErrorStore,
@@ -238,7 +239,7 @@ namespace mailcore {
         ErrorStorageLimit,
         ErrorSendMessageNotAllowed,
         ErrorNeedsConnectToWebmail,
-        ErrorSendMessage,
+        ErrorSendMessage, // 30
         ErrorAuthenticationRequired,
         ErrorFetchMessageList,
         ErrorDeleteMessage,
@@ -248,8 +249,12 @@ namespace mailcore {
         ErrorNoSender,
         ErrorNoRecipient,
         ErrorNoop,
-        ErrorGmailApplicationSpecificPasswordRequired,
+        ErrorGmailApplicationSpecificPasswordRequired, // 40
         ErrorServerDate,
+        ErrorNoValidServerFound,
+        ErrorCustomCommand,
+        ErrorYahooSendMessageSpamSuspected,
+        ErrorYahooSendMessageDailyLimitExceeded
     };
     
     enum PartType {

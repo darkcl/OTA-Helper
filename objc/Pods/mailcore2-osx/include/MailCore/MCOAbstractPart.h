@@ -41,7 +41,17 @@ typedef NS_ENUM(NSInteger, MCOPartType) {
     MCOPartTypeMultipartSigned,
 };
 
+#ifdef __cplusplus
+namespace mailcore {
+    class AbstractPart;
+}
+#endif
+
 @interface MCOAbstractPart : NSObject <NSCopying>
+
+#ifdef __cplusplus
+- (id) initWithMCPart:(mailcore::AbstractPart *)part NS_DESIGNATED_INITIALIZER;
+#endif
 
 /** Returns type of the part (single / message part / multipart/mixed,
  multipart/related, multipart/alternative). See MCOPartType.*/
@@ -73,6 +83,9 @@ typedef NS_ENUM(NSInteger, MCOPartType) {
 /** Returns whether the part is an explicit inline attachment.*/
 @property (nonatomic, assign, getter=isInlineAttachment) BOOL inlineAttachment;
 
+/** Returns whether the part is an explicit attachment.*/
+@property (nonatomic, assign, getter=isAttachment) BOOL attachment;
+
 /** Returns the part with the given Content-ID among this part and its subparts.*/
 - (MCOAbstractPart *) partForContentID:(NSString *)contentID;
 
@@ -93,6 +106,13 @@ typedef NS_ENUM(NSInteger, MCOPartType) {
 
 /** Returns an array with the names of all content type parameters.*/
 - (NSArray * /* NSString */) allContentTypeParametersNames;
+
+@end
+
+@interface MCOAbstractPart (MCOUnavailable)
+
+/** Do not invoke this directly. */
+- (id) init NS_UNAVAILABLE;
 
 @end
 

@@ -10,7 +10,7 @@ namespace mailcore {
     
     class IMAPNamespaceItem;
     
-    class IMAPNamespace : public Object {
+    class MAILCORE_EXPORT IMAPNamespace : public Object {
     public:
         IMAPNamespace();
         virtual ~IMAPNamespace();
@@ -33,7 +33,9 @@ namespace mailcore {
         IMAPNamespace(IMAPNamespace * other);
         virtual String * description();
         virtual Object * copy();
-        
+        virtual HashMap * serializable();
+        virtual void importSerializable(HashMap * serializable);
+
     private:
         Array * /* String */ mItems;
         void init();

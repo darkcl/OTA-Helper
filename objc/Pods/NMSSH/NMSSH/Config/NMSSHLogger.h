@@ -1,3 +1,5 @@
+#import "NMSSH.h"
+
 typedef NS_OPTIONS(NSUInteger, NMSSHLogLevel) {
     NMSSHLogLevelVerbose = (1 << 0 | 1 << 1 | 1 << 2 | 1 << 3),
     NMSSHLogLevelInfo    = (1 << 1 | 1 << 2 | 1 << 3),
@@ -16,10 +18,10 @@ typedef NS_OPTIONS(NSUInteger, NMSSHLogLevel) {
 
 /**
  Retrieve the shared logger instance
-
+ 
  @returns Shared logger
  */
-+ (NMSSHLogger *)logger;
++ (instancetype) sharedLogger;
 
 /// ----------------------------------------------------------------------------
 /// @name Logger settings

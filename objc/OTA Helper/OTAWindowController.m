@@ -390,6 +390,7 @@
                                    });
                                }
                               progress:^(NSString *logs) {
+                                  NSLog(@"%@", logs);
                                   _consoleLogs.string = [NSString stringWithFormat:@"\n%@", logs];
                               }
                                failure:^(NSException *err) {

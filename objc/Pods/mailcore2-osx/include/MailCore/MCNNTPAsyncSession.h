@@ -19,7 +19,7 @@ namespace mailcore {
     class NNTPOperationQueueCallback;
     class NNTPConnectionLogger;
     
-    class NNTPAsyncSession : public Object {
+    class MAILCORE_EXPORT NNTPAsyncSession : public Object {
     public:
         NNTPAsyncSession();
         virtual ~NNTPAsyncSession();
@@ -52,13 +52,18 @@ namespace mailcore {
         virtual void setDispatchQueue(dispatch_queue_t dispatchQueue);
         virtual dispatch_queue_t dispatchQueue();
 #endif
-        
+
+        virtual void setOperationQueueCallback(OperationQueueCallback * callback);
+        virtual OperationQueueCallback * operationQueueCallback();
+        virtual bool isOperationQueueRunning();
+        virtual void cancelAllOperations();
+
         virtual NNTPFetchAllArticlesOperation * fetchAllArticlesOperation(String * group);
         
         virtual NNTPFetchHeaderOperation * fetchHeaderOperation(String * groupName, unsigned int index);
         
         virtual NNTPFetchArticleOperation * fetchArticleOperation(String *groupName, unsigned int index);
-        virtual NNTPFetchArticleOperation * fetchArticleByMessageIDOperation(String * groupname, String * messageID);
+        virtual NNTPFetchArticleOperation * fetchArticleByMessageIDOperation(String * messageID);
         
         virtual NNTPFetchOverviewOperation * fetchOverviewOperationWithIndexes(String * groupName, IndexSet * indexes);
         
@@ -78,6 +83,7 @@ namespace mailcore {
         ConnectionLogger * mConnectionLogger;
         pthread_mutex_t mConnectionLoggerLock;
         NNTPConnectionLogger * mInternalLogger;
+        OperationQueueCallback * mOperationQueueCallback;
         
     public: // private
         virtual void runOperation(NNTPOperation * operation);

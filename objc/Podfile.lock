@@ -1,15 +1,15 @@
 PODS:
-  - mailcore2-osx (0.5.0)
-  - NMSSH (2.2.0)
+  - mailcore2-osx (0.6.4)
+  - NMSSH (2.2.5)
   - ReactiveCocoa (2.1.8):
     - ReactiveCocoa/Core (= 2.1.8)
     - ReactiveCocoa/no-arc (= 2.1.8)
   - ReactiveCocoa/Core (2.1.8):
     - ReactiveCocoa/no-arc
   - ReactiveCocoa/no-arc (2.1.8)
-  - ZXingObjC (3.0.3):
-    - ZXingObjC/All (= 3.0.3)
-  - ZXingObjC/All (3.0.3)
+  - ZXingObjC (3.1.0):
+    - ZXingObjC/All (= 3.1.0)
+  - ZXingObjC/All (3.1.0)
 
 DEPENDENCIES:
   - mailcore2-osx
@@ -18,9 +18,11 @@ DEPENDENCIES:
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
-  mailcore2-osx: 31004a2fe4a4b7fcd9df4fe8990020066dd37fdc
-  NMSSH: 9b9ab841e851a5a6304263ce02cc995fa211563c
+  mailcore2-osx: 56890045e50f3b09b6530f5bd008eda67e1f6b82
+  NMSSH: 8643df89d73b9a3e398a5a5971f6ea4bb1179ea7
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
-  ZXingObjC: 35c985cd9b95e82dc3681f0bbb239a5d22b8f3f3
+  ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 221e50cf62c5b42c98a3a6c838782a737dac238e
+
+COCOAPODS: 1.0.0

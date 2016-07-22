@@ -18,7 +18,7 @@
 
 namespace mailcore {
 
-    class IMAPFetchParsedContentOperation : public IMAPOperation {
+    class MAILCORE_EXPORT IMAPFetchParsedContentOperation : public IMAPOperation {
     public:
         IMAPFetchParsedContentOperation();
         virtual ~IMAPFetchParsedContentOperation();

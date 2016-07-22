@@ -105,7 +105,9 @@
 
 - (void)closeChannel {
     // Set blocking mode
-    libssh2_session_set_blocking(self.session.rawSession, 1);
+    if (self.session.rawSession) {
+        libssh2_session_set_blocking(self.session.rawSession, 1);
+    }
 
     if (self.channel) {
         int rc;
@@ -417,6 +419,7 @@
 #if !(OS_OBJECT_USE_OBJC)
         dispatch_release(self.source);
 #endif
+        [self setSource: nil];
     }
 
     if (self.type == NMSSHChannelTypeShell) {

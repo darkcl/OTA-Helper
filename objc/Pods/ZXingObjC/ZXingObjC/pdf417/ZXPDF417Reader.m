@@ -78,7 +78,8 @@
                                                        imageTopRight:imageTopRight
                                                     imageBottomRight:imageBottomRight
                                                     minCodewordWidth:[self minCodewordWidth:points]
-                                                    maxCodewordWidth:[self maxCodewordWidth:points]];
+                                                    maxCodewordWidth:[self maxCodewordWidth:points]
+                                                               error:error];
     if (!decoderResult) {
       return nil;
     }
@@ -100,14 +101,14 @@
   if (!p1 || !p2 || (id)p1 == [NSNull null] || p2 == (id)[NSNull null]) {
     return 0;
   }
-  return abs(p1.x - p2.x);
+  return fabsf(p1.x - p2.x);
 }
 
 - (int)minWidth:(ZXResultPoint *)p1 p2:(ZXResultPoint *)p2 {
   if (!p1 || !p2 || (id)p1 == [NSNull null] || p2 == (id)[NSNull null]) {
     return INT_MAX;
   }
-  return abs(p1.x - p2.x);
+  return fabsf(p1.x - p2.x);
 }
 
 - (int)maxCodewordWidth:(NSArray *)p {
