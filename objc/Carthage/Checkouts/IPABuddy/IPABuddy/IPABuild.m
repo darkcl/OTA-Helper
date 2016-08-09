@@ -160,7 +160,7 @@
             buildTask.currentDirectoryPath = currentDirectoryPath;
             NSArray *arg = @[@"plist",
                              [NSString stringWithFormat:@"%@.ipa", ipaName],
-                             [domain stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.ipa", ipaName]],
+                             [domain stringByAppendingString:[NSString stringWithFormat:@"%@.ipa", ipaName]],
                              [NSString stringWithFormat:@"%@.plist",ipaName],
                              target];
             NSLog(@"%@",arg);
