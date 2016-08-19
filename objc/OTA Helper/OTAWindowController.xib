@@ -131,6 +131,16 @@
                             <action selector="exportIPA:" target="-2" id="dqs-Sn-ftf"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egE-3C-p8e">
+                        <rect key="frame" x="224" y="53" width="87" height="32"/>
+                        <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DLc-en-m66">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reloadProjectData:" target="-2" id="dbJ-pM-ths"/>
+                        </connections>
+                    </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aji-rr-D9j">
                         <rect key="frame" x="20" y="211" width="202" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Path" drawsBackground="YES" id="D1j-Ma-cmq">
@@ -281,7 +291,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4ME-bd-3Hx"/>
             </connections>
-            <point key="canvasLocation" x="358.5" y="1.5"/>
+            <point key="canvasLocation" x="273.5" y="-83.5"/>
         </window>
         <customView id="S5z-uC-gQw" userLabel="Drawer Content View">
             <rect key="frame" x="0.0" y="0.0" width="338" height="453"/>

@@ -27,7 +27,7 @@
 @property (weak) IBOutlet NSSecureTextField *passwordField;
 @property (weak) IBOutlet NSDrawer *myDrawer;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleLogs;
-    
+
 @property (strong) IBOutlet NSPopUpButton *popupButton;
 @property (strong) IBOutlet NSMenu *popupMenu;
 
@@ -105,6 +105,55 @@
     
 }
 
+- (IBAction)reloadProjectData:(id)sender {
+    [_progessView setHidden:NO];
+    [IPABuild buildInformationForProjectPath:[xcodeProjURL stringByReplacingOccurrencesOfString:[xcodeProjURL lastPathComponent] withString:@""]
+                                     success:^(NSArray *targets, NSArray *configurations, NSArray *schemes) {
+                                         [_targetsPopUp removeAllItems];
+                                         [_configPopUp removeAllItems];
+                                         [_schemesPopUp removeAllItems];
+                                         
+                                         [_targetsPopUp addItemsWithTitles:targets];
+                                         [_configPopUp addItemsWithTitles:configurations];
+                                         [_schemesPopUp addItemsWithTitles:schemes];
+                                         
+                                         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+                                         NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
+                                         
+                                         NSString *savedTarget = saveInfoDict[@"target"];
+                                         NSString *savedScheme = saveInfoDict[@"schemes"];
+                                         NSString *savedConfig = saveInfoDict[@"config"];
+                                         
+                                         if (savedTarget.length != 0) {
+                                             [_targetsPopUp selectItemWithTitle:savedTarget];
+                                         }
+                                         
+                                         if (savedScheme.length != 0) {
+                                             [_schemesPopUp selectItemWithTitle:savedScheme];
+                                         }
+                                         
+                                         if (savedConfig.length != 0) {
+                                             [_configPopUp selectItemWithTitle:savedConfig];
+                                         }
+                                         
+                                         [_progessView setHidden:YES];
+                                     }
+                                     failure:^(NSException *err) {
+                                         [_progessView setHidden:YES];
+                                         
+                                         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+                                         NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
+                                         
+                                         NSString *savedTarget = saveInfoDict[@"target"];
+                                         NSString *savedScheme = saveInfoDict[@"schemes"];
+                                         NSString *savedConfig = saveInfoDict[@"config"];
+                                         
+                                         [_targetsPopUp addItemsWithTitles:@[savedTarget]];
+                                         [_configPopUp addItemsWithTitles:@[savedConfig]];
+                                         [_schemesPopUp addItemsWithTitles:@[savedScheme]];
+                                     }];
+}
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     [self buildListIdentity];
@@ -171,7 +220,7 @@
                                              NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
                                              
                                              NSString *savedTarget = saveInfoDict[@"target"];
-                                             NSString *savedScheme = saveInfoDict[@"scheme"];
+                                             NSString *savedScheme = saveInfoDict[@"schemes"];
                                              NSString *savedConfig = saveInfoDict[@"config"];
                                              
                                              if (savedTarget.length != 0) {
@@ -190,6 +239,15 @@
                                          }
                                          failure:^(NSException *err) {
                                              [_progessView setHidden:YES];
+                                             NSDictionary *saveInfoDict = [[userDefault objectForKey:SAVED_INFO] objectForKey:indicatorStr];
+                                             
+                                             NSString *savedTarget = saveInfoDict[@"target"];
+                                             NSString *savedScheme = saveInfoDict[@"schemes"];
+                                             NSString *savedConfig = saveInfoDict[@"config"];
+                                             
+                                             [_targetsPopUp addItemsWithTitles:@[savedTarget]];
+                                             [_configPopUp addItemsWithTitles:@[savedConfig]];
+                                             [_schemesPopUp addItemsWithTitles:@[savedScheme]];
                                          }];
     }
     
@@ -281,7 +339,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:savedProjects forKey:SAVED_INFO];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-//        [self runScript:arguments];
+        //        [self runScript:arguments];
         [_myDrawer open];
         [_progessView setHidden:NO];
         _consoleLogs.string = @"";
