@@ -388,8 +388,10 @@
                                                [session authenticateByPassword:_passwordField.stringValue];
                                                if (session.isAuthorized) {
                                                    NSLog(@"Authentication succeeded");
-                                                   NSString *ipaURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
-                                                   NSString *plistURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+                                                   
+                                                   
+                                                   NSString *ipaURL = [NSString stringWithFormat:@"%@/%@", exportURL, [NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+                                                   NSString *plistURL = [NSString stringWithFormat:@"%@/%@",exportURL, [NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
                                                    
                                                    
                                                    
@@ -591,8 +593,8 @@
                                 //                        NSError *error = nil;
                                 //                        NSString *response = [session.channel execute:[NSString stringWithFormat:@"ls -l %@", _ftpPathField.stringValue] error:&error];
                                 //                        NSLog(@"List : %@", response);
-                                NSString *ipaURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
-                                NSString *plistURL = [exportURL stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+                                NSString *ipaURL = [NSString stringWithFormat:@"%@/%@", exportURL, [NSString stringWithFormat:@"%@-%@.ipa",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
+                                NSString *plistURL = [NSString stringWithFormat:@"%@/%@",exportURL, [NSString stringWithFormat:@"%@-%@.plist",[projectName stringByReplacingOccurrencesOfString:@" " withString:@"-"],dateString]];
                                 
                                 
                                 
